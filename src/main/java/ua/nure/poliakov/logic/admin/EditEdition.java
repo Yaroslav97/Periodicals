@@ -26,6 +26,7 @@ public class EditEdition extends HttpServlet {
         session.setAttribute("editName", req.getParameter("eName"));
         session.setAttribute("editSubject", req.getParameter("eSubject"));
         session.setAttribute("editPrice", req.getParameter("ePrice"));
+        log.info("EditEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("admin//edit_addition.jsp").forward(req, resp);
     }
 
@@ -35,13 +36,11 @@ public class EditEdition extends HttpServlet {
         String name = req.getParameter("name");
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));
-
         Integer id = Integer.parseInt(String.valueOf(req.getSession().getAttribute("editId")));
-        log.info("Id ==> " + id);
 
         if (EditionValidation.editionValidation(req)) {
             editionDAO.update(new Edition(id, name, subject, price));
-            log.info("Edition " + id + " was change");
+            log.info("Edition " + editionDAO.get(id).getName() + " was change");
             resp.sendRedirect("/index");
         } else {
             log.info("Not valid data ==> " + req.getSession().getAttribute("editId"));

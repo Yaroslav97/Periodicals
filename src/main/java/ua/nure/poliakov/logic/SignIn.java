@@ -26,10 +26,8 @@ public class SignIn extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         HttpSession session = req.getSession();
         UserDAO userDAO = new UserDAOImplement();
-
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
@@ -41,6 +39,7 @@ public class SignIn extends HttpServlet {
                     session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
                     session.setAttribute("authenticatedRole", userDAO.getByLogin(login).getRole());
                     session.setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
+                    session.setAttribute("notification", userDAO.getSettings(login));
                     resp.sendRedirect("/index");
                 } else {
                     req.setAttribute("signInInfo", "Wrong password");

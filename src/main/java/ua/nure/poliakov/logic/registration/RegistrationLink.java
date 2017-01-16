@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Link from registration email to application
+ */
+
 @WebServlet("/link")
 public class RegistrationLink extends HttpServlet {
 

@@ -14,7 +14,7 @@ public class SendEmail {
     private static final String myEmail = "yaroslav.poliakov@gmail.com";
     private static final String password = "py19970429";
 
-    public static void sendMail(String email, String message) throws MessagingException {
+    public static void sendEmail(String email, String message) throws MessagingException {
         Message mimeMessage = new MimeMessage(getSession());
         mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
         mimeMessage.setSubject("Periodicals info");

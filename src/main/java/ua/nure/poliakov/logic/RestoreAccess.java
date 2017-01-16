@@ -33,7 +33,7 @@ public class RestoreAccess extends HttpServlet {
 
         if (userDAO.contains(login) && userDAO.getByLogin(login).getEmail().equals(email)) {
             try {
-                SendEmail.sendMail(userDAO.getByLogin(login).getEmail(),
+                SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(),
                         SendEmail.restoreAccess(userDAO.getByLogin(login).getFullName(), password));
                 log.info("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
                 userDAO.updatePassword(login, Password.encodePassword(password));

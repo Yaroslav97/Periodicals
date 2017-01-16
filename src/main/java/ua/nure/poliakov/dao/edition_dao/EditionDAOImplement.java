@@ -4,6 +4,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import ua.nure.poliakov.dao.close.Close;
 import ua.nure.poliakov.dao.connection.PoolConnection;
 import ua.nure.poliakov.dao.entity.Edition;
+import ua.nure.poliakov.dao.user_dao.UserDAO;
+import ua.nure.poliakov.dao.user_dao.UserDAOImplement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,13 +20,26 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String INSERT_INTO_SUBSCRIBES = "INSERT INTO subscribes (login, edition) VALUES(?,?)";
     private static final String UPDATE_EDITIONS = "UPDATE editions SET name=?, subject=?, price=? WHERE id=?";
     private static final String DELETE_EDITIONS = "DELETE FROM editions WHERE id=?";
+    private static final String DELETE_SUBSCRIBE = "DELETE FROM subscribes WHERE login=? AND edition=?";
     private static final String SELECT_EDITIONS = "SELECT * FROM editions WHERE id=?";
-    private static final String SELECT_ALL_EDITIONS = "SELECT * FROM editions";
-    private static final String SELECT_SUBSCRIBE = "SELECT login, id FROM subscribes WHERE login=? AND id=?";
+    private static final String SELECT_ALL_EDITIONS_SORT_BY_ID = "SELECT * FROM editions ORDER BY id";
+    private static final String SELECT_ALL_EDITIONS_SORT_BY_NAME = "SELECT * FROM editions ORDER BY name";
+    private static final String SELECT_ALL_EDITIONS_SORT_BY_SUBJECT = "SELECT * FROM editions ORDER BY subject";
+    private static final String SELECT_ALL_EDITIONS_SORT_BY_PRICE = "SELECT * FROM editions ORDER BY price";
+    private static final String SELECT_SUBSCRIBE = "SELECT login, edition FROM subscribes WHERE login=? AND edition=?";
     private static final String SELECT_ID = "SELECT id FROM editions WHERE id=?";
     private static final String SELECT_ALL_SUBSCRIBES_BY_LOGIN = "SELECT * FROM subscribes WHERE login=?";
+    private static final String SELECT_BY_NAME_AND_SUBJECT = "SELECT * FROM editions WHERE `name`=? && subject=?";
+    private static final String SELECT_BY_NAME = "SELECT * FROM editions WHERE name LIKE ? ORDER BY name";
+    private static final String SELECT_BY_PRICE = "SELECT * FROM editions WHERE price BETWEEN ? AND ? ORDER BY price";
+    private static final String SELECT_BY_SUB = "SELECT editions.*, count(subscribes.login) " +
+            "FROM editions, subscribes WHERE editions.id = subscribes.edition GROUP BY subscribes.edition " +
+            "ORDER BY editions.name";
+    private static final String SELECT_EDITION_INFO = "SELECT editions.id, editions.name, editions.subject, " +
+            "count(subscribes.login), sum(editions.price) FROM editions, subscribes " +
+            "WHERE editions.id=? AND editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
 
-    ComboPooledDataSource dataSource = PoolConnection.getPool();
+    private ComboPooledDataSource dataSource = PoolConnection.getPool();
 
     @Override
     public void add(Edition edition) {
@@ -115,17 +130,35 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public List<Edition> getAllEditions() {
+    public List<Edition> getAllEditions(String sort) {
         Edition edition = new Edition();
         List<Edition> editionList = new ArrayList<>();
-        ;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
             connection = dataSource.getConnection();
-            preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS);
+            switch (sort) {
+                case "id":
+                    preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_ID);
+                    break;
+                case "name":
+                    preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_NAME);
+                    break;
+                case "subject":
+                    preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_SUBJECT);
+                    break;
+                case "price":
+                    preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_PRICE);
+                    break;
+                case "rank":
+                    preparedStatement = connection.prepareStatement(SELECT_BY_SUB);
+                    break;
+                default:
+                    preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_SUBJECT);
+            }
+
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -133,8 +166,12 @@ public class EditionDAOImplement implements EditionDAO {
                 edition.setName(resultSet.getString("name"));
                 edition.setSubject(resultSet.getString("subject"));
                 edition.setPrice(resultSet.getDouble("price"));
+                if (sort.equals("rank")) {
+                    edition.setCountSubscribe(resultSet.getInt(5));
+                }
 
-                editionList.add(new Edition(edition.getId(), edition.getName(), edition.getSubject(), edition.getPrice()));
+                editionList.add(new Edition(edition.getId(), edition.getName(), edition.getSubject(),
+                        edition.getPrice(), edition.getCountSubscribe()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,11 +184,12 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public boolean contains(int id) {
+    public boolean isContains(int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         boolean isContain = false;
+
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(SELECT_ID);
@@ -174,14 +212,17 @@ public class EditionDAOImplement implements EditionDAO {
 
     @Override
     public void subscribe(String login, int idEdition) {
+        UserDAO userDAO = new UserDAOImplement();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(INSERT_INTO_SUBSCRIBES);
             preparedStatement.setString(1, login);
             preparedStatement.setInt(2, idEdition);
             preparedStatement.executeUpdate();
+            userDAO.updateScore(login, "withdraw", get(idEdition).getPrice());
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -196,6 +237,7 @@ public class EditionDAOImplement implements EditionDAO {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         boolean isSubscribe = false;
+
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(SELECT_SUBSCRIBE);
@@ -204,7 +246,7 @@ public class EditionDAOImplement implements EditionDAO {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 if (resultSet.getString("login").equals(login) &&
-                        resultSet.getInt("id") == idEdition) {
+                        resultSet.getInt("edition") == idEdition) {
                     isSubscribe = true;
                 }
             }
@@ -230,11 +272,150 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement = connection.prepareStatement(SELECT_ALL_SUBSCRIBES_BY_LOGIN);
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 editionList.add(new Edition(get(resultSet.getInt("edition")).getId(),
                         get(resultSet.getInt("edition")).getName(),
                         get(resultSet.getInt("edition")).getSubject(),
                         get(resultSet.getInt("edition")).getPrice()));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+        return editionList;
+    }
+
+    @Override
+    public void unsubscribe(String login, int idEdition) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(DELETE_SUBSCRIBE);
+            preparedStatement.setString(1, login);
+            preparedStatement.setInt(2, idEdition);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+    }
+
+    @Override
+    public boolean isSame(String name, String subject) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        boolean same = false;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_BY_NAME_AND_SUBJECT);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, subject);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                if (resultSet.getString("name").equals(name) &&
+                        resultSet.getString("subject").equals(subject)) {
+                    same = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+        return same;
+    }
+
+    @Override
+    public List<Edition> search(String name) {
+        List<Edition> editionList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_BY_NAME);
+            preparedStatement.setString(1, "%" + name + "%");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                editionList.add(new Edition(resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("subject"),
+                        resultSet.getDouble("price")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+        return editionList;
+    }
+
+    @Override
+    public List<Edition> filter(double from, double to) {
+        List<Edition> editionList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_BY_PRICE);
+            preparedStatement.setDouble(1, from);
+            preparedStatement.setDouble(2, to);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                editionList.add(new Edition(resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("subject"),
+                        resultSet.getDouble("price")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+        return editionList;
+    }
+
+    @Override
+    public List<Edition> getEditionInfo(int id) {
+        List<Edition> editionList = new ArrayList<>();
+        Edition edition = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_EDITION_INFO);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                 edition = new Edition();
+                 edition.setId(resultSet.getInt("editions.id"));
+                 edition.setName(resultSet.getString("editions.name"));
+                 edition.setSubject(resultSet.getString("editions.subject"));
+                 edition.setPrice(resultSet.getDouble(5));
+                 edition.setCountSubscribe(resultSet.getInt(4));
+
+                 editionList.add(new Edition(edition.getId(), edition.getName(), edition.getSubject(),
+                         edition.getPrice(), edition.getCountSubscribe()));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -6,6 +6,7 @@ public class Edition {
     private String name;
     private String subject;
     private Double price;
+    private int countSubscribe;
 
     public Edition() {
     }
@@ -21,6 +22,14 @@ public class Edition {
         this.name = name;
         this.subject = subject;
         this.price = price;
+    }
+
+    public Edition(int id, String name, String subject, Double price, int countSubscribe) {
+        this.id = id;
+        this.name = name;
+        this.subject = subject;
+        this.price = price;
+        this.countSubscribe = countSubscribe;
     }
 
     public int getId() {
@@ -39,6 +48,10 @@ public class Edition {
         return price;
     }
 
+    public int getCountSubscribe() {
+        return countSubscribe;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -55,6 +68,10 @@ public class Edition {
         this.price = price;
     }
 
+    public void setCountSubscribe(int countSubscribe) {
+        this.countSubscribe = countSubscribe;
+    }
+
     @Override
     public String toString() {
         return "Edition{" +
@@ -62,6 +79,7 @@ public class Edition {
                 ", name='" + name + '\'' +
                 ", subject='" + subject + '\'' +
                 ", price=" + price +
+                ", countSubscribe=" + countSubscribe +
                 '}';
     }
 }

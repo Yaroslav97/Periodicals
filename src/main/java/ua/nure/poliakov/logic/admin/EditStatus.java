@@ -20,8 +20,7 @@ public class EditStatus extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAO userDAO = new UserDAOImplement();
         String login = req.getParameter("login");
-        String role = req.getParameter("role");
-
+        log.info("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
         if (userDAO.getByLogin(login).getBan().equals(true)) {
             userDAO.ban(login, false);
             log.info("Status was change ==> " + login);

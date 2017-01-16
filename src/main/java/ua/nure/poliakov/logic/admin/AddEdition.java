@@ -20,6 +20,7 @@ public class AddEdition extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("AddEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("admin//add_addition.jsp").forward(req, resp);
     }
 
@@ -30,13 +31,13 @@ public class AddEdition extends HttpServlet {
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));
 
-        if (EditionValidation.editionValidation(req)){
+        if (EditionValidation.editionValidation(req) && !editionDAO.isSame(name, subject)) {
             editionDAO.add(new Edition(name, subject, price));
-            log.debug("Add new edition: " + name);
+            log.debug(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
             resp.sendRedirect("/index");
         } else {
-            req.setAttribute("addEditionInfo", "Not valid data");
             log.debug("Not valid data");
+            req.setAttribute("addEditionInfo", "Not valid data or the same edition already exist");
             req.getRequestDispatcher("admin//add_addition.jsp").forward(req, resp);
         }
     }

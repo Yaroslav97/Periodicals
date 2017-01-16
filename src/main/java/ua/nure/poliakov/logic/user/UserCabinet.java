@@ -22,6 +22,7 @@ public class UserCabinet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("subscribesList",
                 editionDAO.getAllSubscribes(String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
+        log.info("UserCabinet: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("user//user_cabinet.jsp").forward(req, resp);
     }
 }

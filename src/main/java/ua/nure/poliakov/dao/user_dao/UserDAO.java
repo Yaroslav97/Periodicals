@@ -27,4 +27,12 @@ public interface UserDAO {
     public double getScore(String login);
 
     public List<User> getAllUsersByRole(String role);
+
+    public void updateSettings(String login, Boolean sendEmail);
+
+    public boolean getSettings(String login);
+
+    public  List<User> getSubscribers(int idEdition);
+
+    public  List<User> search(String fullName);
 }

@@ -22,6 +22,7 @@ public class EditProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info("EditProfile: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("user//edit_profile.jsp").forward(req, resp);
     }
 
@@ -33,12 +34,15 @@ public class EditProfile extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String login = String.valueOf(session.getAttribute("authenticatedLogin"));
+        Boolean notification = Boolean.valueOf(req.getParameter("notification"));
 
         if (UserValidation.updateValidation(req)) {
             userDAO.update(new User(fullName, login, email, Password.encodePassword(password)));
+            userDAO.updateSettings(login, notification);
             log.info(login + " profile was updated");
             session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
             session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
+            session.setAttribute("notification", userDAO.getSettings(login));
             resp.sendRedirect("/userCabinet");
         } else {
             log.info("Not valid data");

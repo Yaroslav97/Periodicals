@@ -18,14 +18,17 @@ public class UserDAOImplement implements UserDAO {
             "VALUES(?, ?, ?, ?, ?)";
     private static final String INSERT_SCORE = "INSERT INTO user_score (login, score) VALUES(?, ?)";
     private static final String INSERT_ROLE = "INSERT INTO user_role (login, role) VALUES(?, ?)";
+    private static final String INSERT_SETTING = "INSERT INTO settings (login, notification) VALUES(?, ?)";
     private static final String UPDATE_USERS = "UPDATE users SET fullName=?, email=?, password=? WHERE login=?";
     private static final String UPDATE_BAN_STATUS = "UPDATE users SET ban=? WHERE login=?";
     private static final String UPDATE_PASSWORD = "UPDATE users SET password=? WHERE login=?";
     private static final String UPDATE_SCORE_REFILL = "UPDATE user_score SET score=score+? WHERE login=?";
     private static final String UPDATE_SCORE_WITHDRAW = "UPDATE user_score SET score=score-? WHERE login=?";
+    private static final String UPDATE_SETTING = "UPDATE settings SET notification=?  WHERE login=?";
     private static final String DELETE_USERS = "DELETE FROM users WHERE login=?";
     private static final String DELETE_SCORE = "DELETE FROM user_score WHERE login=?";
     private static final String DELETE_ROLE = "DELETE FROM user_role WHERE login=?";
+    private static final String DELETE_SETTING = "DELETE FROM settings WHERE login=?";
     private static final String SELECT_USER_BY_LOGIN = "SELECT users.*, user_score.score, user_role.role " +
             "FROM users, user_role, user_score WHERE users.login=? AND users.login = user_role.login " +
             "AND users.login = user_score.login";
@@ -35,10 +38,14 @@ public class UserDAOImplement implements UserDAO {
     private static final String SELECT_ALL_USERS_BY_ROLE = "SELECT users.*, user_score.score, user_role.role " +
             "FROM users, user_role, user_score WHERE role=? AND users.login = user_role.login " +
             "AND users.login = user_score.login";
-
     private static final String SELECT_LOGIN = "SELECT login FROM users WHERE login=?";
     private static final String SELECT_SCORE = "SELECT score FROM user_score WHERE login=?";
-
+    private static final String SELECT_SETTING = "SELECT notification FROM settings WHERE login=?";
+    private static final String SELECT_SUBSCRIBERS = "SELECT users.fullName, users.login, users.email, users.ban " +
+            "FROM users, subscribes WHERE subscribes.edition = ? AND users.login = subscribes.login";
+    private static final String SELECT_USER_BY_NAME = "SELECT users.*, user_score.score, user_role.role " +
+            "FROM users, user_role, user_score WHERE fullName LIKE ? AND users.login = user_role.login " +
+            "AND users.login = user_score.login ORDER BY fullName";
 
     ComboPooledDataSource dataSource = PoolConnection.getPool();
 
@@ -67,6 +74,11 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement = connection.prepareStatement(INSERT_ROLE);
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getRole());
+            preparedStatement.executeUpdate();
+
+            preparedStatement = connection.prepareStatement(INSERT_SETTING);
+            preparedStatement.setString(1, user.getLogin());
+            preparedStatement.setString(2, "1");
             preparedStatement.executeUpdate();
 
             connection.commit();
@@ -128,6 +140,10 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, login);
             preparedStatement.executeUpdate();
 
+            preparedStatement = connection.prepareStatement(DELETE_SETTING);
+            preparedStatement.setString(1, login);
+            preparedStatement.executeUpdate();
+
             connection.commit();
 
         } catch (SQLException e) {
@@ -182,6 +198,7 @@ public class UserDAOImplement implements UserDAO {
             Close.close(preparedStatement);
             Close.close(connection);
         }
+
         return user;
     }
 
@@ -209,8 +226,8 @@ public class UserDAOImplement implements UserDAO {
                 } else {
                     user.setBan(true);
                 }
-                userList.add(new User(user.getFullName(), user.getLogin(), user.getEmail(),
-                        user.getScore(), user.getRole(), user.getBan(), user.getPassword()));
+                userList.add(new User(user.getFullName(), user.getLogin(), user.getEmail(), user.getScore(),
+                        user.getRole(), user.getBan(), user.getPassword()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -219,6 +236,7 @@ public class UserDAOImplement implements UserDAO {
             Close.close(preparedStatement);
             Close.close(connection);
         }
+
         return userList;
     }
 
@@ -267,6 +285,7 @@ public class UserDAOImplement implements UserDAO {
             Close.close(preparedStatement);
             Close.close(connection);
         }
+
         return isContains;
     }
 
@@ -344,6 +363,7 @@ public class UserDAOImplement implements UserDAO {
             Close.close(preparedStatement);
             Close.close(connection);
         }
+
         return score;
     }
 
@@ -367,7 +387,7 @@ public class UserDAOImplement implements UserDAO {
                 user.setPassword(resultSet.getString("password"));
                 user.setScore(resultSet.getDouble("score"));
                 user.setRole(resultSet.getString("role"));
-                user.setBan(resultSet.getInt("ban")== 0 ? false : true);
+                user.setBan(resultSet.getInt("ban") == 0 ? false : true);
                 userList.add(new User(user.getFullName(), user.getLogin(), user.getEmail(),
                         user.getScore(), user.getRole(), user.getBan(), user.getPassword()));
             }
@@ -378,6 +398,119 @@ public class UserDAOImplement implements UserDAO {
             Close.close(preparedStatement);
             Close.close(connection);
         }
+
+        return userList;
+    }
+
+    @Override
+    public void updateSettings(String login, Boolean sendEmail) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(UPDATE_SETTING);
+            preparedStatement.setString(2, login);
+            preparedStatement.setInt(1, sendEmail ? 1 : 0);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+    }
+
+    @Override
+    public boolean getSettings(String login) {
+        boolean notification = false;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_SETTING);
+            preparedStatement.setString(1, login);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                if (resultSet.getInt("notification") == 1) {
+                    notification = true;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+
+        return notification;
+    }
+
+    @Override
+    public List<User> getSubscribers(int idEdition) {
+        List<User> userList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_SUBSCRIBERS);
+            preparedStatement.setInt(1, idEdition);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                userList.add(new User(resultSet.getString("fullName"),
+                        resultSet.getString("login"),
+                        resultSet.getString("email"),
+                        resultSet.getInt("ban") == 0 ? false : true));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+
+        return userList;
+    }
+
+    @Override
+    public List<User> search(String fullName) {
+        List<User> userList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_USER_BY_NAME);
+            preparedStatement.setString(1, "%"+ fullName + "%");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                userList.add(new User(
+                        resultSet.getString("fullName"),
+                        resultSet.getString("users.login"),
+                        resultSet.getString("email"),
+                        resultSet.getDouble("score"),
+                        resultSet.getString("role"),
+                        resultSet.getInt("ban") == 0 ? false : true,
+                        resultSet.getString("password")));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+
         return userList;
     }
 }

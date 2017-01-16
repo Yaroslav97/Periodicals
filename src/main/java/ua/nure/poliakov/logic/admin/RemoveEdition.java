@@ -20,7 +20,8 @@ public class RemoveEdition extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EditionDAO editionDAO = new EditionDAOImplement();
         Integer id = Integer.valueOf(req.getParameter("id"));
-        if (editionDAO.contains(id)) {
+        log.info("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
+        if (editionDAO.isContains(id)) {
             editionDAO.delete(id);
             log.debug("Edition " + editionDAO.get(id) + " was delete");
             resp.sendRedirect("/index");

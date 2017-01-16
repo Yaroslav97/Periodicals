@@ -29,7 +29,6 @@ public class Registration extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
         UserDAO userDAO = new UserDAOImplement();
 
         String fullName = req.getParameter("fullName");
@@ -45,17 +44,18 @@ public class Registration extends HttpServlet {
                 resp.sendRedirect("/index");
             } else {
                 userDAO.add(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
+                log.info("Add new user: " + userDAO.getByLogin(login).getFullName());
                 try {
-                    SendEmail.sendMail(email, "//http://localhost:8080/link?login=" + login + "&email=" + email);
-                    log.info("Add new user: " + userDAO.getByLogin(login).getFullName());
-                    resp.sendRedirect("/index");
+                    SendEmail.sendEmail(email, "//http://localhost:8080/link?login=" + login + "&email=" + email);
+                    log.info("Send registration email to " + fullName);
                 } catch (MessagingException e) {
                     log.error("Fell sent email to: " + userDAO.getByLogin(login).getFullName());
                 }
+                resp.sendRedirect("/index");
             }
         } else {
             req.setAttribute("regInfo", "You try enter incorrect data");
-            log.info("No valid reg to user");
+            log.info("No valid data");
             resp.sendRedirect("/registration");
         }
     }

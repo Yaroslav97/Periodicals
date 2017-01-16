@@ -1,7 +1,9 @@
 package ua.nure.poliakov.logic.admin;
 
+import org.apache.log4j.Logger;
 import ua.nure.poliakov.dao.user_dao.UserDAO;
 import ua.nure.poliakov.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.utils.user.UsersList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,35 +15,20 @@ import java.io.IOException;
 @WebServlet("/userList")
 public class UserList extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(UserList.class);
+
     private UserDAO userDAO = new UserDAOImplement();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getSession().setAttribute("userList", userDAO.getAllUsers());
+        req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
+        log.info("UserList page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String role = req.getParameter("role");
-
-        switch (role) {
-            case "all":
-                req.getSession().setAttribute("userList", userDAO.getAllUsers());
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
-                break;
-            case "users":
-                req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
-                break;
-            case "admins":
-                req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("admin" +
-                        ""));
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
-                break;
-            default:
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
-        }
+        UsersList.getUsers(req, resp);
     }
 }

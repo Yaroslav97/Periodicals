@@ -10,6 +10,7 @@ public class User {
     private String role;
     private Boolean isBan;
     private String password;
+    private int subscriptions;
 
     public User() {
     }
@@ -18,6 +19,16 @@ public class User {
         this.fullName = fullName;
         this.login = login;
         this.email = email;
+        this.password = password;
+    }
+
+    public User(String fullName, String login, String email, Boolean isBan) {
+        this.fullName = fullName;
+        this.login = login;
+        this.email = email;
+        this.score = score;
+        this.role = role;
+        this.isBan = isBan;
         this.password = password;
     }
 
@@ -30,6 +41,19 @@ public class User {
         this.isBan = isBan;
         this.password = password;
     }
+
+    public User(String fullName, String login, String email, Double score, String role, Boolean isBan, String password, int subscriptions) {
+        this.fullName = fullName;
+        this.login = login;
+        this.email = email;
+        this.score = score;
+        this.role = role;
+        this.isBan = isBan;
+        this.password = password;
+        this.subscriptions = subscriptions;
+    }
+
+
 
     public User(int id, String fullName, String login, String email, Double score, String role, Boolean isBan, String password) {
         this.id = id;
@@ -74,6 +98,10 @@ public class User {
         return password;
     }
 
+    public int getSubscriptions() {
+        return subscriptions;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -106,9 +134,13 @@ public class User {
         this.password = password;
     }
 
+    public void setSubscriptions(int subscriptions) {
+        this.subscriptions = subscriptions;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "UsersList{" +
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
                 ", login='" + login + '\'' +
@@ -117,6 +149,7 @@ public class User {
                 ", role='" + role + '\'' +
                 ", isBan=" + isBan +
                 ", password='" + password + '\'' +
+                ", subscriptions=" + subscriptions +
                 '}';
     }
 }
