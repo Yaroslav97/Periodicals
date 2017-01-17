@@ -19,7 +19,7 @@ public class DeleteUser extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAO userDAO = new UserDAOImplement();
-        userDAO.delete(req.getParameter("login"));
+        userDAO.deleteUser(req.getParameter("login"));
         log.info(req.getParameter("login") + " removed his account");
         req.getSession().invalidate();
         resp.sendRedirect("/index");

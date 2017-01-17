@@ -6,33 +6,33 @@ import java.util.List;
 
 public interface UserDAO {
 
-    public void add(User user);
+    void addUser(User user);
 
-    public void update(User user);
+    void updateUser(User user);
 
-    public void delete(String login);
+    void deleteUser(String login);
 
-    public User getByLogin(String login);
+    User getByLogin(String login);
 
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    public void ban(String login, boolean status);
+    void banUser(String login, boolean status);
 
-    public boolean contains(String login);
+    boolean isContainsLogin(String login);
 
-    public void updatePassword(String login, String password);
+    void updatePassword(String login, String password);
 
-    public void updateScore(String login, String operation, double score);
+    void updateScore(String login, String operation, double score);
 
-    public double getScore(String login);
+    double getScore(String login);
 
-    public List<User> getAllUsersByRole(String role);
+    List<User> getAllUsersByRole(String role);
 
-    public void updateSettings(String login, Boolean sendEmail);
+    void updateSettings(String login, Boolean sendEmail);
 
-    public boolean getSettings(String login);
+    boolean getSettings(String login);
 
-    public  List<User> getSubscribers(int idEdition);
+    List<User> getSubscribers(int idEdition);
 
-    public  List<User> search(String fullName);
+    List<User> searchByName(String fullName);
 }

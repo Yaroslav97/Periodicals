@@ -34,7 +34,7 @@ public class UsersList {
             }
         } else {
             if (search != null) {
-                req.getSession().setAttribute("userList", userDAO.search(search));
+                req.getSession().setAttribute("userList", userDAO.searchByName(search));
                 req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
             }
         }

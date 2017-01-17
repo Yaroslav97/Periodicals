@@ -31,8 +31,8 @@ public class AddEdition extends HttpServlet {
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));
 
-        if (EditionValidation.editionValidation(req) && !editionDAO.isSame(name, subject)) {
-            editionDAO.add(new Edition(name, subject, price));
+        if (EditionValidation.editionValidation(req) && !editionDAO.isSameEdition(name, subject)) {
+            editionDAO.addEdition(new Edition(name, subject, price));
             log.debug(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
             resp.sendRedirect("/index");
         } else {

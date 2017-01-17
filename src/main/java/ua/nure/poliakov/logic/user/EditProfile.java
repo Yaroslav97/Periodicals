@@ -37,7 +37,7 @@ public class EditProfile extends HttpServlet {
         Boolean notification = Boolean.valueOf(req.getParameter("notification"));
 
         if (UserValidation.updateValidation(req)) {
-            userDAO.update(new User(fullName, login, email, Password.encodePassword(password)));
+            userDAO.updateUser(new User(fullName, login, email, Password.encodePassword(password)));
             userDAO.updateSettings(login, notification);
             log.info(login + " profile was updated");
             session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());

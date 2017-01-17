@@ -22,11 +22,11 @@ public class EditStatus extends HttpServlet {
         String login = req.getParameter("login");
         log.info("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
         if (userDAO.getByLogin(login).getBan().equals(true)) {
-            userDAO.ban(login, false);
+            userDAO.banUser(login, false);
             log.info("Status was change ==> " + login);
             resp.sendRedirect("/userList");
         } else {
-            userDAO.ban(login, true);
+            userDAO.banUser(login, true);
             log.info("Status was change ==> " + login);
             resp.sendRedirect("/userList");
         }

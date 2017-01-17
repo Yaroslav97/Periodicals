@@ -15,21 +15,21 @@ public class EditionsList {
         String filter1 = req.getParameter("filter1");
         String filter2 = req.getParameter("filter2");
 
-        req.getSession().setAttribute("countSub", editionDAO.getAllEditions("rank"));
+        req.getSession().setAttribute("countSub", editionDAO.getAllSortEditions("rank"));
 
         if (sort != null) {
-            req.getSession().setAttribute("editionList", editionDAO.getAllEditions(sort));
+            req.getSession().setAttribute("editionList", editionDAO.getAllSortEditions(sort));
         } else {
             if (search != null) {
-                req.getSession().setAttribute("editionList", editionDAO.search(search));
+                req.getSession().setAttribute("editionList", editionDAO.searchByName(search));
             } else {
                 if (filter1 != null && filter2 != null) {
                     if (Double.valueOf(filter1) < Double.valueOf(filter2)) {
                         req.getSession().setAttribute("editionList",
-                                editionDAO.filter(Double.valueOf(filter1), Double.valueOf(filter2)));
+                                editionDAO.filterByPrice(Double.valueOf(filter1), Double.valueOf(filter2)));
                     }
                 } else {
-                    req.getSession().setAttribute("editionList", editionDAO.getAllEditions("subject"));
+                    req.getSession().setAttribute("editionList", editionDAO.getAllSortEditions("subject"));
                 }
             }
         }

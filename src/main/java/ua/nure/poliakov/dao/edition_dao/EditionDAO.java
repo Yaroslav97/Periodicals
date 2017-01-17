@@ -7,31 +7,31 @@ import java.util.List;
 
 public interface EditionDAO {
 
-    public void add(Edition edition);
+    void addEdition(Edition edition);
 
-    public void update(Edition edition);
+    void updateEdition(Edition edition);
 
-    public void delete(int id);
+    void deleteEdition(int id);
 
-    public Edition get(int id);
+    Edition getEdition(int id);
 
-    public List<Edition> getAllEditions(String sort);
+    List<Edition> getAllSortEditions(String sort);
 
-    public boolean isContains(int id);
+    boolean isContains(int id);
 
-    public void subscribe(String login, int idEdition);
+    void subscribe(String login, int idEdition);
 
-    public boolean isSubscribe(String login, int idEdition);
+    boolean isSubscribe(String login, int idEdition);
 
-    public List<Edition> getAllSubscribes(String login);
+    List<Edition> getAllSubscribes(String login);
 
-    public void unsubscribe(String login, int idEdition);
+    void unsubscribe(String login, int idEdition);
 
-    public boolean isSame(String name, String subject);
+    boolean isSameEdition(String name, String subject);
 
-    public List<Edition> search(String name);
+    List<Edition> searchByName(String name);
 
-    public List<Edition> filter(double from, double to);
+    List<Edition> filterByPrice(double from, double to);
 
-    public List<Edition> getEditionInfo(int id);
+    List<Edition> getEditionInfo(int id);
 }

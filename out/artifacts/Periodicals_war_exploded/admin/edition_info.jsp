@@ -67,7 +67,7 @@
 </div>
 
 <%--User List: review subscription info in new page, list all sub, total sum;
-    search user in user list--%>
+    searchByName user in user list--%>
 
 </body>
 </html>

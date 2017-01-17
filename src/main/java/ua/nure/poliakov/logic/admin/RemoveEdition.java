@@ -22,8 +22,8 @@ public class RemoveEdition extends HttpServlet {
         Integer id = Integer.valueOf(req.getParameter("id"));
         log.info("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
         if (editionDAO.isContains(id)) {
-            editionDAO.delete(id);
-            log.debug("Edition " + editionDAO.get(id) + " was delete");
+            editionDAO.deleteEdition(id);
+            log.debug("Edition " + editionDAO.getEdition(id) + " was deleteEdition");
             resp.sendRedirect("/index");
         } else {
             log.debug("Edition " + id + " not exist");

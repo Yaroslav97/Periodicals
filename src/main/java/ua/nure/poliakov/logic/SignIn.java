@@ -31,7 +31,7 @@ public class SignIn extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if (userDAO.contains(login) && UserValidation.signInValidation(req)){
+        if (userDAO.isContainsLogin(login) && UserValidation.signInValidation(req)){
             if (!userDAO.getByLogin(login).getBan()) {
                 if (userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
                     session.setAttribute("authenticatedLogin", userDAO.getByLogin(login).getLogin());

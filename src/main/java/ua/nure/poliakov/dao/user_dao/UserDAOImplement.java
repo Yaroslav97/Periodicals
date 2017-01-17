@@ -47,10 +47,11 @@ public class UserDAOImplement implements UserDAO {
             "FROM users, user_role, user_score WHERE fullName LIKE ? AND users.login = user_role.login " +
             "AND users.login = user_score.login ORDER BY fullName";
 
-    ComboPooledDataSource dataSource = PoolConnection.getPool();
+    private ComboPooledDataSource dataSource = PoolConnection.getPool();
+    private User user = null;
 
     @Override
-    public void add(User user) {
+    public void addUser(User user) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -96,7 +97,7 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public void update(User user) {
+    public void updateUser(User user) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -112,7 +113,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            System.err.printf("Exception: update profile for - %s", user.getLogin());
+            e.printStackTrace();
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -120,7 +121,7 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public void delete(String login) {
+    public void deleteUser(String login) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -160,39 +161,28 @@ public class UserDAOImplement implements UserDAO {
 
     @Override
     public User getByLogin(String login) {
-        User user = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
             connection = dataSource.getConnection();
-
             preparedStatement = connection.prepareStatement(SELECT_USER_BY_LOGIN);
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                user = new User();
-                user.setFullName(resultSet.getString("fullName"));
-                user.setLogin(resultSet.getString("users.login"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
-                user.setScore(resultSet.getDouble("score"));
-                user.setRole(resultSet.getString("role"));
-
-                if (resultSet.getInt("ban") == 0) {
-                    user.setBan(false);
-                } else {
-                    user.setBan(true);
-                }
-
-                user = new User(user.getFullName(), user.getLogin(), user.getEmail(), user.getScore(),
-                        user.getRole(), user.getBan(), user.getPassword());
-
+            if (resultSet.next()) {
+                user = new User(
+                        resultSet.getString("fullName"),
+                        resultSet.getString("users.login"),
+                        resultSet.getString("email"),
+                        resultSet.getDouble("score"),
+                        resultSet.getString("role"),
+                        resultSet.getInt("ban") == 0 ? false : true,
+                        resultSet.getString("password")
+                );
             }
         } catch (SQLException e) {
-            System.err.println("Exception: getByLogin " + login);
+            e.printStackTrace();
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -204,7 +194,6 @@ public class UserDAOImplement implements UserDAO {
 
     @Override
     public List<User> getAllUsers() {
-        User user = new User();
         List<User> userList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -215,19 +204,15 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user.setFullName(resultSet.getString("fullName"));
-                user.setLogin(resultSet.getString("users.login"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
-                user.setScore(resultSet.getDouble("score"));
-                user.setRole(resultSet.getString("role"));
-                if (resultSet.getInt("ban") == 0) {
-                    user.setBan(false);
-                } else {
-                    user.setBan(true);
-                }
-                userList.add(new User(user.getFullName(), user.getLogin(), user.getEmail(), user.getScore(),
-                        user.getRole(), user.getBan(), user.getPassword()));
+                userList.add(new User(
+                        resultSet.getString("fullName"),
+                        resultSet.getString("users.login"),
+                        resultSet.getString("email"),
+                        resultSet.getDouble("score"),
+                        resultSet.getString("role"),
+                        resultSet.getInt("ban") == 0 ? false : true,
+                        resultSet.getString("password")
+                ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -241,7 +226,7 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public void ban(String login, boolean status) {
+    public void banUser(String login, boolean status) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -251,7 +236,6 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setInt(1, status ? 1 : 0);
             preparedStatement.setString(2, login);
             preparedStatement.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -261,7 +245,7 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public boolean contains(String login) {
+    public boolean isContainsLogin(String login) {
         Boolean isContains = false;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -272,8 +256,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement = connection.prepareStatement(SELECT_LOGIN);
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 if (resultSet.getString("login").equals(login)) {
                     isContains = true;
                 }
@@ -301,7 +284,8 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(2, login);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Exception: update password ==> " + login);
+            //System.err.println("Exception: updateEdition password ==> " + login);
+            e.printStackTrace();
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -332,7 +316,8 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            System.err.println("Exception: updateScore ==> " + login);
+            //System.err.println("Exception: updateScore ==> " + login);
+            e.printStackTrace();
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -351,11 +336,9 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement = connection.prepareStatement(SELECT_SCORE);
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 score = resultSet.getDouble("score");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -370,7 +353,6 @@ public class UserDAOImplement implements UserDAO {
     @Override
     public List<User> getAllUsersByRole(String role) {
         List<User> userList = new ArrayList<>();
-        User user = new User();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -381,15 +363,14 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, role);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user.setFullName(resultSet.getString("fullName"));
-                user.setLogin(resultSet.getString("users.login"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
-                user.setScore(resultSet.getDouble("score"));
-                user.setRole(resultSet.getString("role"));
-                user.setBan(resultSet.getInt("ban") == 0 ? false : true);
-                userList.add(new User(user.getFullName(), user.getLogin(), user.getEmail(),
-                        user.getScore(), user.getRole(), user.getBan(), user.getPassword()));
+                userList.add(new User(
+                        resultSet.getString("fullName"),
+                        resultSet.getString("users.login"),
+                        resultSet.getString("email"),
+                        resultSet.getDouble("score"),
+                        resultSet.getString("role"),
+                        resultSet.getInt("ban") == 0 ? false : true,
+                        resultSet.getString("password")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -423,23 +404,21 @@ public class UserDAOImplement implements UserDAO {
 
     @Override
     public boolean getSettings(String login) {
-        boolean notification = false;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        boolean notification = false;
 
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(SELECT_SETTING);
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 if (resultSet.getInt("notification") == 1) {
                     notification = true;
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -481,17 +460,12 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public List<User> search(String fullName) {
+    public List<User> searchByName(String fullName) {
         List<User> userList = new ArrayList<>();
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        try (PreparedStatement preparedStatement = dataSource.getConnection().prepareStatement(SELECT_USER_BY_NAME)) {
+            preparedStatement.setString(1, "%" + fullName + "%");
 
-        try {
-            connection = dataSource.getConnection();
-            preparedStatement = connection.prepareStatement(SELECT_USER_BY_NAME);
-            preparedStatement.setString(1, "%"+ fullName + "%");
-            resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 userList.add(new User(
                         resultSet.getString("fullName"),
@@ -502,13 +476,8 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getInt("ban") == 0 ? false : true,
                         resultSet.getString("password")));
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            Close.close(resultSet);
-            Close.close(preparedStatement);
-            Close.close(connection);
         }
 
         return userList;

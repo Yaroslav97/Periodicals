@@ -21,9 +21,9 @@ public class RegistrationLink extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDAO userDAO = new UserDAOImplement();
 
-        if (userDAO.contains(req.getParameter("login")) &&
+        if (userDAO.isContainsLogin(req.getParameter("login")) &&
                 userDAO.getByLogin(req.getParameter("login")).getEmail().equals(req.getParameter("email"))) {
-            userDAO.ban(req.getParameter("login"), false);
+            userDAO.banUser(req.getParameter("login"), false);
             resp.sendRedirect("/index");
         }
     }

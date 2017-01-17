@@ -43,27 +43,8 @@ public class User {
     }
 
     public User(String fullName, String login, String email, Double score, String role, Boolean isBan, String password, int subscriptions) {
-        this.fullName = fullName;
-        this.login = login;
-        this.email = email;
-        this.score = score;
-        this.role = role;
-        this.isBan = isBan;
-        this.password = password;
+        this(fullName, login, email, score, role, isBan, password);
         this.subscriptions = subscriptions;
-    }
-
-
-
-    public User(int id, String fullName, String login, String email, Double score, String role, Boolean isBan, String password) {
-        this.id = id;
-        this.fullName = fullName;
-        this.login = login;
-        this.email = email;
-        this.score = score;
-        this.role = role;
-        this.isBan = isBan;
-        this.password = password;
     }
 
     public int getId() {

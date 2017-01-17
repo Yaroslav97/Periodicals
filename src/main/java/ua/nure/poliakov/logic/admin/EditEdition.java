@@ -39,8 +39,8 @@ public class EditEdition extends HttpServlet {
         Integer id = Integer.parseInt(String.valueOf(req.getSession().getAttribute("editId")));
 
         if (EditionValidation.editionValidation(req)) {
-            editionDAO.update(new Edition(id, name, subject, price));
-            log.info("Edition " + editionDAO.get(id).getName() + " was change");
+            editionDAO.updateEdition(new Edition(id, name, subject, price));
+            log.info("Edition " + editionDAO.getEdition(id).getName() + " was change");
             resp.sendRedirect("/index");
         } else {
             log.info("Not valid data ==> " + req.getSession().getAttribute("editId"));

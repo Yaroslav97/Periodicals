@@ -18,17 +18,12 @@ public class Edition {
     }
 
     public Edition(int id, String name, String subject, Double price) {
+        this(name, subject, price);
         this.id = id;
-        this.name = name;
-        this.subject = subject;
-        this.price = price;
     }
 
     public Edition(int id, String name, String subject, Double price, int countSubscribe) {
-        this.id = id;
-        this.name = name;
-        this.subject = subject;
-        this.price = price;
+        this(id, name, subject, price);
         this.countSubscribe = countSubscribe;
     }
 

@@ -26,10 +26,10 @@ public class Unsubscribe extends HttpServlet {
             editionDAO.unsubscribe(login, idEdition);
             req.getSession().setAttribute("subscribesList", editionDAO.getAllSubscribes
                     (String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
-            log.info(login + " unsubscribes " + editionDAO.get(idEdition).getName());
+            log.info(login + " unsubscribes " + editionDAO.getEdition(idEdition).getName());
             resp.sendRedirect("user//user_cabinet.jsp");
         } else {
-            log.info(login + " does not subscribes to " + editionDAO.get(idEdition).getName() + " or edition not exist");
+            log.info(login + " does not subscribes to " + editionDAO.getEdition(idEdition).getName() + " or edition not exist");
             resp.sendRedirect("user//user_cabinet.jsp");
         }
     }

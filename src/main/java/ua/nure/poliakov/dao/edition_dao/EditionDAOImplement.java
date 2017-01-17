@@ -40,9 +40,11 @@ public class EditionDAOImplement implements EditionDAO {
             "WHERE editions.id=? AND editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
+    private UserDAO userDAO = new UserDAOImplement();
+    private Edition edition = null;
 
     @Override
-    public void add(Edition edition) {
+    public void addEdition(Edition edition) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -62,7 +64,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public void update(Edition edition) {
+    public void updateEdition(Edition edition) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -83,7 +85,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteEdition(int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -100,8 +102,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public Edition get(int id) {
-        Edition edition = new Edition();
+    public Edition getEdition(int id) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -111,13 +112,12 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement = connection.prepareStatement(SELECT_EDITIONS);
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                edition.setId(resultSet.getInt("id"));
-                edition.setName(resultSet.getString("name"));
-                edition.setSubject(resultSet.getString("subject"));
-                edition.setPrice(resultSet.getDouble("price"));
-
-                edition = new Edition(edition.getId(), edition.getName(), edition.getSubject(), edition.getPrice());
+            if (resultSet.next()) {
+                edition = new Edition(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("subject"),
+                        resultSet.getDouble("price"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -130,8 +130,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public List<Edition> getAllEditions(String sort) {
-        Edition edition = new Edition();
+    public List<Edition> getAllSortEditions(String sort) {
         List<Edition> editionList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -158,20 +157,13 @@ public class EditionDAOImplement implements EditionDAO {
                 default:
                     preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_SUBJECT);
             }
-
             resultSet = preparedStatement.executeQuery();
-
             while (resultSet.next()) {
-                edition.setId(resultSet.getInt("id"));
-                edition.setName(resultSet.getString("name"));
-                edition.setSubject(resultSet.getString("subject"));
-                edition.setPrice(resultSet.getDouble("price"));
-                if (sort.equals("rank")) {
-                    edition.setCountSubscribe(resultSet.getInt(5));
-                }
-
-                editionList.add(new Edition(edition.getId(), edition.getName(), edition.getSubject(),
-                        edition.getPrice(), edition.getCountSubscribe()));
+                editionList.add(new Edition(resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("subject"),
+                        resultSet.getDouble("price"),
+                        sort.equals("rank") ? resultSet.getInt(5) : 0));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -195,7 +187,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement = connection.prepareStatement(SELECT_ID);
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 if (resultSet.getInt("id") == id) {
                     isContain = true;
                 }
@@ -212,7 +204,6 @@ public class EditionDAOImplement implements EditionDAO {
 
     @Override
     public void subscribe(String login, int idEdition) {
-        UserDAO userDAO = new UserDAOImplement();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -222,7 +213,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, login);
             preparedStatement.setInt(2, idEdition);
             preparedStatement.executeUpdate();
-            userDAO.updateScore(login, "withdraw", get(idEdition).getPrice());
+            userDAO.updateScore(login, "withdraw", getEdition(idEdition).getPrice());
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -244,7 +235,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, login);
             preparedStatement.setInt(2, idEdition);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 if (resultSet.getString("login").equals(login) &&
                         resultSet.getInt("edition") == idEdition) {
                     isSubscribe = true;
@@ -273,10 +264,10 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                editionList.add(new Edition(get(resultSet.getInt("edition")).getId(),
-                        get(resultSet.getInt("edition")).getName(),
-                        get(resultSet.getInt("edition")).getSubject(),
-                        get(resultSet.getInt("edition")).getPrice()));
+                editionList.add(new Edition(getEdition(resultSet.getInt("edition")).getId(),
+                        getEdition(resultSet.getInt("edition")).getName(),
+                        getEdition(resultSet.getInt("edition")).getSubject(),
+                        getEdition(resultSet.getInt("edition")).getPrice()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -308,7 +299,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public boolean isSame(String name, String subject) {
+    public boolean isSameEdition(String name, String subject) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -320,7 +311,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, subject);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 if (resultSet.getString("name").equals(name) &&
                         resultSet.getString("subject").equals(subject)) {
                     same = true;
@@ -337,7 +328,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public List<Edition> search(String name) {
+    public List<Edition> searchByName(String name) {
         List<Edition> editionList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -365,7 +356,7 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public List<Edition> filter(double from, double to) {
+    public List<Edition> filterByPrice(double from, double to) {
         List<Edition> editionList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -396,7 +387,6 @@ public class EditionDAOImplement implements EditionDAO {
     @Override
     public List<Edition> getEditionInfo(int id) {
         List<Edition> editionList = new ArrayList<>();
-        Edition edition = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -406,16 +396,12 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement = connection.prepareStatement(SELECT_EDITION_INFO);
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                 edition = new Edition();
-                 edition.setId(resultSet.getInt("editions.id"));
-                 edition.setName(resultSet.getString("editions.name"));
-                 edition.setSubject(resultSet.getString("editions.subject"));
-                 edition.setPrice(resultSet.getDouble(5));
-                 edition.setCountSubscribe(resultSet.getInt(4));
-
-                 editionList.add(new Edition(edition.getId(), edition.getName(), edition.getSubject(),
-                         edition.getPrice(), edition.getCountSubscribe()));
+            while (resultSet.next()) {
+                editionList.add(new Edition(resultSet.getInt("editions.id"),
+                        resultSet.getString("editions.name"),
+                        resultSet.getString("editions.subject"),
+                        resultSet.getDouble(5),
+                        resultSet.getInt(4)));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -31,7 +31,7 @@ public class RestoreAccess extends HttpServlet {
         String email = req.getParameter("email");
         String password = SendEmail.randomPassword();
 
-        if (userDAO.contains(login) && userDAO.getByLogin(login).getEmail().equals(email)) {
+        if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getEmail().equals(email)) {
             try {
                 SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(),
                         SendEmail.restoreAccess(userDAO.getByLogin(login).getFullName(), password));
