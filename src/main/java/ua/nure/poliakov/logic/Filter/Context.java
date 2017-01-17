@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter("/*")
+@WebFilter(filterName = "profiler", urlPatterns = {"/*"})
 public class Context implements Filter {
 
     private static final Logger log = Logger.getLogger(Context.class);
@@ -18,9 +18,9 @@ public class Context implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        chain.doFilter(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        chain.doFilter(request, response);
     }
 
     @Override

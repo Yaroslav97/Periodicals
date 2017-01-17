@@ -21,7 +21,6 @@ public class UserList extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
         log.info("UserList page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);

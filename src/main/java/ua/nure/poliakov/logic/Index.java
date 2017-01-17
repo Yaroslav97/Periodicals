@@ -17,7 +17,7 @@ public class Index extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EditionsList.getEditionList(req);
+        EditionsList.editionList(req);
         log.info("Index page");
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }

@@ -43,7 +43,7 @@
 
 <div class="container">
     <form action="/score" method="post" class="col-xs-6">
-        <input type="text" pattern="^[0-9]+\.?[0-9]?$" name="score" required minlength="1" maxlength="4" placeholder="Score" class="form-control"><br>
+        <input type="text" pattern="^[0-9]+\.?[0-9]?$" name="score" required minlength="1" maxlength="3" placeholder="Score" class="form-control"><br>
         <input type="password" name="password" required minlength="4" maxlength="25" placeholder="Password" class="form-control"><br>
         <input type="submit" value="OK"><br>
     </form>

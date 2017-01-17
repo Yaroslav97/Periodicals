@@ -39,23 +39,29 @@ public class Registration extends HttpServlet {
         if (UserValidation.signUpValidation(req) && !userDAO.isContainsLogin(login)) {
             if (role.equals("admin")) {
                 userDAO.addUser(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
-                log.info("Add new admin: " + userDAO.getByLogin(login).getFullName());
+                log.info("Added new admin: " + userDAO.getByLogin(login).getFullName());
                 resp.sendRedirect("/index");
             } else {
                 userDAO.addUser(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
-                log.info("Add new user: " + userDAO.getByLogin(login).getFullName());
+                log.info("Added new user: " + userDAO.getByLogin(login).getFullName());
                 try {
-                    SendEmail.sendEmail(email, "//http://localhost:8080/link?login=" + login + "&email=" + email);
+                    SendEmail.sendEmail(email, "For confirmation registration click to link " +
+                            "//http://localhost:8080/link?login=" + login + "&email=" + email);
                     log.info("Send registration email to " + fullName);
                 } catch (MessagingException e) {
-                    log.error("Fell sent email to: " + userDAO.getByLogin(login).getFullName());
+                    log.error("Failed to send a message to: " + userDAO.getByLogin(login).getFullName());
                 }
                 resp.sendRedirect("/index");
             }
+        } else if (userDAO.isContainsLogin(login)) {
+            req.setAttribute("regInfo", "This login already exist");
+            log.info("This login already exist");
+            req.getRequestDispatcher("registration.jsp").forward(req, resp);
         } else {
             req.setAttribute("regInfo", "You try enter incorrect data");
             log.info("No valid data");
-            resp.sendRedirect("/registration");
+            req.getRequestDispatcher("registration.jsp").forward(req, resp);
+
         }
     }
 }

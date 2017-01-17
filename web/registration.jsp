@@ -54,8 +54,11 @@
 </div>
 
 <hr>
-
 <br>
+
+<div align="center" class="container">
+    <h3>${requestScope.regInfo}</h3>
+</div>
 
 </body>
 </html>

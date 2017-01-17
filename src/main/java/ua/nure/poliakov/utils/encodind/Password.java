@@ -13,17 +13,16 @@ public class Password {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        assert messageDigest != null;
         messageDigest.update(password.getBytes());
-        byte[] bytes = messageDigest.digest();
-        StringBuilder st = new StringBuilder();
+        byte[] bytes = messageDigest.digest(password.getBytes());
+        StringBuilder builder = new StringBuilder();
         for (byte b : bytes) {
             String result = Integer.toHexString(b & 0xff);
             if (result.length() == 1) {
-                st.append('0');
+                builder.append('0');
             }
-            st.append(result).append("");
+            builder.append(result).append("");
         }
-        return st.toString();
+        return builder.toString();
     }
 }

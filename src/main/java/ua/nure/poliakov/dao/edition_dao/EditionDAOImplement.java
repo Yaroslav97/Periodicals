@@ -93,6 +93,7 @@ public class EditionDAOImplement implements EditionDAO {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(DELETE_EDITIONS);
             preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
