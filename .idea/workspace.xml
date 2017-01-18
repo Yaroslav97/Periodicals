@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0124abcb-be5f-48fa-96a7-8c0f693e6b5e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/user/user_cabinet.jsp" afterPath="$PROJECT_DIR$/web/user/user_cabinet.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,9 +45,21 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="93" column="16" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+            <state relative-caret-position="217">
+              <caret line="62" column="65" lean-forward="false" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="65" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserTag.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/utils/tag/UserTag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,76 +67,28 @@
       <file leaf-file-name="EditionDAOImplement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+            <state relative-caret-position="-408">
+              <caret line="32" column="104" lean-forward="false" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="104" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <marker date="1484678327267" expanded="true" signature="621:680" ph="INSERT INTO editions... " />
-                <marker date="1484678327267" expanded="true" signature="741:792" ph="INSERT INTO subscribes... " />
-                <marker date="1484678327267" expanded="true" signature="846:903" ph="UPDATE editi... " />
-                <marker date="1484678327267" expanded="true" signature="957:988" ph="DELETE FROM " />
-                <marker date="1484678327267" expanded="true" signature="1043:1093" ph="DELETE FROM " />
-                <marker date="1484678327267" expanded="true" signature="1147:1180" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="1249:1283" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="1354:1390" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="1464:1503" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="1575:1612" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="1667:1732" ph="SELECT login... subscribes" />
-                <marker date="1484678327267" expanded="true" signature="1780:1814" ph="SELECT id FR... editions" />
-                <marker date="1484678327267" expanded="true" signature="1883:1921" ph="SELECT * FRO... subscribes" />
-                <marker date="1484678327267" expanded="true" signature="1986:2036" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="2089:2143" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="2197:2262" ph="SELECT * FRO... editions" />
-                <marker date="1484678327267" expanded="true" signature="2314:2506" ph="SELECT editi... editions" />
-                <marker date="1484678327267" expanded="true" signature="2564:2829" ph="SELECT editi... editions" />
+                <marker date="1484682720145" expanded="true" signature="621:680" ph="INSERT INTO editions... " />
+                <marker date="1484682720145" expanded="true" signature="741:792" ph="INSERT INTO subscribes... " />
+                <marker date="1484682720145" expanded="true" signature="846:903" ph="UPDATE editi... " />
+                <marker date="1484682720145" expanded="true" signature="957:988" ph="DELETE FROM " />
+                <marker date="1484682720145" expanded="true" signature="1043:1093" ph="DELETE FROM " />
+                <marker date="1484682720145" expanded="true" signature="1147:1180" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="1249:1283" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="1354:1390" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="1464:1503" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="1575:1612" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="1667:1732" ph="SELECT login... subscribes" />
+                <marker date="1484682720145" expanded="true" signature="1780:1814" ph="SELECT id FR... editions" />
+                <marker date="1484682720145" expanded="true" signature="1883:1921" ph="SELECT * FRO... subscribes" />
+                <marker date="1484682720145" expanded="true" signature="1986:2036" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="2089:2143" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="2197:2262" ph="SELECT * FRO... editions" />
+                <marker date="1484682720145" expanded="true" signature="2314:2506" ph="SELECT editi... editions" />
+                <marker date="1484682720145" expanded="true" signature="2564:2829" ph="SELECT editi... editions" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="periodical.users" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DATABASE/609e7f13-0498-453b-bade-ad78c9b1caec" pinned="false" current-in-tab="true">
-        <entry file="uml://DATABASE/609e7f13-0498-453b-bade-ad78c9b1caec">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>DATABASE</ID>
-              <OriginalElement>609e7f13-0498-453b-bade-ad78c9b1caec</OriginalElement>
-              <nodes>
-                <node x="0.0" y="309.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.user_role</node>
-                <node x="10.0" y="168.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
-                <node x="205.0" y="0.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.users</node>
-                <node x="207.0" y="309.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.settings</node>
-                <node x="0.0" y="0.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes" target="609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions">
-                  <point x="0.0" y="-48.0" />
-                  <point x="0.0" y="59.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="212.5" y="191.5" />
-              <SelectedNodes>
-                <node>609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Key columns</Category>
-                <Category>Columns</Category>
-              </Categories>
             </state>
           </provider>
         </entry>
@@ -156,10 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionTag.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/LogOut.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/utils/email/SendEmail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/Subscribe.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/admin/AddEdition.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/admin/EditEdition.java" />
@@ -170,9 +130,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/EditProfile.java" />
         <option value="$PROJECT_DIR$/web/admin/edit_addition.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/Unsubscribe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/UserCabinet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/Listener/ContextListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/SignIn.java" />
         <option value="$PROJECT_DIR$/web/admin/editions_info.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/entity/Subscription.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/Index.java" />
@@ -197,16 +155,22 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/utils/encodind/Password.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/user_dao/UserDAOImplement.java" />
-        <option value="$PROJECT_DIR$/web/registration.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/registration/Registration.java" />
         <option value="$PROJECT_DIR$/web/user/score_page.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/i18n_eng.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/i18n_ru.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql" />
         <option value="dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/Filter/Context.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/UserCabinet.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/I18n.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/SignIn.java" />
+        <option value="$PROJECT_DIR$/web/login_page.jsp" />
+        <option value="$PROJECT_DIR$/web/registration.jsp" />
+        <option value="$PROJECT_DIR$/web/restore_access.jsp" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n_ru.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/utils/tag/UserTag.java" />
       </list>
     </option>
   </component>
@@ -281,6 +245,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,24 +282,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -354,62 +301,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'i18n'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="poliakov" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -439,7 +330,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,11 +360,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Filter" />
+              <option name="myItemId" value="tag" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,20 +391,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="poliakov" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -1147,7 +1029,10 @@
       <workItem from="1484510384351" duration="7095000" />
       <workItem from="1484558541663" duration="11848000" />
       <workItem from="1484590093858" duration="1454000" />
-      <workItem from="1484643499206" duration="27528000" />
+      <workItem from="1484643499206" duration="29534000" />
+      <workItem from="1484730808169" duration="573000" />
+      <workItem from="1484732246068" duration="416000" />
+      <workItem from="1484733087227" duration="13341000" />
     </task>
     <task id="LOCAL-00001" summary="commit project">
       <created>1484298071284</created>
@@ -1160,7 +1045,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269682000" />
+    <option name="totallyTimeSpent" value="286018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1172,7 +1057,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1196,14 +1081,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9328969" sideWeight="0.49394855" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.7495908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7348609" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49099836" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23903178" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25037822" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1246,239 +1131,110 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.user_role">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.user_role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/registration/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/user/score_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="45" column="103" lean-forward="false" selection-start-line="45" selection-start-column="103" selection-end-line="45" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.user_role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1486,7 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="35" column="67" lean-forward="false" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1494,189 +1249,162 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
       <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_ru.properties">
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1684,192 +1412,136 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_eng.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="37" column="72" lean-forward="false" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.editions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="93" column="16" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1484678327267" expanded="true" signature="621:680" ph="INSERT INTO editions... " />
-            <marker date="1484678327267" expanded="true" signature="741:792" ph="INSERT INTO subscribes... " />
-            <marker date="1484678327267" expanded="true" signature="846:903" ph="UPDATE editi... " />
-            <marker date="1484678327267" expanded="true" signature="957:988" ph="DELETE FROM " />
-            <marker date="1484678327267" expanded="true" signature="1043:1093" ph="DELETE FROM " />
-            <marker date="1484678327267" expanded="true" signature="1147:1180" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="1249:1283" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="1354:1390" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="1464:1503" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="1575:1612" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="1667:1732" ph="SELECT login... subscribes" />
-            <marker date="1484678327267" expanded="true" signature="1780:1814" ph="SELECT id FR... editions" />
-            <marker date="1484678327267" expanded="true" signature="1883:1921" ph="SELECT * FRO... subscribes" />
-            <marker date="1484678327267" expanded="true" signature="1986:2036" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="2089:2143" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="2197:2262" ph="SELECT * FRO... editions" />
-            <marker date="1484678327267" expanded="true" signature="2314:2506" ph="SELECT editi... editions" />
-            <marker date="1484678327267" expanded="true" signature="2564:2829" ph="SELECT editi... editions" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.subscribes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1879,27 +1551,167 @@
           <ID>DATABASE</ID>
           <OriginalElement>609e7f13-0498-453b-bade-ad78c9b1caec</OriginalElement>
           <nodes>
-            <node x="0.0" y="309.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.user_role</node>
-            <node x="10.0" y="168.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
-            <node x="205.0" y="0.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.users</node>
-            <node x="207.0" y="309.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.settings</node>
-            <node x="0.0" y="0.0">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions</node>
+            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.user_role</node>
+            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
+            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.users</node>
+            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.settings</node>
+            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions</node>
           </nodes>
           <notes />
-          <edges>
-            <edge source="609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes" target="609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions">
-              <point x="0.0" y="-48.0" />
-              <point x="0.0" y="59.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="212.5" y="191.5" />
-          <SelectedNodes>
-            <node>609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
-          </SelectedNodes>
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="213.0" y="192.0" />
+          <SelectedNodes />
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/user/UserCabinet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="110" lean-forward="false" selection-start-line="23" selection-start-column="110" selection-end-line="23" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/I18n.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="46" lean-forward="false" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="32" column="104" lean-forward="false" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="104" />
+          <folding>
+            <marker date="1484682720145" expanded="true" signature="621:680" ph="INSERT INTO editions... " />
+            <marker date="1484682720145" expanded="true" signature="741:792" ph="INSERT INTO subscribes... " />
+            <marker date="1484682720145" expanded="true" signature="846:903" ph="UPDATE editi... " />
+            <marker date="1484682720145" expanded="true" signature="957:988" ph="DELETE FROM " />
+            <marker date="1484682720145" expanded="true" signature="1043:1093" ph="DELETE FROM " />
+            <marker date="1484682720145" expanded="true" signature="1147:1180" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="1249:1283" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="1354:1390" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="1464:1503" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="1575:1612" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="1667:1732" ph="SELECT login... subscribes" />
+            <marker date="1484682720145" expanded="true" signature="1780:1814" ph="SELECT id FR... editions" />
+            <marker date="1484682720145" expanded="true" signature="1883:1921" ph="SELECT * FRO... subscribes" />
+            <marker date="1484682720145" expanded="true" signature="1986:2036" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="2089:2143" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="2197:2262" ph="SELECT * FRO... editions" />
+            <marker date="1484682720145" expanded="true" signature="2314:2506" ph="SELECT editi... editions" />
+            <marker date="1484682720145" expanded="true" signature="2564:2829" ph="SELECT editi... editions" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/registration/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="113" lean-forward="true" selection-start-line="24" selection-start-column="113" selection-end-line="24" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/restore_access.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/logic/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="113" lean-forward="false" selection-start-line="22" selection-start-column="113" selection-end-line="22" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_ru.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="62" column="65" lean-forward="false" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/utils/tag/UserTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

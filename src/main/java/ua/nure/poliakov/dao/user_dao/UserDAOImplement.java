@@ -42,7 +42,7 @@ public class UserDAOImplement implements UserDAO {
             "FROM users, user_role WHERE fullName LIKE ? AND users.login = user_role.login ORDER BY fullName";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
-    private User user = null;
+    private User user;
 
     @Override
     public void addUser(User user) {

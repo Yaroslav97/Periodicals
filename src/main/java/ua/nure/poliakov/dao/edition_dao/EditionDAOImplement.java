@@ -41,7 +41,7 @@ public class EditionDAOImplement implements EditionDAO {
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private UserDAO userDAO = new UserDAOImplement();
-    private Edition edition = null;
+    private Edition edition;
 
     @Override
     public void addEdition(Edition edition) {
@@ -265,7 +265,8 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                editionList.add(new Edition(getEdition(resultSet.getInt("edition")).getId(),
+                editionList.add(new Edition(
+                        getEdition(resultSet.getInt("edition")).getId(),
                         getEdition(resultSet.getInt("edition")).getName(),
                         getEdition(resultSet.getInt("edition")).getSubject(),
                         getEdition(resultSet.getInt("edition")).getPrice()));

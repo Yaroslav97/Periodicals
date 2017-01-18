@@ -5,19 +5,17 @@
 <html>
 <head>
     <title>index</title>
-
     <link href="style//table.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
 
-<fmt:setLocale value="eng" scope="session"/>
+<fmt:setLocale value="${sessionScope.lang}" scope="session"/>
 <fmt:setBundle basename="i18n"/>
 
 <fmt:message key="periodicals" var="Periodicals"/>
@@ -28,6 +26,9 @@
 <fmt:message key="user.list" var="UserList"/>
 <fmt:message key="log.out" var="LogOut"/>
 
+<fmt:message key="search" var="Search"/>
+<fmt:message key="periodicals" var="Periodical"/>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -35,8 +36,6 @@
         </div>
         <ul class="nav navbar-nav">
             <c:if test="${empty sessionScope.authenticatedLogin}">
-                <li><a href="/signIn">${SignIn}</a></li>
-                <li><a href="/registration">${SignUp}</a></li>
                 <li><a href="/restoreAccess">${RestoreAccess}</a></li>
             </c:if>
             <c:if test="${sessionScope.authenticatedRole == 'user'}">
@@ -47,15 +46,34 @@
                 <li><a href="/addEdition">${AddEdition}</a></li>
                 <li><a href="/userList">${UserList}</a></li>
             </c:if>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <c:if test="${empty sessionScope.authenticatedLogin}">
+                <li><a href="/registration"><span class="glyphicon glyphicon-user"></span> ${SignUp}</a></li>
+                <li><a href="/signIn"><span class="glyphicon glyphicon-log-in"></span> ${SignIn}</a></li>
+            </c:if>
             <c:if test="${!empty sessionScope.authenticatedLogin}">
                 <li><a href="/logout">${LogOut}</a></li>
             </c:if>
         </ul>
+        <form action="/index" class="navbar-form navbar-left">
+            <div class="input-group">
+                <input name="search" required placeholder="${Periodical}" class="form-control">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </nav>
 
 <div align="right" class="container">
     ${requestScope.subscribeInfo}
+    <a href="/lang?lang=eng">ENG</a>
+    /
+    <a href="/lang?lang=ru">RU</a>
 </div>
 
 <br>
@@ -66,14 +84,11 @@
 <fmt:message key="rank" var="rank"/>
 <fmt:message key="id" var="id"/>
 <fmt:message key="sort" var="Sort"/>
-
-<fmt:message key="search" var="Search"/>
-<fmt:message key="periodicals" var="Periodical"/>
-
+<%--<fmt:message key="search" var="Search"/>
+<fmt:message key="periodicals" var="Periodical"/>--%>
 <fmt:message key="price.from" var="PriceFrom"/>
 <fmt:message key="price.to" var="PriceTo"/>
 <fmt:message key="filter" var="Filter"/>
-
 
 <div class="container">
 
@@ -90,12 +105,12 @@
         </form>
     </div>
 
-    <div align="right">
+    <%--<div align="right">
         <form action="/index" class="col-xs-2">
             <input name="search" required placeholder="${Periodical}" class="form-control">
             <input type="submit" value="${Search}"><br><br>
         </form>
-    </div>
+    </div>--%>
 
 
     <div align="right">
@@ -126,9 +141,7 @@
                 <c:if test="${!empty sessionScope.authenticatedLogin}">
                     <c:choose>
                         <c:when test="${sessionScope.authenticatedRole == 'user'}">
-                            <td>
-                                <a href="/subscribe?id=${editionList.id}">subscribe</a>
-                            </td>
+                            <td><a href="/subscribe?id=${editionList.id}">subscribe</a></td>
                         </c:when>
 
                         <c:when test="${sessionScope.authenticatedRole == 'admin'}">
