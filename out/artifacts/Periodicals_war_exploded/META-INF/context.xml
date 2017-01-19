@@ -24,7 +24,7 @@
             name="jdbc/periodical"
             maxPoolSize="100"
             minPoolSize="0"
-            maxConnectionAge="100"
+            maxConnectionAge="1000"
             acquireRetryAttempts="60"
             acquireIncrement="1"
     />

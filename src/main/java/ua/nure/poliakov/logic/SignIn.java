@@ -38,8 +38,10 @@ public class SignIn extends HttpServlet {
                     session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
                     session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
                     session.setAttribute("authenticatedRole", userDAO.getByLogin(login).getRole());
+                    session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
                     session.setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
                     session.setAttribute("notification", userDAO.getSettings(login));
+                    log.info("sign in ==> " + login);
                     resp.sendRedirect("/index");
                 } else {
                     req.setAttribute("signInInfo", "Wrong password");

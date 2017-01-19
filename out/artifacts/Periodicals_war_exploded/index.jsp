@@ -29,6 +29,18 @@
 <fmt:message key="search" var="Search"/>
 <fmt:message key="periodicals" var="Periodical"/>
 
+<fmt:message key="subject" var="subject"/>
+<fmt:message key="name" var="name"/>
+<fmt:message key="price" var="price"/>
+<fmt:message key="rank" var="rank"/>
+<fmt:message key="id" var="id"/>
+<fmt:message key="sort" var="Sort"/>
+<%--<fmt:message key="search" var="Search"/>
+<fmt:message key="periodicals" var="Periodical"/>--%>
+<fmt:message key="price.from" var="PriceFrom"/>
+<fmt:message key="price.to" var="PriceTo"/>
+<fmt:message key="filter" var="Filter"/>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -78,17 +90,9 @@
 
 <br>
 
-<fmt:message key="subject" var="subject"/>
-<fmt:message key="name" var="name"/>
-<fmt:message key="price" var="price"/>
-<fmt:message key="rank" var="rank"/>
-<fmt:message key="id" var="id"/>
-<fmt:message key="sort" var="Sort"/>
-<%--<fmt:message key="search" var="Search"/>
-<fmt:message key="periodicals" var="Periodical"/>--%>
-<fmt:message key="price.from" var="PriceFrom"/>
-<fmt:message key="price.to" var="PriceTo"/>
-<fmt:message key="filter" var="Filter"/>
+<c:if test="${sessionScope.authenticatedBan == true}">
+    <c:redirect url="/logout"/>
+</c:if>
 
 <div class="container">
 

@@ -34,6 +34,10 @@
     <c:redirect url="/index"/>
 </c:if>
 
+<c:if test="${sessionScope.authenticatedBan == true}">
+    <c:redirect url="/logout"/>
+</c:if>
+
 <form action="/userList" method="post" class="col-xs-2">
     <select name="role" class="form-control">
         <option selected value="users">users</option>
@@ -68,6 +72,7 @@
                     <td>${userList.role}</td>
                     <td>${userList.ban}</td>
                     <td><a href="/changeStatus?login=${userList.login}&role=${userList.role}">change status</a></td>
+                    <td><a href="/userInfo?login=${userList.login}">info</a></td>
                 </tr>
             </c:forEach>
         </table>

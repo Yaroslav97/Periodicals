@@ -1,14 +1,45 @@
 package ua.nure.poliakov.utils.tag;
 
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.jsp.*;
-import java.io.*;
+import ua.nure.poliakov.dao.edition_dao.EditionDAO;
+import ua.nure.poliakov.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.dao.entity.Edition;
 
-public class UserTag extends SimpleTagSupport {
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.BodyTagSupport;
+import java.io.IOException;
+import java.util.List;
+
+public class UserTag extends BodyTagSupport {
+
+    private List<Edition> list;
+
+    public void setList(List<Edition> list) {
+        this.list = list;
+    }
 
     @Override
-    public void doTag() throws JspException, IOException {
-        JspWriter out = getJspContext().getOut();
-        out.println("Hello Custom Tag!");
+    public int doStartTag() throws JspException {
+        JspWriter out = null;
+        try {
+            out = pageContext.getOut();
+            out.write("<table class=\"table\">");
+            out.write("<tr>");
+            out.write("<th>" + "name" + "</th>");
+            out.write("<th>" + "subject" + "</th>");
+            out.write("<th>" + "price" + "</th>");
+            out.write("</tr>");
+            for (Edition edition : list) {
+                out.write("<tr>");
+                out.write("<td>" + edition.getName() + "</td>");
+                out.write("<td>" + edition.getSubject() + "</td>");
+                out.write("<td>" + edition.getPrice() + "</td>");
+                out.write("</tr>");
+            }
+            out.write("<table/>");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return SKIP_BODY;
     }
 }

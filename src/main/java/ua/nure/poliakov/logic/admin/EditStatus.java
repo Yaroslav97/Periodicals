@@ -15,10 +15,11 @@ import java.io.IOException;
 public class EditStatus extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(EditStatus.class);
+    private UserDAO userDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
+        userDAO = new UserDAOImplement();
         String login = req.getParameter("login");
         log.info("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
         if (userDAO.getByLogin(login).getBan().equals(true)) {

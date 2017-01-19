@@ -32,7 +32,7 @@ public class UserDAOImplement implements UserDAO {
     private static final String SELECT_ALL_USERS = "SELECT users.*, user_role.role " +
             "FROM users, user_role WHERE users.login = user_role.login";
     private static final String SELECT_ALL_USERS_BY_ROLE = "SELECT users.*, user_role.role " +
-            "FROM users, user_role WHERE role=? AND users.login = user_role.login";
+            "FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav') AND users.login = user_role.login";
     private static final String SELECT_LOGIN = "SELECT login FROM users WHERE login=?";
     private static final String SELECT_SCORE = "SELECT score FROM users WHERE login=?";
     private static final String SELECT_SETTING = "SELECT notification FROM settings WHERE login=?";
