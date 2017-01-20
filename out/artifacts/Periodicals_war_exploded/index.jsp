@@ -41,6 +41,9 @@
 <fmt:message key="price.to" var="PriceTo"/>
 <fmt:message key="filter" var="Filter"/>
 <fmt:message key="subscribe" var="Subscribe"/>
+<fmt:message key="edit" var="Edit"/>
+<fmt:message key="remove" var="Remove"/>
+<fmt:message key="info" var="Info"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -151,16 +154,17 @@
 
                         <c:when test="${sessionScope.authenticatedRole == 'admin'}">
                             <td>
-                                <a href="/editEdition?eId=${editionList.id}&eName=${editionList.name}&eSubject=${editionList.subject}&ePrice=${editionList.price}">edit</a>
+                                <a href="/editEdition?eId=${editionList.id}&eName=${editionList.name}
+                                &eSubject=${editionList.subject}&ePrice=${editionList.price}">${Edit}</a>
                             </td>
                             <td>
-                                <a href="/removeEdition?id=${editionList.id}">remove</a>
+                                <a href="/removeEdition?id=${editionList.id}">${Remove}</a>
                             </td>
 
                             <c:forEach items="${countSub}" var="countSub">
                                 <c:choose>
                                     <c:when test="${countSub.id == editionList.id}">
-                                        <td><a href="/editionInfo?info=${editionList.id}">info</a></td>
+                                        <td><a href="/editionInfo?info=${editionList.id}">${Info}</a></td>
                                     </c:when>
                                 </c:choose>
                             </c:forEach>

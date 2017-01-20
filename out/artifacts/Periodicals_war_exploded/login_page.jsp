@@ -58,9 +58,8 @@
 
 <div class="container">
     <form action="/signIn" method="post" class="col-xs-6">
-        <input name="login" required placeholder="${Login}" minlength="4" class="form-control"><br>
-        <input type="password" name="password" required placeholder="${Password}" minlength="4"
-               class="form-control"><br>
+        <input name="login" pattern="^[A-zА-я0-9]+$" required placeholder="${Login}" minlength="4" class="form-control"><br>
+        <input type="password" name="password" required placeholder="${Password}" minlength="4" class="form-control"><br>
         <input type="submit" value="${SignIn}"><br>
     </form>
 </div>
