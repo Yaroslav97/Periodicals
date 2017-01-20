@@ -12,7 +12,7 @@ public class Close {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }
@@ -22,7 +22,7 @@ public class Close {
             try {
                 statement.close();
             } catch (SQLException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }
@@ -32,7 +32,7 @@ public class Close {
             try {
                 resultSet.close();
             } catch (SQLException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }

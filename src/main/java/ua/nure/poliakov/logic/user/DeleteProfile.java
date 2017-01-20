@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/deleteUser")
-public class DeleteUser extends HttpServlet{
+public class DeleteProfile extends HttpServlet {
 
-    private static final Logger log = Logger.getLogger(DeleteUser.class);
+    private static final Logger log = Logger.getLogger(DeleteProfile.class);
+    private UserDAO userDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
+        userDAO = new UserDAOImplement();
         userDAO.deleteUser(req.getParameter("login"));
         log.info(req.getParameter("login") + " removed his account");
         req.getSession().invalidate();

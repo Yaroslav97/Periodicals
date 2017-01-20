@@ -20,15 +20,16 @@ import java.io.IOException;
 public class Subscribe extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Subscribe.class);
+    private UserDAO userDAO;
+    private EditionDAO editionDAO;
 
     @Override
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EditionDAO editionDAO = new EditionDAOImplement();
-        UserDAO userDAO = new UserDAOImplement();
         Integer id = Integer.valueOf(req.getParameter("id"));
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
-
+        userDAO = new UserDAOImplement();
+        editionDAO = new EditionDAOImplement();
         log.info("Subscribe page");
 
         if (editionDAO.isContains(id) && login != null) {
@@ -38,7 +39,7 @@ public class Subscribe extends HttpServlet {
                     req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
                     log.info(login + " subscribe to " + editionDAO.getEdition(id).getName() + "(" + id + ")");
                     req.setAttribute("subscribeInfo", "You subscribe to " + editionDAO.getEdition(id).getName());
-                    if (userDAO.getSettings(login) == true) {
+                    if (userDAO.getSettings(login)) {
                         try {
                             SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(),
                                     "Hello " + userDAO.getByLogin(login).getFullName() +
@@ -50,7 +51,6 @@ public class Subscribe extends HttpServlet {
                     } else {
                         log.info("Notifications is off");
                     }
-
                     resp.sendRedirect("/index");
                 } else {
                     log.info(login + " can not pay for subscribe ==> " + editionDAO.getEdition(id).getName());

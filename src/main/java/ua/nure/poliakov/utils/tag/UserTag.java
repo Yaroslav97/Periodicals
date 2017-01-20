@@ -1,7 +1,4 @@
 package ua.nure.poliakov.utils.tag;
-
-import ua.nure.poliakov.dao.edition_dao.EditionDAO;
-import ua.nure.poliakov.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.dao.entity.Edition;
 
 import javax.servlet.jsp.JspException;

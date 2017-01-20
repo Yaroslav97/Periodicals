@@ -18,6 +18,7 @@ import java.io.IOException;
 public class RestoreAccess extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(RestoreAccess.class);
+    private UserDAO userDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,10 +27,10 @@ public class RestoreAccess extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
         String login = req.getParameter("login");
         String email = req.getParameter("email");
         String password = SendEmail.randomPassword();
+        userDAO = new UserDAOImplement();
 
         if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getEmail().equals(email)) {
             try {

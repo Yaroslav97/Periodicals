@@ -18,6 +18,7 @@ import java.io.IOException;
 public class EditEdition extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(EditEdition.class);
+    private EditionDAO editionDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,12 +33,11 @@ public class EditEdition extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EditionDAO editionDAO = new EditionDAOImplement();
         String name = req.getParameter("name");
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));
         Integer id = Integer.parseInt(String.valueOf(req.getSession().getAttribute("editId")));
-
+        editionDAO = new EditionDAOImplement();
         if (EditionValidation.editionValidation(req)) {
             editionDAO.updateEdition(new Edition(id, name, subject, price));
             log.info("Edition " + editionDAO.getEdition(id).getName() + " was change");

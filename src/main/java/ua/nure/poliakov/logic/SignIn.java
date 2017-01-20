@@ -18,6 +18,7 @@ import java.io.IOException;
 public class SignIn extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(SignIn.class);
+    private UserDAO userDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,9 +28,9 @@ public class SignIn extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        UserDAO userDAO = new UserDAOImplement();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        userDAO = new UserDAOImplement();
 
         if (userDAO.isContainsLogin(login) && UserValidation.signInValidation(req)){
             if (!userDAO.getByLogin(login).getBan()) {
@@ -46,7 +47,6 @@ public class SignIn extends HttpServlet {
                 } else {
                     req.setAttribute("signInInfo", "Wrong password");
                     log.info("Wrong password ==> " + login);
-                    //resp.sendRedirect("/signIn");
                     req.getRequestDispatcher("login_page.jsp").forward(req, resp);
                 }
             }

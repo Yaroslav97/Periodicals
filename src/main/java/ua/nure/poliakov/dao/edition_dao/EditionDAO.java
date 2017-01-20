@@ -1,7 +1,6 @@
 package ua.nure.poliakov.dao.edition_dao;
 
 import ua.nure.poliakov.dao.entity.Edition;
-import ua.nure.poliakov.dao.entity.Subscription;
 
 import java.util.List;
 

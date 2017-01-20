@@ -7,9 +7,12 @@ import ua.nure.poliakov.dao.user_dao.UserDAOImplement;
 
 public class Pay {
 
+    private static UserDAO userDAO;
+    private static EditionDAO editionDAO;
+
     public static boolean isCanPay(String login, int idEdition) {
-        UserDAO userDAO = new UserDAOImplement();
-        EditionDAO editionDAO = new EditionDAOImplement();
+        userDAO = new UserDAOImplement();
+        editionDAO = new EditionDAOImplement();
         if (userDAO.getByLogin(login).getScore() - editionDAO.getEdition(idEdition).getPrice() >= 0) {
             return true;
         }

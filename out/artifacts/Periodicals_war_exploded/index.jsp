@@ -40,6 +40,7 @@
 <fmt:message key="price.from" var="PriceFrom"/>
 <fmt:message key="price.to" var="PriceTo"/>
 <fmt:message key="filter" var="Filter"/>
+<fmt:message key="subscribe" var="Subscribe"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -145,7 +146,7 @@
                 <c:if test="${!empty sessionScope.authenticatedLogin}">
                     <c:choose>
                         <c:when test="${sessionScope.authenticatedRole == 'user'}">
-                            <td><a href="/subscribe?id=${editionList.id}">subscribe</a></td>
+                            <td><a href="/subscribe?id=${editionList.id}">${Subscribe}</a></td>
                         </c:when>
 
                         <c:when test="${sessionScope.authenticatedRole == 'admin'}">

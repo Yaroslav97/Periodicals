@@ -62,9 +62,9 @@
 
 <div class="container">
     <form action="/registration" method="post" class="col-xs-6">
-        <input name="fullName" required placeholder="${FullName}" minlength="4" maxlength="30" class="form-control"><br>
-        <input name="login" required placeholder="${Login}" minlength="4" maxlength="30" class="form-control"><br>
-        <input type="email" name="email" required placeholder="${Email}" minlength="4" maxlength="30" class="form-control"><br>
+        <input name="fullName" pattern="^[A-zА-я]+ [A-zА-я]+$" required placeholder="${FullName}" minlength="4" maxlength="30" class="form-control"><br>
+        <input name="login" pattern="^[A-zА-я0-9]+$" required placeholder="${Login}" minlength="4" maxlength="30" class="form-control"><br>
+        <input type="email" pattern="^[a-z0-9]+\.?_?[a-z0-9]+@.{2,9}\..{2,3}$" name="email" required placeholder="${Email}" minlength="4" maxlength="30" class="form-control"><br>
         <input type="password" name="password" required placeholder="${Password}" minlength="4" maxlength="30" class="form-control"><br>
         <select name="role" class="form-control">
             <option selected value="user">${User}</option>

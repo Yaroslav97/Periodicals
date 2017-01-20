@@ -17,6 +17,7 @@ import java.io.IOException;
 public class Score extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Score.class);
+    private UserDAO userDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,10 +26,10 @@ public class Score extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
         Double score = Double.valueOf(req.getParameter("score"));
         String password = req.getParameter("password");
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
+        userDAO = new UserDAOImplement();
 
         if (UserValidation.refillScoreValidation(req)) {
             if (userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {

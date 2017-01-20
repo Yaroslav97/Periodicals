@@ -19,8 +19,8 @@ public class EditStatus extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        userDAO = new UserDAOImplement();
         String login = req.getParameter("login");
+        userDAO = new UserDAOImplement();
         log.info("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
         if (userDAO.getByLogin(login).getBan().equals(true)) {
             userDAO.banUser(login, false);

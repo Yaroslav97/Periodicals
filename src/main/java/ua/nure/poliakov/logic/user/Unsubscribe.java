@@ -15,12 +15,13 @@ import java.io.IOException;
 public class Unsubscribe extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Unsubscribe.class);
+    private EditionDAO editionDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EditionDAO editionDAO = new EditionDAOImplement();
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
         Integer idEdition = Integer.valueOf(req.getParameter("id"));
+        editionDAO = new EditionDAOImplement();
         log.info("Unsubscribe: " + req.getSession().getAttribute("authenticatedLogin"));
         if (editionDAO.isSubscribe(login, idEdition)) {
             editionDAO.unsubscribe(login, idEdition);

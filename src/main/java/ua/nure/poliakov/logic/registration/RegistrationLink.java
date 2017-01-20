@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Link from registration email to application
+ * Link from registration email
  */
 
 @WebServlet("/link")
 public class RegistrationLink extends HttpServlet {
 
+    private UserDAO userDAO;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
-
+        userDAO = new UserDAOImplement();
         if (userDAO.isContainsLogin(req.getParameter("login")) &&
                 userDAO.getByLogin(req.getParameter("login")).getEmail().equals(req.getParameter("email"))) {
             userDAO.banUser(req.getParameter("login"), false);

@@ -13,7 +13,7 @@ public class PoolConnection {
             Context context = new InitialContext();
             pooledDataSource = (ComboPooledDataSource) context.lookup("java:/comp/env/jdbc/periodical");
         } catch (NamingException e) {
-            System.err.println("Error obtains pool");
+            e.printStackTrace();
         }
         return pooledDataSource;
     }

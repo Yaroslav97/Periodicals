@@ -17,6 +17,7 @@ import java.io.IOException;
 public class AddEdition extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(AddEdition.class);
+    private EditionDAO editionDAO;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,7 +27,7 @@ public class AddEdition extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EditionDAO editionDAO = new EditionDAOImplement();
+        editionDAO = new EditionDAOImplement();
         String name = req.getParameter("name");
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));

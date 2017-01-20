@@ -10,17 +10,14 @@ import java.io.IOException;
 
 public class UsersList {
 
+    private static UserDAO userDAO;
+
     public static void getUsers(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO userDAO = new UserDAOImplement();
         String role = req.getParameter("role");
         String search = req.getParameter("search");
-
+        userDAO = new UserDAOImplement();
         if (role != null) {
             switch (role) {
-           /* case "all":
-                req.getSession().setAttribute("userList", userDAO.getAllUsers());
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
-                break;*/
                 case "users":
                     req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
                     req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
