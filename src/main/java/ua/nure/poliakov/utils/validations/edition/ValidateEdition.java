@@ -15,7 +15,7 @@ public class ValidateEdition implements Validator<Edition>, EditionValidation<St
 
     @Override
     public boolean name(String name) throws ValidationException {
-        Pattern pattern = Pattern.compile("[A-zА-я0-9]+");
+        Pattern pattern = Pattern.compile("[A-zА-я0-9 ]+");
         Matcher matcher = pattern.matcher(name);
         if (name == null || name.length() < 4 || !matcher.matches()) {
             throw new ValidationException("Name edition must be greater then 4 and contains only characters and digites");
@@ -25,7 +25,7 @@ public class ValidateEdition implements Validator<Edition>, EditionValidation<St
 
     @Override
     public boolean subject(String subject) throws ValidationException {
-        Pattern pattern = Pattern.compile("[A-zА-я]+");
+        Pattern pattern = Pattern.compile("[A-zА-я ]+");
         Matcher matcher = pattern.matcher(subject);
         if (subject == null || subject.length() < 4 || !matcher.matches()) {
             throw new ValidationException("Subject must be greater then 4 and contains only characters");

@@ -17,7 +17,9 @@ public class LogOut extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info(req.getSession().getAttribute("authenticatedLogin") + " was log out");
+        String lang = String.valueOf(req.getSession().getAttribute("lang"));
         req.getSession().invalidate();
+        req.getSession().setAttribute("lang", lang);
         resp.sendRedirect("/index");
     }
 }

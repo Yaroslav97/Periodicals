@@ -55,7 +55,7 @@ public class ValidateUser implements Validator<User>, UserValidate<String, Doubl
 
     @Override
     public boolean score(Double score) throws ValidationException {
-        if (score == null || score > 999) {
+        if (score == null || score < 0.1 || score > 999) {
             throw new ValidationException("Score must be gt 0 lt 1000");
         }
         return true;

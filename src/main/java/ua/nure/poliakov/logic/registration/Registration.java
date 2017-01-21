@@ -6,7 +6,6 @@ import ua.nure.poliakov.dao.user_dao.UserDAO;
 import ua.nure.poliakov.dao.user_dao.UserDAOImplement;
 import ua.nure.poliakov.utils.email.SendEmail;
 import ua.nure.poliakov.utils.encodind.Password;
-import ua.nure.poliakov.utils.validations.UserValidation;
 import ua.nure.poliakov.utils.validations.Validator;
 import ua.nure.poliakov.utils.validations.user.ValidateUser;
 

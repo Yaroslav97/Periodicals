@@ -21,7 +21,8 @@ public class EditionsList {
         } else if (search != null) {
             req.getSession().setAttribute("editionList", editionDAO.searchByName(search));
         } else if (filter1 != null && filter2 != null && Double.valueOf(filter1) < Double.valueOf(filter2)) {
-            editionDAO.filterByPrice(Double.valueOf(filter1), Double.valueOf(filter2));
+            req.getSession().setAttribute("editionList",
+                    editionDAO.filterByPrice(Double.valueOf(filter1), Double.valueOf(filter2)));
         } else {
             req.getSession().setAttribute("editionList", editionDAO.getAllSortEditions("subject"));
         }

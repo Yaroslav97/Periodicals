@@ -31,13 +31,17 @@
             <li><a href="/editProfile">${EditProfile}</a></li>
             <li class="active"><a href="/score">${RefillAccount}</a></li>
             <li><a href="/userCabinet">${sessionScope.authenticatedFullName}</a></li>
-            <li><a href="/logout">${LogOut}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <c:if test="${!empty sessionScope.authenticatedLogin}">
+                <li><a href="/logout">${LogOut}</a></li>
+            </c:if>
         </ul>
     </div>
 </nav>
 
 <c:if test="${empty sessionScope.authenticatedLogin}">
-    <c:redirect url="/index"/>
+    <c:redirect url="/signIn"/>
 </c:if>
 
 <c:if test="${sessionScope.authenticatedRole != 'user'}">
@@ -65,6 +69,10 @@
 <br>
 <hr>
 <br>
+
+<div class="container" align="center">
+    <h4>${requestScope.scoreInfo}</h4>
+</div>
 
 </body>
 </html>

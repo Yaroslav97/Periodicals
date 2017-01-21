@@ -154,8 +154,7 @@
 
                         <c:when test="${sessionScope.authenticatedRole == 'admin'}">
                             <td>
-                                <a href="/editEdition?eId=${editionList.id}&eName=${editionList.name}
-                                &eSubject=${editionList.subject}&ePrice=${editionList.price}">${Edit}</a>
+                                <a href="/editEdition?eId=${editionList.id}&eName=${editionList.name}&eSubject=${editionList.subject}&ePrice=${editionList.price}">${Edit}</a>
                             </td>
                             <td>
                                 <a href="/removeEdition?id=${editionList.id}">${Remove}</a>
