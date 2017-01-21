@@ -19,7 +19,7 @@ public class ValidateUser implements Validator<User>, UserValidate<String, Doubl
     public boolean name(String name) throws ValidationException {
         Pattern pattern = Pattern.compile("[A-zА-я]+ [A-zА-я]+");
         Matcher matcher = pattern.matcher(name);
-        if (name == null || name.length() < 4 || !matcher.matches()) {
+        if (name.length() < 4 || !matcher.matches()) {
             throw new ValidationException("User name must be greater then 4 and contains only characters");
         }
         return true;

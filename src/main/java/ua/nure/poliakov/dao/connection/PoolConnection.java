@@ -6,15 +6,14 @@ import javax.naming.*;
 
 public class PoolConnection {
 
-    public static ComboPooledDataSource getPool(){
-        
-        ComboPooledDataSource pooledDataSource = null;
+    public static ComboPooledDataSource getPool() {
+        ComboPooledDataSource dataSource = null;
         try {
             Context context = new InitialContext();
-            pooledDataSource = (ComboPooledDataSource) context.lookup("java:/comp/env/jdbc/periodical");
+            dataSource = (ComboPooledDataSource) context.lookup("java:/comp/env/jdbc/periodical");
         } catch (NamingException e) {
             e.printStackTrace();
         }
-        return pooledDataSource;
+        return dataSource;
     }
 }
