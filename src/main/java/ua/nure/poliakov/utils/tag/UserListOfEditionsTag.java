@@ -7,7 +7,7 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.io.IOException;
 import java.util.List;
 
-public class UserTag extends BodyTagSupport {
+public class UserListOfEditionsTag extends BodyTagSupport {
 
     private List<Edition> list;
 

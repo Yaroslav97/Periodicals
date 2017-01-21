@@ -31,28 +31,27 @@ public class SignIn extends HttpServlet {
         String password = req.getParameter("password");
         userDAO = new UserDAOImplement();
 
-        if (userDAO.isContainsLogin(login)) {
-            if (userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password)) &&
-                    !userDAO.getByLogin(login).getBan()) {
-                session.setAttribute("authenticatedLogin", userDAO.getByLogin(login).getLogin());
-                session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
-                session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
-                session.setAttribute("authenticatedRole", userDAO.getByLogin(login).getRole());
-                session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
-                session.setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
-                session.setAttribute("notification", userDAO.getSettings(login));
-                log.info("sign in ==> " + login);
-                resp.sendRedirect("/index");
-            } else if (userDAO.getByLogin(login).getBan()) {
-                log.info("Access denied ==> " + login);
-                resp.sendRedirect("access_denied.jsp");
-            } else {
-                req.setAttribute("signInInfo", "Wrong password");
-                log.info("Wrong password ==> " + login);
-                req.getRequestDispatcher("login_page.jsp").forward(req, resp);
-            }
-        } else {
+        if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getPassword().
+                equals(Password.encodePassword(password)) && !userDAO.getByLogin(login).getBan()) {
+            session.setAttribute("authenticatedLogin", userDAO.getByLogin(login).getLogin());
+            session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
+            session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
+            session.setAttribute("authenticatedRole", userDAO.getByLogin(login).getRole());
+            session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
+            session.setAttribute("authenticatedScore", userDAO.getScore(login));
+            session.setAttribute("notification", userDAO.getSettings(login));
+            log.info("sign in ==> " + login);
+            resp.sendRedirect("/index");
+        } else if (!userDAO.isContainsLogin(login)) {
+            log.info("Incorrect login or login not exist");
             resp.sendRedirect("login_error.jsp");
+        } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
+            req.setAttribute("signInInfo", "Wrong password");
+            log.info("Wrong password ==> " + login);
+            req.getRequestDispatcher("login_page.jsp").forward(req, resp);
+        } else if (userDAO.getByLogin(login).getBan()) {
+            log.info("Access denied ==> " + login);
+            resp.sendRedirect("access_denied.jsp");
         }
     }
 }

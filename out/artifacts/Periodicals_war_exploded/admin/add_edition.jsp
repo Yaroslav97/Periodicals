@@ -42,7 +42,7 @@
 </nav>
 
 <c:if test="${empty sessionScope.authenticatedLogin}">
-    <c:redirect url="/index"/>
+    <c:redirect url="/signIn"/>
 </c:if>
 
 <c:if test="${sessionScope.authenticatedRole != 'admin'}">

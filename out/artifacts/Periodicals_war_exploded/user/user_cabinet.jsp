@@ -47,7 +47,7 @@
 </c:if>
 
 <c:if test="${sessionScope.authenticatedRole != 'user'}">
-    <c:redirect url="/signIn"/>
+    <c:redirect url="/index"/>
 </c:if>
 
 <div align="right" class="container">

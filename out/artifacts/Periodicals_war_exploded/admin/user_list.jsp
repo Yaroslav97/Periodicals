@@ -63,7 +63,7 @@
 </nav>
 
 <c:if test="${empty sessionScope.authenticatedLogin}">
-    <c:redirect url="/index"/>
+    <c:redirect url="/signIn"/>
 </c:if>
 
 <c:if test="${sessionScope.authenticatedRole != 'admin'}">
@@ -72,6 +72,7 @@
 
 <c:if test="${sessionScope.authenticatedBan == true}">
     <c:redirect url="/logout"/>
+    <%--todo when user ban, create method--%>
 </c:if>
 
 
