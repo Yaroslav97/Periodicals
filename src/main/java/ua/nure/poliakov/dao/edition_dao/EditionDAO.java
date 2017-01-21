@@ -33,4 +33,6 @@ public interface EditionDAO {
     List<Edition> filterByPrice(double from, double to);
 
     List<Edition> getEditionInfo(int id);
+
+    List<Edition> getEditionsBySubject(String subject);
 }

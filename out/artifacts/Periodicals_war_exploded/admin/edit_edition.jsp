@@ -34,7 +34,11 @@
             <li><a href="/addEdition">${AddEdition}</a></li>
             <li class="active"><a href="/editEdition">${EditEdition}</a></li>
             <li><a href="/userList">${UserList}</a></li>
-            <li><a href="/logout">${LogOut}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <c:if test="${!empty sessionScope.authenticatedLogin}">
+                <li><a href="/logout">${LogOut}</a></li>
+            </c:if>
         </ul>
     </div>
 </nav>

@@ -29,7 +29,7 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String SELECT_SUBSCRIBE = "SELECT login, edition FROM subscribes WHERE login=? AND edition=?";
     private static final String SELECT_ID = "SELECT id FROM editions WHERE id=?";
     private static final String SELECT_ALL_SUBSCRIBES_BY_LOGIN = "SELECT * FROM subscribes WHERE login=?";
-    private static final String SELECT_BY_NAME_AND_SUBJECT = "SELECT * FROM editions WHERE `name`=? && subject=?";
+    private static final String SELECT_EDITION_BY_NAME_AND_SUBJECT = "SELECT * FROM editions WHERE `name`=? && subject=?";
     private static final String SELECT_BY_NAME = "SELECT * FROM editions WHERE name LIKE ? ORDER BY name";
     private static final String SELECT_BY_PRICE = "SELECT * FROM editions WHERE price BETWEEN ? AND ? ORDER BY price";
     private static final String SELECT_BY_SUB = "SELECT editions.*, count(subscribes.login) " +
@@ -38,6 +38,7 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String SELECT_EDITION_INFO = "SELECT editions.id, editions.name, editions.subject, " +
             "count(subscribes.login), sum(editions.price) FROM editions, subscribes " +
             "WHERE editions.id=? AND editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
+    private static final String SELECT_EDITION_BY_SUBJECT = "SELECT * FROM editions WHERE subject=? ORDER BY name";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private UserDAO userDAO = new UserDAOImplement();
@@ -309,7 +310,7 @@ public class EditionDAOImplement implements EditionDAO {
 
         try {
             connection = dataSource.getConnection();
-            preparedStatement = connection.prepareStatement(SELECT_BY_NAME_AND_SUBJECT);
+            preparedStatement = connection.prepareStatement(SELECT_EDITION_BY_NAME_AND_SUBJECT);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, subject);
             resultSet = preparedStatement.executeQuery();
@@ -342,7 +343,8 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, "%" + name + "%");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                editionList.add(new Edition(resultSet.getInt("id"),
+                editionList.add(new Edition(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("subject"),
                         resultSet.getDouble("price")));
@@ -371,7 +373,8 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setDouble(2, to);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                editionList.add(new Edition(resultSet.getInt("id"),
+                editionList.add(new Edition(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("subject"),
                         resultSet.getDouble("price")));
@@ -399,11 +402,41 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                editionList.add(new Edition(resultSet.getInt("editions.id"),
+                editionList.add(new Edition(
+                        resultSet.getInt("editions.id"),
                         resultSet.getString("editions.name"),
                         resultSet.getString("editions.subject"),
                         resultSet.getDouble(5),
                         resultSet.getInt(4)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Close.close(resultSet);
+            Close.close(preparedStatement);
+            Close.close(connection);
+        }
+        return editionList;
+    }
+
+    @Override
+    public List<Edition> getEditionsBySubject(String subject) {
+        List<Edition> editionList = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement(SELECT_EDITION_BY_SUBJECT);
+            preparedStatement.setString(1, subject);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                editionList.add(new Edition(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("subject"),
+                        resultSet.getDouble("price")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -14,6 +14,7 @@ public class EditionsList {
         String search = req.getParameter("search");
         String filter1 = req.getParameter("filter1");
         String filter2 = req.getParameter("filter2");
+        String subject = req.getParameter("subject");
         req.getSession().setAttribute("countSub", editionDAO.getAllSortEditions("rank"));
 
         if (sort != null) {
@@ -23,6 +24,8 @@ public class EditionsList {
         } else if (filter1 != null && filter2 != null && Double.valueOf(filter1) < Double.valueOf(filter2)) {
             req.getSession().setAttribute("editionList",
                     editionDAO.filterByPrice(Double.valueOf(filter1), Double.valueOf(filter2)));
+        } else if (subject != null) {
+            req.getSession().setAttribute("editionList", editionDAO.getEditionsBySubject(subject));
         } else {
             req.getSession().setAttribute("editionList", editionDAO.getAllSortEditions("subject"));
         }

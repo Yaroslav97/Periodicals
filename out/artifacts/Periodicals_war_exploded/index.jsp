@@ -44,6 +44,7 @@
 <fmt:message key="edit" var="Edit"/>
 <fmt:message key="remove" var="Remove"/>
 <fmt:message key="info" var="Info"/>
+<fmt:message key="edition" var="Edition"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -74,7 +75,7 @@
         </ul>
         <form action="/index" class="navbar-form navbar-left">
             <div class="input-group">
-                <input name="search" required placeholder="${Periodical}" class="form-control">
+                <input name="search" required placeholder="${Edition}" class="form-control">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit">
                         <i class="glyphicon glyphicon-search"></i>
@@ -110,6 +111,17 @@
                 <option value="id">${id}</option>
             </select>
             <input type="submit" value="${Sort}"><br><br>
+        </form>
+    </div>
+
+    <div align="right">
+        <form action="/index" class="col-xs-2">
+            <select name="subject" class="form-control">
+                <option selected value="news">news</option>
+                <option value="name">cars</option>
+                <option value="name">cuisine</option>
+            </select>
+            <input type="submit" value="ok"><br><br>
         </form>
     </div>
 

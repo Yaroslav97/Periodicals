@@ -5,7 +5,6 @@
 <html>
 <head>
     <title>Subscribers Information</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,8 +12,35 @@
 </head>
 <body>
 
+<fmt:setBundle basename="i18n"/>
+
+<fmt:message key="periodicals" var="Periodicals"/>
+<fmt:message key="add.edition" var="AddEdition"/>
+<fmt:message key="user.list" var="UserList"/>
+<fmt:message key="information" var="Info"/>
+<fmt:message key="log.out" var="LogOut"/>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index">${Periodicals}</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/index">${sessionScope.authenticatedFullName}</a></li>
+            <li><a href="/addEdition">${AddEdition}</a></li>
+            <li><a href="/userList">${UserList}</a></li>
+            <li class="active"><a href="">${Info}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <c:if test="${!empty sessionScope.authenticatedLogin}">
+                <li><a href="/logout">${LogOut}</a></li>
+            </c:if>
+        </ul>
+    </div>
+</nav>
+
 <c:if test="${empty sessionScope.authenticatedLogin}">
-    <c:redirect url="/index"/>
+    <c:redirect url="/signIn"/>
 </c:if>
 
 <c:if test="${sessionScope.authenticatedRole != 'admin'}">
@@ -43,8 +69,6 @@
 
     <hr>
     <br>
-    <br>
-    <br>
 
     <table class="table">
         <tr>
@@ -63,11 +87,7 @@
             </tr>
         </c:forEach>
     </table>
-
 </div>
-
-<%--User List: review subscription info in new page, list all sub, total sum;
-    searchByName user in user list--%>
 
 </body>
 </html>
