@@ -22,6 +22,9 @@ public class UserInfo extends HttpServlet {
         String login = req.getParameter("login");
         editionDAO = new EditionDAOImplement();
         req.getSession().setAttribute("usersInfo", editionDAO.getAllSubscribes(login));
+
+        req.getSession().setAttribute("count", editionDAO.getAllSubscribes(login).size());
+
         log.info("Information about ==> " + login);
         req.getRequestDispatcher("admin//user_profile.jsp").forward(req, resp);
     }

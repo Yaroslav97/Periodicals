@@ -3,6 +3,8 @@
 <%@ taglib prefix="tag" uri="http://periodicals.nure.ua" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 
+<%@taglib prefix="tagCountSub" tagdir="/WEB-INF/tags" %>
+
 <html>
 <head>
     <title>user info</title>
@@ -49,6 +51,10 @@
 </c:if>
 
 <div class="container" align="center">
+    <tagCountSub:tagCountSub count="${count}"/>
+    <br>
+    <br>
+    <br>
     <tag:list list="${sessionScope.usersInfo}"/>
 </div>
 
