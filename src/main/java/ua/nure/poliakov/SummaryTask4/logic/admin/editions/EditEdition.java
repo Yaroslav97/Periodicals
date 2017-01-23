@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.edition.ValidateEdition;
 
@@ -31,7 +32,7 @@ public class EditEdition extends HttpServlet {
         session.setAttribute("editSubject", req.getParameter("eSubject"));
         session.setAttribute("editPrice", req.getParameter("ePrice"));
         log.info("EditEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
-        req.getRequestDispatcher("admin//edit_edition.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
     }
 
     @Override
@@ -51,13 +52,13 @@ public class EditEdition extends HttpServlet {
             } else if (editionDAO.isSameEdition(name, subject)) {
                 log.info("The same edition already exist ==> " + req.getSession().getAttribute("editId"));
                 req.setAttribute("editInfo", "The same edition already exist");
-                req.getRequestDispatcher("admin//edit_edition.jsp").forward(req, resp);
+                req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
             log.error(e);
             log.info("Not valid data ==> " + req.getSession().getAttribute("editId"));
             req.setAttribute("editInfo", "Not valid data");
-            req.getRequestDispatcher("admin//edit_edition.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
         }
     }
 }

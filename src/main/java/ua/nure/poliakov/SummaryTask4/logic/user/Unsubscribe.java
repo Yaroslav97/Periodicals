@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.user;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,10 +29,10 @@ public class Unsubscribe extends HttpServlet {
             req.getSession().setAttribute("subscribesList", editionDAO.getAllSubscriptions
                     (String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
             log.info(login + " unsubscribes " + editionDAO.getEdition(idEdition).getName());
-            resp.sendRedirect("user//user_cabinet.jsp");
+            resp.sendRedirect(WebPath.USER_CABINET_PAGE);
         } else {
             log.info(login + " does not subscribes to " + editionDAO.getEdition(idEdition).getName() + " or edition not exist");
-            resp.sendRedirect("user//user_cabinet.jsp");
+            resp.sendRedirect(WebPath.USER_CABINET_PAGE);
         }
     }
 }

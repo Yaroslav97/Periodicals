@@ -5,6 +5,7 @@ import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.email.SendEmail;
 import ua.nure.poliakov.SummaryTask4.utils.pay.Pay;
 
@@ -50,15 +51,15 @@ public class Subscribe extends HttpServlet {
         } else if (editionDAO.isSubscribe(login, id)) {
             log.info(login + " already subscribes to this edition");
             req.setAttribute("subscribeInfo", "You already subscribe for " + editionDAO.getEdition(id).getName());
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!login.equals("null") && !Pay.isCanPay(login, id)) {
             log.info(login + " can not pay for subscribe ==> " + editionDAO.getEdition(id).getName());
             req.setAttribute("subscribeInfo", "You have not required balance");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!editionDAO.isContains(id)) {
             log.info(id + " ==> not exist edition");
             req.setAttribute("subscribeInfo", "Wrong id edition");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (login.equals("null")){
             log.info("User is not authenticated");
             resp.sendRedirect("/signIn");

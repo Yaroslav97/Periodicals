@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.ValidateUser;
@@ -27,7 +28,7 @@ public class EditProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("EditProfile: " + req.getSession().getAttribute("authenticatedLogin"));
-        req.getRequestDispatcher("user//edit_profile.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.EDIT_PROFILE_PAGE).forward(req, resp);
     }
 
     @Override
@@ -55,8 +56,7 @@ public class EditProfile extends HttpServlet {
             log.error(e);
             log.info("No valid data");
             req.setAttribute("editInfo", "You try enter incorrect data");
-            req.getRequestDispatcher("registration.jsp").forward(req, resp);
-            req.getRequestDispatcher("user//edit_profile.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.EDIT_PROFILE_PAGE).forward(req, resp);
         }
     }
 }

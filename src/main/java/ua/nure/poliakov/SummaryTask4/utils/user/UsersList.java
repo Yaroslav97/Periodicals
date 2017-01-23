@@ -2,6 +2,7 @@ package ua.nure.poliakov.SummaryTask4.utils.user;
 
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,19 +21,19 @@ public class UsersList {
             switch (role) {
                 case "users":
                     req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
-                    req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
+                    req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
                     break;
                 case "admins":
                     req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("admin"));
-                    req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
+                    req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
                     break;
                 default:
-                    req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
+                    req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
             }
         } else {
             if (search != null) {
                 req.getSession().setAttribute("userList", userDAO.searchByName(search));
-                req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
+                req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
             }
         }
     }

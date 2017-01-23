@@ -5,6 +5,7 @@ import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,6 @@ public class EditionInfo extends HttpServlet {
         log.info("EditionInfo page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getSession().setAttribute("editionInfo", editionDAO.getEditionInfo(id));
         req.getSession().setAttribute("subList", userDAO.getSubscribers(id));
-        req.getRequestDispatcher("admin//edition_info.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.EDITION_INFO_PAGE).forward(req, resp);
     }
 }

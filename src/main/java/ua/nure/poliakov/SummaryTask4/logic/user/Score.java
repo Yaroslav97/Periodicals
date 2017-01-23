@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.user;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.UserValidate;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.ValidateUser;
@@ -24,7 +25,7 @@ public class Score extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("user//refill_score_page.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
     }
 
     @Override
@@ -45,14 +46,14 @@ public class Score extends HttpServlet {
                 } else {
                     log.info("Wrong password");
                     req.setAttribute("scoreInfo", "Wrong password");
-                    req.getRequestDispatcher("user//refill_score_page.jsp").forward(req, resp);
+                    req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
                 }
             }
         } catch (ValidationException e) {
             log.error(e);
             log.info("Not valid input data");
             req.setAttribute("scoreInfo", "Not valid data");
-            req.getRequestDispatcher("user//refill_score_page.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
         }
     }
 }

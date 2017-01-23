@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.admin.users;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.user.UsersList;
 
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class UserList extends HttpServlet {
         req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
         resp.setIntHeader("Refresh", 200);
         log.info("UserList page: " + req.getSession().getAttribute("authenticatedLogin"));
-        req.getRequestDispatcher("admin//user_list.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
     }
 
     @Override

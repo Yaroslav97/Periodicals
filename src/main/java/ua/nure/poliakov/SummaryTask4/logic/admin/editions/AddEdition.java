@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.edition.ValidateEdition;
 
@@ -24,8 +25,8 @@ public class AddEdition extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info("AddEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
-        req.getRequestDispatcher("admin//add_edition.jsp").forward(req, resp);
+        log.trace("AddEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
+        req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
     }
 
     @Override
@@ -39,18 +40,18 @@ public class AddEdition extends HttpServlet {
         try {
             if (validator.validate(new Edition(name, subject, price)) && !editionDAO.isSameEdition(name, subject)) {
                 editionDAO.addEdition(new Edition(name, subject, price));
-                log.info(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
+                log.trace(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
                 resp.sendRedirect("/index");
             } else if (editionDAO.isSameEdition(name, subject)){
-                log.info("The same edition already exist");
+                log.trace("The same edition already exist");
                 req.setAttribute("addEditionInfo", "The same edition already exist");
-                req.getRequestDispatcher("admin//add_edition.jsp").forward(req, resp);
+                req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
             log.error(e);
-            log.debug("Not valid data");
+            log.error("Not valid data");
             req.setAttribute("addEditionInfo", "Not valid data");
-            req.getRequestDispatcher("admin//add_edition.jsp").forward(req, resp);
+            req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
         }
     }
 }

@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.admin.users;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +27,6 @@ public class UserInfo extends HttpServlet {
         req.setAttribute("fullName", req.getParameter("fullName"));
         req.setAttribute("login", login);
         log.info("Information about ==> " + login);
-        req.getRequestDispatcher("admin//user_profile.jsp").forward(req, resp);
+        req.getRequestDispatcher(WebPath.USER_PROFILE_PAGE).forward(req, resp);
     }
 }
