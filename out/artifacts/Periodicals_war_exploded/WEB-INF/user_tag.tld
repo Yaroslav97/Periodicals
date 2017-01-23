@@ -11,7 +11,7 @@
 
     <tag>
         <name>list</name>
-        <tag-class>ua.nure.poliakov.utils.tag.UserListOfEditionsTag</tag-class>
+        <tag-class>ua.nure.poliakov.SummaryTask4.utils.tag.UserListOfEditionsTag</tag-class>
         <body-content>empty</body-content>
 
         <attribute>

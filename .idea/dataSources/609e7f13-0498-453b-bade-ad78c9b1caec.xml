@@ -63,30 +63,49 @@
       <ColNames>login</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="27" parent="15" name="id">
+    <foreign-key id="27" parent="14" name="lo">
+      <ColNames>login</ColNames>
+      <RefSchemaName>periodical</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>login</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="28" parent="15" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="28" parent="15" name="login">
+    <column id="29" parent="15" name="login">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="15" name="edition">
+    <column id="30" parent="15" name="edition">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="30" parent="15" name="sub_idx">
+    <index id="31" parent="15" name="sub_idx">
       <ColNames>edition</ColNames>
     </index>
-    <key id="31" parent="15" name="PRIMARY">
+    <index id="32" parent="15" name="key_idx">
+      <ColNames>login</ColNames>
+    </index>
+    <key id="33" parent="15" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="32" parent="15" name="sub">
+    <foreign-key id="34" parent="15" name="key">
+      <ColNames>login</ColNames>
+      <RefSchemaName>periodical</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>login</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="35" parent="15" name="sub">
       <ColNames>edition</ColNames>
       <RefSchemaName>periodical</RefSchemaName>
       <RefTableName>editions</RefTableName>
@@ -94,68 +113,76 @@
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="33" parent="16" name="role">
+    <column id="36" parent="16" name="role">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="16" name="login">
+    <column id="37" parent="16" name="login">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="35" parent="16" name="login_UNIQUE">
+    <index id="38" parent="16" name="login_UNIQUE">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="36" parent="16" name="PRIMARY">
+    <key id="39" parent="16" name="PRIMARY">
       <ColNames>login</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="37" parent="16" name="login_UNIQUE">
+    <key id="40" parent="16" name="login_UNIQUE">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>login_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="38" parent="17" name="id">
+    <foreign-key id="41" parent="16" name="log">
+      <ColNames>login</ColNames>
+      <RefSchemaName>periodical</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>login</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="42" parent="17" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="39" parent="17" name="fullName">
+    <column id="43" parent="17" name="fullName">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="40" parent="17" name="login">
+    <column id="44" parent="17" name="login">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="41" parent="17" name="email">
+    <column id="45" parent="17" name="email">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="42" parent="17" name="password">
+    <column id="46" parent="17" name="password">
       <Position>7</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="17" name="ban">
+    <column id="47" parent="17" name="ban">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="17" name="score">
+    <column id="48" parent="17" name="score">
       <Position>6</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="45" parent="17" name="log">
+    <index id="49" parent="17" name="log">
       <ColNames>login</ColNames>
     </index>
-    <key id="46" parent="17" name="PRIMARY">
+    <key id="50" parent="17" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

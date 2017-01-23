@@ -59,7 +59,7 @@
                 <li><a href="/userCabinet">${sessionScope.authenticatedFullName}</a></li>
             </c:if>
             <c:if test="${sessionScope.authenticatedRole == 'admin'}">
-                <li class="active"><a href="">${sessionScope.authenticatedFullName}</a></li>
+                <li class="active"><a href="">${sessionScope.authenticatedFullName} (${sessionScope.authenticatedRole})</a></li>
                 <li><a href="/addEdition">${AddEdition}</a></li>
                 <li><a href="/userList">${UserList}</a></li>
             </c:if>
@@ -118,8 +118,9 @@
         <form action="/index" class="col-xs-2">
             <select name="subject" class="form-control">
                 <option selected value="news">news</option>
-                <option value="name">cars</option>
-                <option value="name">cuisine</option>
+                <option value="cars">cars</option>
+                <option value="cuisine">cuisine</option>
+                <option value="sport">sport</option>
             </select>
             <input type="submit" value="ok"><br><br>
         </form>

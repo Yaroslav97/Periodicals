@@ -111,7 +111,7 @@
                 <td>${userList.role}</td>
                 <td>${userList.ban}</td>
                 <td><a href="/changeStatus?login=${userList.login}&role=${userList.role}">${ChangeStatus}</a></td>
-                <td><a href="/userInfo?login=${userList.login}">${Info}</a></td>
+                <td><a href="/userInfo?login=${userList.login}&fullName=${userList.fullName}">${Info}</a></td>
             </tr>
         </c:forEach>
     </table>

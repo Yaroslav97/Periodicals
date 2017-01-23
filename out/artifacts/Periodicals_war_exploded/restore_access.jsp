@@ -61,6 +61,9 @@
     <input type="submit" value="${Send}"><br>
     <br>
     <hr>
+    <div align="center">
+        <h4>${requestScope.restoreInfo}</h4>
+    </div>
 </form>
 </div>
 </body>

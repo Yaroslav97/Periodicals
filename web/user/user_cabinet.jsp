@@ -80,5 +80,13 @@
     </table>
 </div>
 
+<br>
+<hr>
+<br>
+
+<div align="right" class="container">
+    <a href="/sendReport">send report on email</a>
+</div>
+
 </body>
 </html>
