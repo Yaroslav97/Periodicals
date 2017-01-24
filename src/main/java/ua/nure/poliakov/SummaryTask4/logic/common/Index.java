@@ -17,7 +17,7 @@ import java.io.IOException;
 public class Index extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Logger.class);
-    private UserDAO userDAO = UserDAOImplement.getInstance();;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
