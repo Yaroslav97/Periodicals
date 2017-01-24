@@ -1,17 +1,3 @@
-<!--
-<Context>
-    <Resource description="DB Connection"
-              auth="Container"
-              type="javax.sql.DataSource"
-              name="jdbc/periodical"
-              username="root"
-              password="poliak1997"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost/periodical?characterEncoding=UTF-8"
-              maxActive="100"/>
-</Context>-->
-
-
 <Context>
     <Resource
             description="DB Connection"
@@ -24,7 +10,7 @@
             name="jdbc/periodical"
             maxPoolSize="100"
             minPoolSize="0"
-            maxConnectionAge="1000"
+            maxConnectionAge="10000"
             acquireRetryAttempts="60"
             acquireIncrement="1"
     />
