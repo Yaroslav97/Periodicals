@@ -14,6 +14,18 @@ import java.util.List;
 
 public class UserDAOImplement implements UserDAO {
 
+    private UserDAOImplement() {
+    }
+
+    private static UserDAOImplement instance;
+
+    public static synchronized UserDAOImplement getInstance() {
+        if (instance == null) {
+            instance = new UserDAOImplement();
+        }
+        return instance;
+    }
+
     private static final String INSERT_USERS = "INSERT INTO users (fullName, login, email, ban, score ,password) " +
             "VALUES(?, ?, ?, ?, ?, ?)";
     private static final String INSERT_ROLE = "INSERT INTO user_role (login, role) VALUES(?, ?)";

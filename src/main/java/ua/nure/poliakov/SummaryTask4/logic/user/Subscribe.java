@@ -21,15 +21,13 @@ import java.io.IOException;
 public class Subscribe extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Subscribe.class);
-    private UserDAO userDAO;
-    private EditionDAO editionDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
-        userDAO = new UserDAOImplement();
-        editionDAO = new EditionDAOImplement();
         log.info("Subscribe page");
 
         if (editionDAO.isContains(id) && !login.equals("null") && !editionDAO.isSubscribe(login, id) && Pay.isCanPay(login, id)) {
@@ -60,7 +58,7 @@ public class Subscribe extends HttpServlet {
             log.info(id + " ==> not exist edition");
             req.setAttribute("subscribeInfo", "Wrong id edition");
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
-        } else if (login.equals("null")){
+        } else if (login.equals("null")) {
             log.info("User is not authenticated");
             resp.sendRedirect("/signIn");
         }

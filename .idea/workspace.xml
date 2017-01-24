@@ -53,7 +53,49 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Index.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAOImplement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <marker date="1485254846546" expanded="true" signature="824:930" ph="INSERT INTO users... " />
+                <marker date="1485254846546" expanded="true" signature="980:1028" ph="INSERT INTO user_role... " />
+                <marker date="1485254846546" expanded="true" signature="1081:1136" ph="INSERT INTO settings... " />
+                <marker date="1485254846546" expanded="true" signature="1187:1249" ph="UPDATE users... " />
+                <marker date="1485254846546" expanded="true" signature="1305:1341" ph="UPDATE users... " />
+                <marker date="1485254846546" expanded="true" signature="1395:1436" ph="UPDATE users... " />
+                <marker date="1485254846546" expanded="true" signature="1494:1538" ph="UPDATE users... " />
+                <marker date="1485254846546" expanded="true" signature="1598:1642" ph="UPDATE users... " />
+                <marker date="1485254846546" expanded="true" signature="1695:1744" ph="UPDATE setti... " />
+                <marker date="1485254846546" expanded="true" signature="1795:1826" ph="DELETE FROM " />
+                <marker date="1485254846546" expanded="true" signature="1876:1911" ph="DELETE FROM " />
+                <marker date="1485254846546" expanded="true" signature="1964:1998" ph="DELETE FROM " />
+                <marker date="1485254846546" expanded="true" signature="2057:2180" ph="SELECT users... users" />
+                <marker date="1485254846546" expanded="true" signature="2235:2340" ph="SELECT users... users" />
+                <marker date="1485254846546" expanded="true" signature="2403:2554" ph="SELECT users... users" />
+                <marker date="1485254846546" expanded="true" signature="2605:2642" ph="SELECT login... users" />
+                <marker date="1485254846546" expanded="true" signature="2693:2730" ph="SELECT score... users" />
+                <marker date="1485254846546" expanded="true" signature="2783:2830" ph="SELECT notif... settings" />
+                <marker date="1485254846546" expanded="true" signature="2887:3049" ph="SELECT users... users" />
+                <marker date="1485254846546" expanded="true" signature="3107:3250" ph="SELECT users... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -97,37 +139,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/tag/tagCountSub.tag" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/poliakov/dao/close/Close.java" />
-        <option value="$PROJECT_DIR$/web/admin/user_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/UserInfo.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/tags/tagCountSub.tag" />
-        <option value="$PROJECT_DIR$/web/admin/user_profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendAllSubOnEmail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAO.java" />
         <option value="$PROJECT_DIR$/web/user/user_cabinet.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateDoc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/RestoreAccess.java" />
         <option value="$PROJECT_DIR$/web/restore_access.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/paths/WebPath.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/user/UsersList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Subscribe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/EditProfile.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Score.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/paths/WebPath.java" />
         <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/styles/style.css" />
@@ -148,6 +165,31 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jspf/i18n.jspf" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/DeleteProfile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/EditProfile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Score.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Subscribe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pay/Pay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/user/UsersList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/connection/PoolConnection.java" />
       </list>
     </option>
   </component>
@@ -299,36 +341,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummaryTask4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -356,7 +368,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -383,48 +395,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SummaryTask4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummaryTask4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1220,7 +1190,7 @@
       <workItem from="1485089641735" duration="863000" />
       <workItem from="1485108629805" duration="4512000" />
       <workItem from="1485162491787" duration="15042000" />
-      <workItem from="1485250066259" duration="3430000" />
+      <workItem from="1485250066259" duration="5272000" />
     </task>
     <task id="LOCAL-00001" summary="commit project">
       <created>1484298071284</created>
@@ -1265,7 +1235,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="388842000" />
+    <option name="totallyTimeSpent" value="390684000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1351,53 +1321,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/close/Close.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/tags/tagCountSub.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="264" column="60" lean-forward="false" selection-start-line="264" selection-start-column="60" selection-end-line="264" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateDoc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1439,138 +1369,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="60" column="62" lean-forward="false" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="58" lean-forward="false" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/user/UsersList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="35" column="63" lean-forward="false" selection-start-line="35" selection-start-column="63" selection-end-line="35" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="64" column="66" lean-forward="false" selection-start-line="64" selection-start-column="66" selection-end-line="64" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="49" column="64" lean-forward="false" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/EditProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="58" column="62" lean-forward="false" selection-start-line="58" selection-start-column="62" selection-end-line="58" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Subscribe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="61" column="55" lean-forward="false" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="55" lean-forward="false" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/paths/WebPath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1594,14 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1746,6 +1541,250 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="69" lean-forward="true" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="70" lean-forward="false" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="22" column="70" lean-forward="false" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1485254846765" expanded="true" signature="983:1042" ph="INSERT INTO editions... " />
+            <marker date="1485254846765" expanded="true" signature="1103:1154" ph="INSERT INTO subscribes... " />
+            <marker date="1485254846765" expanded="true" signature="1208:1265" ph="UPDATE editi... " />
+            <marker date="1485254846765" expanded="true" signature="1319:1350" ph="DELETE FROM " />
+            <marker date="1485254846765" expanded="true" signature="1405:1455" ph="DELETE FROM " />
+            <marker date="1485254846765" expanded="true" signature="1509:1542" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="1611:1645" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="1716:1752" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="1826:1865" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="1937:1974" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="2029:2094" ph="SELECT login... subscribes" />
+            <marker date="1485254846765" expanded="true" signature="2142:2176" ph="SELECT id FR... editions" />
+            <marker date="1485254846765" expanded="true" signature="2248:2286" ph="SELECT * FRO... subscribes" />
+            <marker date="1485254846765" expanded="true" signature="2359:2409" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="2462:2516" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="2570:2635" ph="SELECT * FRO... editions" />
+            <marker date="1485254846765" expanded="true" signature="2687:2879" ph="SELECT editi... editions" />
+            <marker date="1485254846765" expanded="true" signature="2937:3202" ph="SELECT editi... editions" />
+            <marker date="1485254846765" expanded="true" signature="3266:3318" ph="SELECT * FRO... editions" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="25" column="61" lean-forward="false" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/DeleteProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/EditProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="24" column="61" lean-forward="false" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Subscribe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pay/Pay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/user/UsersList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <marker date="1485254846546" expanded="true" signature="824:930" ph="INSERT INTO users... " />
+            <marker date="1485254846546" expanded="true" signature="980:1028" ph="INSERT INTO user_role... " />
+            <marker date="1485254846546" expanded="true" signature="1081:1136" ph="INSERT INTO settings... " />
+            <marker date="1485254846546" expanded="true" signature="1187:1249" ph="UPDATE users... " />
+            <marker date="1485254846546" expanded="true" signature="1305:1341" ph="UPDATE users... " />
+            <marker date="1485254846546" expanded="true" signature="1395:1436" ph="UPDATE users... " />
+            <marker date="1485254846546" expanded="true" signature="1494:1538" ph="UPDATE users... " />
+            <marker date="1485254846546" expanded="true" signature="1598:1642" ph="UPDATE users... " />
+            <marker date="1485254846546" expanded="true" signature="1695:1744" ph="UPDATE setti... " />
+            <marker date="1485254846546" expanded="true" signature="1795:1826" ph="DELETE FROM " />
+            <marker date="1485254846546" expanded="true" signature="1876:1911" ph="DELETE FROM " />
+            <marker date="1485254846546" expanded="true" signature="1964:1998" ph="DELETE FROM " />
+            <marker date="1485254846546" expanded="true" signature="2057:2180" ph="SELECT users... users" />
+            <marker date="1485254846546" expanded="true" signature="2235:2340" ph="SELECT users... users" />
+            <marker date="1485254846546" expanded="true" signature="2403:2554" ph="SELECT users... users" />
+            <marker date="1485254846546" expanded="true" signature="2605:2642" ph="SELECT login... users" />
+            <marker date="1485254846546" expanded="true" signature="2693:2730" ph="SELECT score... users" />
+            <marker date="1485254846546" expanded="true" signature="2783:2830" ph="SELECT notif... settings" />
+            <marker date="1485254846546" expanded="true" signature="2887:3049" ph="SELECT users... users" />
+            <marker date="1485254846546" expanded="true" signature="3107:3250" ph="SELECT users... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/connection/PoolConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding />
         </state>
       </provider>

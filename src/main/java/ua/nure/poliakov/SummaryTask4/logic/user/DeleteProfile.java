@@ -15,11 +15,10 @@ import java.io.IOException;
 public class DeleteProfile extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(DeleteProfile.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        userDAO = new UserDAOImplement();
         userDAO.deleteUser(req.getParameter("login"));
         log.info(req.getParameter("login") + " removed his account");
         req.getSession().invalidate();

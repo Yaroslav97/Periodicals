@@ -11,12 +11,11 @@ import java.io.IOException;
 
 public class UsersList {
 
-    private static UserDAO userDAO;
+    private static UserDAO userDAO = UserDAOImplement.getInstance();
 
     public static void getUsers(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String role = req.getParameter("role");
         String search = req.getParameter("search");
-        userDAO = new UserDAOImplement();
         if (role != null) {
             switch (role) {
                 case "users":

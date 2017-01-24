@@ -20,7 +20,7 @@ import java.io.IOException;
 public class Score extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Score.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
     private UserValidate<String, Double> userValidate;
 
     @Override
@@ -33,7 +33,6 @@ public class Score extends HttpServlet {
         Double score = Double.valueOf(req.getParameter("score"));
         String password = req.getParameter("password");
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
-        userDAO = new UserDAOImplement();
         userValidate = new ValidateUser();
 
         try {

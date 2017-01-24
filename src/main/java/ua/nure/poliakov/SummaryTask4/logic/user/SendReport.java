@@ -20,12 +20,10 @@ import java.util.List;
 public class SendReport extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Logger.class);
-    private EditionDAO editionDAO;
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        editionDAO = new EditionDAOImplement();
-
         List<Edition> list = editionDAO.getAllSubscriptions(
                 String.valueOf(req.getSession().getAttribute("authenticatedLogin")));
 

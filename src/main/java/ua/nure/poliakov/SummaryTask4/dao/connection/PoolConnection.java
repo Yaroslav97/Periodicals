@@ -6,6 +6,9 @@ import javax.naming.*;
 
 public class PoolConnection {
 
+    private PoolConnection() {
+    }
+
     public static ComboPooledDataSource getPool() {
         ComboPooledDataSource dataSource = null;
         try {

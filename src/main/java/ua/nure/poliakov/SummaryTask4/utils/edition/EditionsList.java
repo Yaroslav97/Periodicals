@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class EditionsList {
 
-    private static EditionDAO editionDAO = new EditionDAOImplement();
+    private static EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     public static void editionList(HttpServletRequest req) {
         String sort = req.getParameter("sort");

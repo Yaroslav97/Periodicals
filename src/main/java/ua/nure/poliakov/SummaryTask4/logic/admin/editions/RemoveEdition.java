@@ -15,12 +15,11 @@ import java.io.IOException;
 public class RemoveEdition extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(RemoveEdition.class);
-    private EditionDAO editionDAO;
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
-        editionDAO = new EditionDAOImplement();
         log.info("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
         if (editionDAO.isContains(id)) {
             editionDAO.deleteEdition(id);

@@ -21,7 +21,7 @@ import java.io.IOException;
 public class EditEdition extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(EditEdition.class);
-    private EditionDAO editionDAO;
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
     private Validator<Edition> validator;
 
     @Override
@@ -41,7 +41,6 @@ public class EditEdition extends HttpServlet {
         String subject = req.getParameter("subject");
         Double price = Double.valueOf(req.getParameter("price"));
         Integer id = Integer.parseInt(String.valueOf(req.getSession().getAttribute("editId")));
-        editionDAO = new EditionDAOImplement();
         validator = new ValidateEdition();
 
         try {

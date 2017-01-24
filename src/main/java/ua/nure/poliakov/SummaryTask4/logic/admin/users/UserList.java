@@ -17,11 +17,10 @@ import java.io.IOException;
 public class UserList extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(UserList.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        userDAO = new UserDAOImplement();
         req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user"));
         resp.setIntHeader("Refresh", 200);
         log.info("UserList page: " + req.getSession().getAttribute("authenticatedLogin"));

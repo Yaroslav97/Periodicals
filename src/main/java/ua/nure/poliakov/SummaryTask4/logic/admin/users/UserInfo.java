@@ -16,12 +16,11 @@ import java.io.IOException;
 public class UserInfo extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(UserInfo.class);
-    private EditionDAO editionDAO;
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
-        editionDAO = new EditionDAOImplement();
         req.getSession().setAttribute("usersInfo", editionDAO.getAllSubscriptions(login));
         req.getSession().setAttribute("count", editionDAO.getAllSubscriptions(login).size());
         req.setAttribute("fullName", req.getParameter("fullName"));

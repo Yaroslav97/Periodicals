@@ -18,7 +18,7 @@ import java.io.IOException;
 public class SignIn extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(SignIn.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,7 +30,6 @@ public class SignIn extends HttpServlet {
         HttpSession session = req.getSession();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        userDAO = new UserDAOImplement();
 
         if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getPassword().
                 equals(Password.encodePassword(password)) && !userDAO.getByLogin(login).getBan()) {

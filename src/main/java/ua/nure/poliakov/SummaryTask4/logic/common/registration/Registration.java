@@ -23,7 +23,7 @@ import java.io.IOException;
 public class Registration extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Registration.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();;
     private Validator<User> validator;
 
     @Override
@@ -38,7 +38,6 @@ public class Registration extends HttpServlet {
         String email = req.getParameter("email");
         String role = req.getParameter("role");
         String password = req.getParameter("password");
-        userDAO = new UserDAOImplement();
         validator = new ValidateUser();
 
         try {

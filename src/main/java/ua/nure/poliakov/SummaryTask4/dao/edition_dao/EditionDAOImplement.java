@@ -16,6 +16,18 @@ import java.util.List;
 
 public class EditionDAOImplement implements EditionDAO {
 
+    private EditionDAOImplement() {
+    }
+
+    private static EditionDAOImplement instance;
+
+    public static synchronized EditionDAOImplement getInstance() {
+        if (instance == null) {
+            instance = new EditionDAOImplement();
+        }
+        return instance;
+    }
+
     private static final String INSERT_INTO_EDITIONS = "INSERT INTO editions (`name`, subject, price) VALUES(?,?,?)";
     private static final String INSERT_INTO_SUBSCRIBES = "INSERT INTO subscribes (login, edition) VALUES(?,?)";
     private static final String UPDATE_EDITIONS = "UPDATE editions SET name=?, subject=?, price=? WHERE id=?";
@@ -41,7 +53,7 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String SELECT_EDITION_BY_SUBJECT = "SELECT * FROM editions WHERE subject=? ORDER BY name";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
-    private UserDAO userDAO = new UserDAOImplement();
+    private UserDAO userDAO = UserDAOImplement.getInstance();
     private Edition edition;
 
     @Override

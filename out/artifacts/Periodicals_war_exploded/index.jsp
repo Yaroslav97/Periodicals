@@ -10,7 +10,32 @@
 
 <body>
 
-<%@include file="WEB-INF/jspf/i18n.jspf"%>
+<fmt:setLocale value="${sessionScope.lang}" scope="session"/>
+<fmt:setBundle basename="i18n"/>
+
+<fmt:message key="periodicals" var="Periodicals"/>
+<fmt:message key="sign.in" var="SignIn"/>
+<fmt:message key="sign.up" var="SignUp"/>
+<fmt:message key="restore" var="RestoreAccess"/>
+<fmt:message key="add.edition" var="AddEdition"/>
+<fmt:message key="user.list" var="UserList"/>
+<fmt:message key="log.out" var="LogOut"/>
+<fmt:message key="search" var="Search"/>
+<fmt:message key="periodicals" var="Periodical"/>
+<fmt:message key="subject" var="subject"/>
+<fmt:message key="name" var="name"/>
+<fmt:message key="price" var="price"/>
+<fmt:message key="rank" var="rank"/>
+<fmt:message key="id" var="id"/>
+<fmt:message key="sort" var="Sort"/>
+<fmt:message key="price.from" var="PriceFrom"/>
+<fmt:message key="price.to" var="PriceTo"/>
+<fmt:message key="filter" var="Filter"/>
+<fmt:message key="subscribe" var="Subscribe"/>
+<fmt:message key="edit" var="Edit"/>
+<fmt:message key="remove" var="Remove"/>
+<fmt:message key="info" var="Info"/>
+<fmt:message key="edition" var="Edition"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">

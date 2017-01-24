@@ -22,7 +22,7 @@ import java.io.IOException;
 public class EditProfile extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(EditProfile.class);
-    private UserDAO userDAO;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
     private Validator<User> validator;
 
     @Override
@@ -39,7 +39,6 @@ public class EditProfile extends HttpServlet {
         String password = req.getParameter("password");
         String login = String.valueOf(session.getAttribute("authenticatedLogin"));
         Boolean notification = Boolean.valueOf(req.getParameter("notification"));
-        userDAO = new UserDAOImplement();
         validator = new ValidateUser();
 
         try {
