@@ -47,8 +47,8 @@ public class AddEdition extends HttpServlet {
                 req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
-            log.error("Not valid data", e);
-            req.setAttribute("addEditionInfo", "Not valid data");
+            log.error("No valid data", e);
+            req.setAttribute("addEditionInfo", "No valid data");
             req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
         }
     }

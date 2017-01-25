@@ -70,14 +70,7 @@
     <%--todo when user ban, create method--%>
 </c:if>
 
-
-<%--<form action="/userList" method="post" class="col-xs-2">
-    <input name="search" placeholder="${FullName}" required class="form-control">
-    <input type="submit" value="${Search}">
-</form>--%>
-
 <div class="container">
-
     <form action="/userList" method="post" class="col-xs-2">
         <select name="role" class="form-control">
             <option selected value="users">${Users}</option>

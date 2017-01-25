@@ -23,7 +23,7 @@ public class SendReport extends HttpServlet {
             GenerateReport.generate(login);
             log.debug("Generate report for " + login);
         } catch (DocumentException e) {
-            log.error("Can not generate report", e);
+            log.error("Cannot generate report", e);
         }
 
         GenerateReport.downloadReport(resp, login);
