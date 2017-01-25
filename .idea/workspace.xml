@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0124abcb-be5f-48fa-96a7-8c0f693e6b5e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/user/user_cabinet.jsp" afterPath="$PROJECT_DIR$/web/user/user_cabinet.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/dao/edition_dao/EditionDAOImplement.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,43 +54,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Index.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
+      <file leaf-file-name="RestoreAccess.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+            <state relative-caret-position="336">
+              <caret line="43" column="26" lean-forward="false" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDAOImplement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-              <folding>
-                <marker date="1485254846546" expanded="true" signature="824:930" ph="INSERT INTO users... " />
-                <marker date="1485254846546" expanded="true" signature="980:1028" ph="INSERT INTO user_role... " />
-                <marker date="1485254846546" expanded="true" signature="1081:1136" ph="INSERT INTO settings... " />
-                <marker date="1485254846546" expanded="true" signature="1187:1249" ph="UPDATE users... " />
-                <marker date="1485254846546" expanded="true" signature="1305:1341" ph="UPDATE users... " />
-                <marker date="1485254846546" expanded="true" signature="1395:1436" ph="UPDATE users... " />
-                <marker date="1485254846546" expanded="true" signature="1494:1538" ph="UPDATE users... " />
-                <marker date="1485254846546" expanded="true" signature="1598:1642" ph="UPDATE users... " />
-                <marker date="1485254846546" expanded="true" signature="1695:1744" ph="UPDATE setti... " />
-                <marker date="1485254846546" expanded="true" signature="1795:1826" ph="DELETE FROM " />
-                <marker date="1485254846546" expanded="true" signature="1876:1911" ph="DELETE FROM " />
-                <marker date="1485254846546" expanded="true" signature="1964:1998" ph="DELETE FROM " />
-                <marker date="1485254846546" expanded="true" signature="2057:2180" ph="SELECT users... users" />
-                <marker date="1485254846546" expanded="true" signature="2235:2340" ph="SELECT users... users" />
-                <marker date="1485254846546" expanded="true" signature="2403:2554" ph="SELECT users... users" />
-                <marker date="1485254846546" expanded="true" signature="2605:2642" ph="SELECT login... users" />
-                <marker date="1485254846546" expanded="true" signature="2693:2730" ph="SELECT score... users" />
-                <marker date="1485254846546" expanded="true" signature="2783:2830" ph="SELECT notif... settings" />
-                <marker date="1485254846546" expanded="true" signature="2887:3049" ph="SELECT users... users" />
-                <marker date="1485254846546" expanded="true" signature="3107:3250" ph="SELECT users... users" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -139,16 +108,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAO.java" />
-        <option value="$PROJECT_DIR$/web/user/user_cabinet.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateDoc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/RestoreAccess.java" />
-        <option value="$PROJECT_DIR$/web/restore_access.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/paths/WebPath.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/paths/WebPath.java" />
-        <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/styles/style.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/web/WEB-INF/s.jspf" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/add_edition.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/edit_edition.jsp" />
@@ -157,32 +117,17 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/admin/user_profile.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/login_page.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/registration.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/restore_access.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/user/edit_profile.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/user/refill_score_page.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/user/user_cabinet.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jspf/i18n.jspf" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/DeleteProfile.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/EditProfile.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Score.java" />
@@ -190,6 +135,30 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pay/Pay.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/user/UsersList.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/connection/PoolConnection.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Listener/ContextListener.java" />
+        <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateDoc.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateReport.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/user/user_cabinet.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/report/GenerateReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/I18n.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/LogOut.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/restore_access.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java" />
       </list>
     </option>
   </component>
@@ -227,6 +196,24 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="Dependencies" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nure" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="com.itextpdf:itextpdf:5.0.6" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependencyNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -282,8 +269,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,6 +308,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Periodicals" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Periodicals" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -339,36 +345,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Periodicals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SummaryTask4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,7 +376,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +383,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -439,11 +414,11 @@
       <recent name="ua.nure.poliakov.utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\comteh\IdeaProjects\Periodicals\src\main\resources\reports" />
       <recent name="C:\Users\comteh\IdeaProjects\Periodicals\web\WEB-INF\jspf" />
       <recent name="C:\Users\comteh\IdeaProjects\Periodicals\web\WEB-INF" />
       <recent name="C:\Users\comteh\IdeaProjects\Periodicals\src\main\java\ua\nure\poliakov.SummaryTask4" />
       <recent name="C:\Users\comteh\IdeaProjects\Periodicals\src\main\java\ua\nure\poliakov" />
-      <recent name="C:\Users\comteh\IdeaProjects\Periodicals\web\WEB-INF\tag" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
@@ -551,14 +526,14 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="GenerateDoc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GenerateReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ua.nure.poliakov.SummaryTask4.utils.pdf.*" />
+          <option name="PATTERN" value="ua.nure.poliakov.SummaryTask4.utils.report.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="ua.nure.poliakov.SummaryTask4.utils.pdf.GenerateDoc" />
+      <option name="MAIN_CLASS_NAME" value="ua.nure.poliakov.SummaryTask4.utils.report.GenerateReport" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1126,11 +1101,11 @@
       <item index="3" class="java.lang.String" itemvalue="JUnit.UserValidation" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.EditionValidation" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.PayTest.testIsCanPay" />
-      <item index="6" class="java.lang.String" itemvalue="Application.GenerateDoc" />
+      <item index="6" class="java.lang.String" itemvalue="Application.GenerateReport" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.GenerateDoc" />
+        <item index="0" class="java.lang.String" itemvalue="Application.GenerateReport" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.PayTest.testIsCanPay" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.EditionValidation" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.UserValidation" />
@@ -1190,7 +1165,8 @@
       <workItem from="1485089641735" duration="863000" />
       <workItem from="1485108629805" duration="4512000" />
       <workItem from="1485162491787" duration="15042000" />
-      <workItem from="1485250066259" duration="5272000" />
+      <workItem from="1485250066259" duration="26165000" />
+      <workItem from="1485338721818" duration="5523000" />
     </task>
     <task id="LOCAL-00001" summary="commit project">
       <created>1484298071284</created>
@@ -1235,7 +1211,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390684000" />
+    <option name="totallyTimeSpent" value="417100000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1248,7 +1224,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1269,10 +1245,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8183306" sideWeight="0.49092284" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9541735" sideWeight="0.49092284" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.7495908" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66939443" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2632375" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1321,187 +1297,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/pdf/GenerateDoc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/609e7f13-0498-453b-bade-ad78c9b1caec">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>609e7f13-0498-453b-bade-ad78c9b1caec</OriginalElement>
-          <nodes>
-            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.user_role</node>
-            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.subscribes</node>
-            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.users</node>
-            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.settings</node>
-            <node x="" y="">609e7f13-0498-453b-bade-ad78c9b1caec.TABLE:periodical.editions</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="277.0" y="165.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/I18n.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/LogOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/paths/WebPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/styles/table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="92" lean-forward="false" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/add_edition.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/edit_edition.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/edition_info.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/user_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/admin/user_profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/access_denied.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/login_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/restore_access.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user/edit_profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/user/refill_score_page.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user/user_cabinet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1513,186 +1312,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jspf/i18n.jspf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jspf/libraries.jspf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="22" column="69" lean-forward="true" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="70" lean-forward="false" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="22" column="70" lean-forward="false" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jspf/i18n.jspf" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/Unsubscribe.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1485254846765" expanded="true" signature="983:1042" ph="INSERT INTO editions... " />
-            <marker date="1485254846765" expanded="true" signature="1103:1154" ph="INSERT INTO subscribes... " />
-            <marker date="1485254846765" expanded="true" signature="1208:1265" ph="UPDATE editi... " />
-            <marker date="1485254846765" expanded="true" signature="1319:1350" ph="DELETE FROM " />
-            <marker date="1485254846765" expanded="true" signature="1405:1455" ph="DELETE FROM " />
-            <marker date="1485254846765" expanded="true" signature="1509:1542" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="1611:1645" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="1716:1752" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="1826:1865" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="1937:1974" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="2029:2094" ph="SELECT login... subscribes" />
-            <marker date="1485254846765" expanded="true" signature="2142:2176" ph="SELECT id FR... editions" />
-            <marker date="1485254846765" expanded="true" signature="2248:2286" ph="SELECT * FRO... subscribes" />
-            <marker date="1485254846765" expanded="true" signature="2359:2409" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="2462:2516" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="2570:2635" ph="SELECT * FRO... editions" />
-            <marker date="1485254846765" expanded="true" signature="2687:2879" ph="SELECT editi... editions" />
-            <marker date="1485254846765" expanded="true" signature="2937:3202" ph="SELECT editi... editions" />
-            <marker date="1485254846765" expanded="true" signature="3266:3318" ph="SELECT * FRO... editions" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="61" lean-forward="false" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="25" column="61" lean-forward="false" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" column="61" lean-forward="false" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1744,10 +1368,338 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jspf/libraries.jspf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/609e7f13-0498-453b-bade-ad78c9b1caec/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/edition/EditionsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/close/Close.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/edition_dao/EditionDAOImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1942">
+          <caret line="167" column="28" lean-forward="true" selection-start-line="167" selection-start-column="28" selection-end-line="167" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1485262342961" expanded="true" signature="982:1041" ph="INSERT INTO editions... " />
+            <marker date="1485262342961" expanded="true" signature="1102:1153" ph="INSERT INTO subscribes... " />
+            <marker date="1485262342961" expanded="true" signature="1207:1264" ph="UPDATE editi... " />
+            <marker date="1485262342961" expanded="true" signature="1318:1349" ph="DELETE FROM " />
+            <marker date="1485262342961" expanded="true" signature="1404:1454" ph="DELETE FROM " />
+            <marker date="1485262342961" expanded="true" signature="1508:1541" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="1610:1642" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="1610:1644" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="1715:1751" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="1825:1857" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="1936:1973" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="2028:2093" ph="SELECT login... subscribes" />
+            <marker date="1485262342961" expanded="true" signature="2141:2175" ph="SELECT id FR... editions" />
+            <marker date="1485262342961" expanded="true" signature="2247:2285" ph="SELECT * FRO... subscribes" />
+            <marker date="1485262342961" expanded="true" signature="2358:2408" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="2461:2515" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="2569:2634" ph="SELECT * FRO... editions" />
+            <marker date="1485262342961" expanded="true" signature="2686:2878" ph="SELECT editi... editions" />
+            <marker date="1485262342961" expanded="true" signature="2936:3201" ph="SELECT editi... editions" />
+            <marker date="1485262342961" expanded="true" signature="3265:3317" ph="SELECT * FRO... editions" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/entity/Edition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-514">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/listener/ContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Periodicals.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-301">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/connection/PoolConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/io/FileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="212" column="0" lean-forward="false" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/UserCabinet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user/user_cabinet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/utils/report/GenerateReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/user/SendReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="25" column="52" lean-forward="true" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/EditionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/RemoveEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/EditStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/users/UserList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/admin/editions/AddEdition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="49" column="41" lean-forward="false" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/filter/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/paths/WebPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/registration/RegistrationLink.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/I18n.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/LogOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/user_tag.tld">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bee8aacf/609e7f13-0498-453b-bade-ad78c9b1caec/periodical.users">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/user_dao/UserDAOImplement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="287">
+          <caret line="174" column="48" lean-forward="true" selection-start-line="174" selection-start-column="48" selection-end-line="174" selection-end-column="48" />
           <folding>
             <marker date="1485254846546" expanded="true" signature="824:930" ph="INSERT INTO users... " />
             <marker date="1485254846546" expanded="true" signature="980:1028" ph="INSERT INTO user_role... " />
@@ -1773,18 +1725,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/dao/connection/PoolConnection.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/restore_access.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="234">
+          <caret line="53" column="23" lean-forward="true" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/Index.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/poliakov/SummaryTask4/logic/common/RestoreAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        <state relative-caret-position="336">
+          <caret line="43" column="26" lean-forward="false" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
           <folding />
         </state>
       </provider>

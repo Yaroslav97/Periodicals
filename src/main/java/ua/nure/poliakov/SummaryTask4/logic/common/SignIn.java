@@ -22,6 +22,7 @@ public class SignIn extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.trace("SignIn");
         req.getRequestDispatcher(WebPath.LOGIN_PAGE).forward(req, resp);
     }
 
@@ -40,17 +41,17 @@ public class SignIn extends HttpServlet {
             session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
             session.setAttribute("authenticatedScore", userDAO.getScore(login));
             session.setAttribute("notification", userDAO.getSettings(login));
-            log.info("sign in ==> " + login);
+            log.trace("sign in ==> " + login);
             resp.sendRedirect("/index");
         } else if (!userDAO.isContainsLogin(login)) {
-            log.info("Incorrect login or login not exist");
+            log.trace("Incorrect login or login not exist");
             req.getRequestDispatcher(WebPath.LOGIN_ERROR_PAGE).forward(req, resp);
         } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
             req.setAttribute("signInInfo", "Wrong password");
-            log.info("Wrong password ==> " + login);
+            log.trace("Wrong password ==> " + login);
             req.getRequestDispatcher(WebPath.LOGIN_PAGE).forward(req, resp);
         } else if (userDAO.getByLogin(login).getBan()) {
-            log.info("Access denied ==> " + login);
+            log.trace("Access denied ==> " + login);
             req.getRequestDispatcher(WebPath.ACCESS_DENIED_PAGE).forward(req, resp);
 
         }

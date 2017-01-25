@@ -19,7 +19,8 @@ import java.io.IOException;
 public class RestoreAccess extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(RestoreAccess.class);
-    private UserDAO userDAO = UserDAOImplement.getInstance();;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
+    ;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,20 +33,26 @@ public class RestoreAccess extends HttpServlet {
         String email = req.getParameter("email");
         String password = SendEmail.randomPassword();
 
-        if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getEmail().equals(email)) {
+        if (userDAO.getByLogin(login).getEmail().equals(email)) {
             try {
                 SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(),
                         SendEmail.restoreAccess(userDAO.getByLogin(login).getFullName(), password));
-                log.info("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
+                log.trace("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
                 userDAO.updatePassword(login, Password.encodePassword(password));
-                log.info("Password was change");
+                log.trace("Password was change");
                 resp.sendRedirect("/userCabinet");
             } catch (MessagingException e) {
-                log.info("Can't send restore message to " + userDAO.getByLogin(login).getFullName());
+                log.error("Can't send restore message to " + userDAO.getByLogin(login).getFullName(), e);
+                req.setAttribute("restoreInfo", "Can't send restore message");
+                req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
             }
+        } else if (!userDAO.isContainsLogin(login)) {
+            log.info("Login not exist");
+            req.setAttribute("restoreInfo", "Login not exist");
+            req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         } else {
-            log.info("Not valid data");
-            req.setAttribute("restoreInfo", "Not valid data");
+            log.trace("Wrong email");
+            req.setAttribute("restoreInfo", "Wrong email");
             req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         }
     }

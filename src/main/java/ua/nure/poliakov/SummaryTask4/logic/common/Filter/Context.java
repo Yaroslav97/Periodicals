@@ -1,4 +1,4 @@
-package ua.nure.poliakov.SummaryTask4.logic.common.Filter;
+package ua.nure.poliakov.SummaryTask4.logic.common.filter;
 
 import org.apache.log4j.Logger;
 

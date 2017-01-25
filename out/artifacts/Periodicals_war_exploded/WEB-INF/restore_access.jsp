@@ -54,7 +54,7 @@
 <div class="container">
 <form action="/restoreAccess" method="post" class="col-xs-6">
     <input name="login" required minlength="4" placeholder="${Login}" class="form-control"><br>
-    <input type="email" required name="${Email}" minlength="4" placeholder="Email" class="form-control"><br>
+    <input type="email" required name="email" minlength="4" placeholder="${Email}" class="form-control"><br>
     <input type="submit" value="${Send}"><br>
     <br>
     <hr>

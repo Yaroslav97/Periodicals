@@ -20,13 +20,13 @@ public class RemoveEdition extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
-        log.info("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.trace("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
         if (editionDAO.isContains(id)) {
             editionDAO.deleteEdition(id);
             log.debug("Edition " + editionDAO.getEdition(id) + " was deleteEdition");
             resp.sendRedirect("/index");
         } else {
-            log.debug("Edition " + id + " not exist");
+            log.trace("Edition " + id + " not exist");
             resp.sendRedirect("/index");
         }
     }

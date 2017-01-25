@@ -82,7 +82,7 @@
 <br>
 
 <div align="right" class="container">
-    <a href="/sendReport">send report on email</a>
+    <a href="/report">Generate report</a>
 </div>
 
 </body>

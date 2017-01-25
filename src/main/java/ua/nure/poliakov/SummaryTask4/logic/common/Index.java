@@ -26,7 +26,7 @@ public class Index extends HttpServlet {
         if (!login.equals("null")) {
             req.getSession().setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
         }
-        log.info("Index page");
+        log.trace("Index page");
         req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
     }
 }

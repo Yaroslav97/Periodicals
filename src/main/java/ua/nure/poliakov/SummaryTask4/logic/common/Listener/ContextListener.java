@@ -1,4 +1,4 @@
-package ua.nure.poliakov.SummaryTask4.logic.common.Listener;
+package ua.nure.poliakov.SummaryTask4.logic.common.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

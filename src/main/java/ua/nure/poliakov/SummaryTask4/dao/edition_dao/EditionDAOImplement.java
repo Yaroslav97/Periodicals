@@ -16,7 +16,7 @@ import java.util.List;
 
 public class EditionDAOImplement implements EditionDAO {
 
-    private EditionDAOImplement() {
+    private EditionDAOImplement(){
     }
 
     private static EditionDAOImplement instance;

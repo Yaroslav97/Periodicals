@@ -54,8 +54,7 @@ public class EditEdition extends HttpServlet {
                 req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
-            log.error(e);
-            log.info("Not valid data ==> " + req.getSession().getAttribute("editId"));
+            log.error("Not valid data ==> " + req.getSession().getAttribute("editId"), e);
             req.setAttribute("editInfo", "Not valid data");
             req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
         }

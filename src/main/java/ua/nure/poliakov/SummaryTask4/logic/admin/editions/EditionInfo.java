@@ -24,7 +24,7 @@ public class EditionInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.parseInt(req.getParameter("info"));
-        log.info("EditionInfo page: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.trace("EditionInfo page: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getSession().setAttribute("editionInfo", editionDAO.getEditionInfo(id));
         req.getSession().setAttribute("subList", userDAO.getSubscribers(id));
         req.getRequestDispatcher(WebPath.EDITION_INFO_PAGE).forward(req, resp);

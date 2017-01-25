@@ -1,45 +1,31 @@
 package ua.nure.poliakov.SummaryTask4.logic.user;
 
+import com.itextpdf.text.DocumentException;
 import org.apache.log4j.Logger;
-import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
-import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
-import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
-import ua.nure.poliakov.SummaryTask4.utils.email.SendEmail;
+import ua.nure.poliakov.SummaryTask4.utils.report.GenerateReport;
 
-import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
-@WebServlet("/sendReport")
+@WebServlet("/report")
 public class SendReport extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Logger.class);
-    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Edition> list = editionDAO.getAllSubscriptions(
-                String.valueOf(req.getSession().getAttribute("authenticatedLogin")));
-
-        PrintWriter out = resp.getWriter();
-
-        for (Edition edition : list) {
-            out.write(edition.getName() + ", ");
-            out.write(edition.getSubject() + ", ");
-            out.print(edition.getPrice() + "; ");
-            out.println();
-        }
-
+        String login = (String) req.getSession().getAttribute("authenticatedLogin");
         try {
-            SendEmail.sendEmail(String.valueOf(req.getSession().getAttribute("authenticatedEmail")), "");
-        } catch (MessagingException e) {
-            log.error("Can not send report");
+            GenerateReport.generate(login);
+            log.trace("Generate report for " + login);
+        } catch (DocumentException e) {
+            log.error("Can not generate report", e);
         }
+
+        GenerateReport.downloadReport(resp, login);
     }
 }

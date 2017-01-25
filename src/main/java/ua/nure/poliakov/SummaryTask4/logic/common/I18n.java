@@ -18,7 +18,7 @@ public class I18n extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String lang = req.getParameter("lang");
         req.getSession().setAttribute("lang", lang);
-        log.info("Language ==> " + lang);
+        log.trace("Language ==> " + lang);
         resp.sendRedirect("/index");
     }
 }
