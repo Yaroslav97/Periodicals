@@ -26,7 +26,7 @@ public class RegistrationLink extends HttpServlet {
         if (userDAO.isContainsLogin(req.getParameter("login")) &&
                 userDAO.getByLogin(req.getParameter("login")).getEmail().equals(req.getParameter("email"))) {
             userDAO.banUser(req.getParameter("login"), false);
-            log.trace("Confirmation email");
+            log.debug("Confirmation email");
             resp.sendRedirect("/index");
         }
     }

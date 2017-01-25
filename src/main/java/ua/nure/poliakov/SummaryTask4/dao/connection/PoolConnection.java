@@ -1,10 +1,14 @@
 package ua.nure.poliakov.SummaryTask4.dao.connection;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.log4j.Logger;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ConnectionPoolException;
 
 import javax.naming.*;
 
 public class PoolConnection {
+
+    private static final Logger log = Logger.getLogger(PoolConnection.class);
 
     private PoolConnection() {
     }
@@ -15,7 +19,7 @@ public class PoolConnection {
             Context context = new InitialContext();
             dataSource = (ComboPooledDataSource) context.lookup("java:/comp/env/jdbc/periodical");
         } catch (NamingException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain a connection from the pool", e);
         }
         return dataSource;
     }

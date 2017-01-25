@@ -25,7 +25,7 @@ public class UserInfo extends HttpServlet {
         req.getSession().setAttribute("count", editionDAO.getAllSubscriptions(login).size());
         req.setAttribute("fullName", req.getParameter("fullName"));
         req.setAttribute("login", login);
-        log.info("Information about ==> " + login);
+        log.debug("Information about ==> " + login);
         req.getRequestDispatcher(WebPath.USER_PROFILE_PAGE).forward(req, resp);
     }
 }

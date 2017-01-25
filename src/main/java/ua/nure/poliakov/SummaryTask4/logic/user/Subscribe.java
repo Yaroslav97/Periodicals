@@ -28,12 +28,12 @@ public class Subscribe extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
-        log.info("Subscribe page");
+        log.debug("Subscribe page");
 
         if (editionDAO.isContains(id) && !login.equals("null") && !editionDAO.isSubscribe(login, id) && Pay.isCanPay(login, id)) {
             editionDAO.subscribe(String.valueOf(req.getSession().getAttribute("authenticatedLogin")), id);
             req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
-            log.info(login + " subscribe to " + editionDAO.getEdition(id).getName() + "(" + id + ")");
+            log.debug(login + " subscribe to " + editionDAO.getEdition(id).getName() + "(" + id + ")");
             req.setAttribute("subscribeInfo", "You subscribe to " + editionDAO.getEdition(id).getName());
             if (userDAO.getSettings(login)) {
                 // todo maybe create separate func?
@@ -47,19 +47,19 @@ public class Subscribe extends HttpServlet {
             }
             resp.sendRedirect("/index");
         } else if (editionDAO.isSubscribe(login, id)) {
-            log.info(login + " already subscribes to this edition");
+            log.debug(login + " already subscribes to this edition");
             req.setAttribute("subscribeInfo", "You already subscribe for " + editionDAO.getEdition(id).getName());
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!login.equals("null") && !Pay.isCanPay(login, id)) {
-            log.info(login + " can not pay for subscribe ==> " + editionDAO.getEdition(id).getName());
+            log.debug(login + " can not pay for subscribe ==> " + editionDAO.getEdition(id).getName());
             req.setAttribute("subscribeInfo", "You have not required balance");
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!editionDAO.isContains(id)) {
-            log.info(id + " ==> not exist edition");
+            log.debug(id + " ==> not exist edition");
             req.setAttribute("subscribeInfo", "Wrong id edition");
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (login.equals("null")) {
-            log.info("User is not authenticated");
+            log.debug("User is not authenticated");
             resp.sendRedirect("/signIn");
         }
     }

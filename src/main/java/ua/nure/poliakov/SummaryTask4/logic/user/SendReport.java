@@ -21,7 +21,7 @@ public class SendReport extends HttpServlet {
         String login = (String) req.getSession().getAttribute("authenticatedLogin");
         try {
             GenerateReport.generate(login);
-            log.trace("Generate report for " + login);
+            log.debug("Generate report for " + login);
         } catch (DocumentException e) {
             log.error("Can not generate report", e);
         }

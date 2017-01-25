@@ -40,17 +40,16 @@ public class Score extends HttpServlet {
                 if (userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
                     userDAO.updateScore(login, "refill", score);
                     req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
-                    log.info("Refill score account " + login);
+                    log.debug("Refill score account " + login);
                     resp.sendRedirect("/userCabinet");
                 } else {
-                    log.info("Wrong password");
+                    log.debug("Wrong password");
                     req.setAttribute("scoreInfo", "Wrong password");
                     req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
                 }
             }
         } catch (ValidationException e) {
-            log.error(e);
-            log.info("Not valid input data");
+            log.error("Not valid input data", e);
             req.setAttribute("scoreInfo", "Not valid data");
             req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
         }

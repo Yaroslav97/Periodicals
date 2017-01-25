@@ -20,14 +20,14 @@ public class EditStatus extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
-        log.trace("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
         if (userDAO.getByLogin(login).getBan().equals(true)) {
             userDAO.banUser(login, false);
-            log.trace("Status was change ==> " + login);
+            log.debug("Status was change ==> " + login);
             resp.sendRedirect("/userList");
         } else {
             userDAO.banUser(login, true);
-            log.trace("Status was change ==> " + login);
+            log.debug("Status was change ==> " + login);
             resp.sendRedirect("/userList");
         }
     }

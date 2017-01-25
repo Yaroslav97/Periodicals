@@ -37,21 +37,22 @@ public class RestoreAccess extends HttpServlet {
             try {
                 SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(),
                         SendEmail.restoreAccess(userDAO.getByLogin(login).getFullName(), password));
-                log.trace("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
+                log.debug("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
                 userDAO.updatePassword(login, Password.encodePassword(password));
-                log.trace("Password was change");
+                log.debug("Password was change");
                 resp.sendRedirect("/userCabinet");
             } catch (MessagingException e) {
+                // todo create own exception
                 log.error("Can't send restore message to " + userDAO.getByLogin(login).getFullName(), e);
                 req.setAttribute("restoreInfo", "Can't send restore message");
                 req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
             }
         } else if (!userDAO.isContainsLogin(login)) {
-            log.info("Login not exist");
+            log.debug("Login not exist");
             req.setAttribute("restoreInfo", "Login not exist");
             req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         } else {
-            log.trace("Wrong email");
+            log.debug("Wrong email");
             req.setAttribute("restoreInfo", "Wrong email");
             req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         }

@@ -1,6 +1,7 @@
 package ua.nure.poliakov.SummaryTask4.dao.edition_dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.close.Close;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.dao.connection.PoolConnection;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class EditionDAOImplement implements EditionDAO {
 
-    private EditionDAOImplement(){
+    private EditionDAOImplement() {
     }
 
     private static EditionDAOImplement instance;
@@ -27,6 +28,8 @@ public class EditionDAOImplement implements EditionDAO {
         }
         return instance;
     }
+
+    private static final Logger log = Logger.getLogger(EditionDAOImplement.class);
 
     private static final String INSERT_INTO_EDITIONS = "INSERT INTO editions (`name`, subject, price) VALUES(?,?,?)";
     private static final String INSERT_INTO_SUBSCRIBES = "INSERT INTO subscribes (login, edition) VALUES(?,?)";
@@ -44,12 +47,13 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String SELECT_EDITION_BY_NAME_AND_SUBJECT = "SELECT * FROM editions WHERE `name`=? && subject=?";
     private static final String SELECT_BY_NAME = "SELECT * FROM editions WHERE name LIKE ? ORDER BY name";
     private static final String SELECT_BY_PRICE = "SELECT * FROM editions WHERE price BETWEEN ? AND ? ORDER BY price";
-    private static final String SELECT_BY_SUB = "SELECT editions.*, count(subscribes.login) " +
-            "FROM editions, subscribes WHERE editions.id = subscribes.edition GROUP BY subscribes.edition " +
-            "ORDER BY editions.name";
-    private static final String SELECT_EDITION_INFO = "SELECT editions.id, editions.name, editions.subject, " +
-            "count(subscribes.login), sum(editions.price) FROM editions, subscribes " +
-            "WHERE editions.id=? AND editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
+    private static final String SELECT_BY_SUBSCRIPTIONS =
+            "SELECT editions.*, count(subscribes.login) FROM editions, subscribes " +
+                    "WHERE editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
+    private static final String SELECT_EDITION_INFO =
+            "SELECT editions.id, editions.name, editions.subject, count(subscribes.login), sum(editions.price) " +
+                    "FROM editions, subscribes WHERE editions.id=? AND editions.id = subscribes.edition " +
+                    "GROUP BY subscribes.edition ORDER BY editions.name";
     private static final String SELECT_EDITION_BY_SUBJECT = "SELECT * FROM editions WHERE subject=? ORDER BY name";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
@@ -69,7 +73,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setDouble(3, edition.getPrice());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot add edition", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -90,7 +94,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setInt(4, edition.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot update edition", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -108,7 +112,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot delete edition", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -134,7 +138,7 @@ public class EditionDAOImplement implements EditionDAO {
                         resultSet.getDouble("price"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -166,7 +170,7 @@ public class EditionDAOImplement implements EditionDAO {
                     preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_PRICE);
                     break;
                 case "rank":
-                    preparedStatement = connection.prepareStatement(SELECT_BY_SUB);
+                    preparedStatement = connection.prepareStatement(SELECT_BY_SUBSCRIPTIONS);
                     break;
                 default:
                     preparedStatement = connection.prepareStatement(SELECT_ALL_EDITIONS_SORT_BY_SUBJECT);
@@ -180,7 +184,7 @@ public class EditionDAOImplement implements EditionDAO {
                         sort.equals("rank") ? resultSet.getInt(5) : 0));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain editions", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -207,7 +211,7 @@ public class EditionDAOImplement implements EditionDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -229,7 +233,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.executeUpdate();
             userDAO.updateScore(login, "withdraw", getEdition(idEdition).getPrice());
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot subscribe to edition", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -256,7 +260,7 @@ public class EditionDAOImplement implements EditionDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -285,7 +289,7 @@ public class EditionDAOImplement implements EditionDAO {
                         getEdition(resultSet.getInt("edition")).getPrice()));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain editions", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -306,7 +310,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setInt(2, idEdition);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot delete subscription", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -333,7 +337,7 @@ public class EditionDAOImplement implements EditionDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -362,7 +366,7 @@ public class EditionDAOImplement implements EditionDAO {
                         resultSet.getDouble("price")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition by name", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -392,7 +396,7 @@ public class EditionDAOImplement implements EditionDAO {
                         resultSet.getDouble("price")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition by price", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -422,7 +426,7 @@ public class EditionDAOImplement implements EditionDAO {
                         resultSet.getInt(4)));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain edition info", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
@@ -451,7 +455,7 @@ public class EditionDAOImplement implements EditionDAO {
                         resultSet.getDouble("price")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain editions by subject", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);

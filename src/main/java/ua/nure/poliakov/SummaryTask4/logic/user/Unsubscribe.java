@@ -22,15 +22,15 @@ public class Unsubscribe extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
         Integer idEdition = Integer.valueOf(req.getParameter("id"));
-        log.info("Unsubscribe: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("Unsubscribe: " + req.getSession().getAttribute("authenticatedLogin"));
         if (editionDAO.isSubscribe(login, idEdition)) {
             editionDAO.unsubscribe(login, idEdition);
             req.getSession().setAttribute("subscribesList", editionDAO.getAllSubscriptions
                     (String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
-            log.info(login + " unsubscribes " + editionDAO.getEdition(idEdition).getName());
+            log.debug(login + " unsubscribes " + editionDAO.getEdition(idEdition).getName());
             resp.sendRedirect(WebPath.USER_CABINET_PAGE);
         } else {
-            log.info(login + " does not subscribes to " + editionDAO.getEdition(idEdition).getName() + " or edition not exist");
+            log.debug(login + " does not subscribes to " + editionDAO.getEdition(idEdition).getName() + " or edition not exist");
             resp.sendRedirect(WebPath.USER_CABINET_PAGE);
         }
     }

@@ -1,9 +1,11 @@
 package ua.nure.poliakov.SummaryTask4.dao.user_dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.close.Close;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.dao.connection.PoolConnection;
+import ua.nure.poliakov.SummaryTask4.dao.rollback.Rollback;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,8 +28,10 @@ public class UserDAOImplement implements UserDAO {
         return instance;
     }
 
-    private static final String INSERT_USERS = "INSERT INTO users (fullName, login, email, ban, score ,password) " +
-            "VALUES(?, ?, ?, ?, ?, ?)";
+    private static final Logger log = Logger.getLogger(UserDAOImplement.class);
+
+    private static final String INSERT_USERS =
+            "INSERT INTO users (fullName, login, email, ban, score ,password) VALUES(?, ?, ?, ?, ?, ?)";
     private static final String INSERT_ROLE = "INSERT INTO user_role (login, role) VALUES(?, ?)";
     private static final String INSERT_SETTING = "INSERT INTO settings (login, notification) VALUES(?, ?)";
     private static final String UPDATE_USERS = "UPDATE users SET fullName=?, email=?, password=? WHERE login=?";
@@ -39,19 +43,22 @@ public class UserDAOImplement implements UserDAO {
     private static final String DELETE_USERS = "DELETE FROM users WHERE login=?";
     private static final String DELETE_ROLE = "DELETE FROM user_role WHERE login=?";
     private static final String DELETE_SETTING = "DELETE FROM settings WHERE login=?";
-    private static final String SELECT_USER_BY_LOGIN = "SELECT users.*, user_role.role " +
-            "FROM users, user_role WHERE users.login=? AND users.login = user_role.login";
-    private static final String SELECT_ALL_USERS = "SELECT users.*, user_role.role " +
-            "FROM users, user_role WHERE users.login = user_role.login";
-    private static final String SELECT_ALL_USERS_BY_ROLE = "SELECT users.*, user_role.role " +
-            "FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav') AND users.login = user_role.login";
+    private static final String SELECT_USER_BY_LOGIN =
+            "SELECT users.*, user_role.role FROM users, user_role WHERE users.login=? AND users.login = user_role.login";
+    private static final String SELECT_ALL_USERS =
+            "SELECT users.*, user_role.role FROM users, user_role WHERE users.login = user_role.login";
+    private static final String SELECT_ALL_USERS_BY_ROLE =
+            "SELECT users.*, user_role.role FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav') " +
+                    "AND users.login = user_role.login";
     private static final String SELECT_LOGIN = "SELECT login FROM users WHERE login=?";
     private static final String SELECT_SCORE = "SELECT score FROM users WHERE login=?";
     private static final String SELECT_SETTING = "SELECT notification FROM settings WHERE login=?";
-    private static final String SELECT_SUBSCRIBERS = "SELECT users.fullName, users.login, users.email, users.ban " +
-            "FROM users, subscribes WHERE subscribes.edition = ? AND users.login = subscribes.login";
-    private static final String SELECT_USER_BY_NAME = "SELECT users.*, user_role.role " +
-            "FROM users, user_role WHERE fullName LIKE ? AND users.login = user_role.login ORDER BY fullName";
+    private static final String SELECT_SUBSCRIBERS =
+            "SELECT users.fullName, users.login, users.email, users.ban FROM users, subscribes " +
+                    "WHERE subscribes.edition = ? AND users.login = subscribes.login";
+    private static final String SELECT_USER_BY_NAME =
+            "SELECT users.*, user_role.role FROM users, user_role " +
+                    "WHERE fullName LIKE ? AND users.login = user_role.login ORDER BY fullName";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private User user;
@@ -85,13 +92,9 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.executeUpdate();
 
             connection.commit();
-
         } catch (SQLException e) {
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                System.err.println("RollbackException");
-            }
+            Rollback.rollback(connection);
+            log.error("Cannot add user", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -106,16 +109,14 @@ public class UserDAOImplement implements UserDAO {
         try {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(UPDATE_USERS);
-
             preparedStatement.setString(1, user.getFullName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
             preparedStatement.setString(4, user.getLogin());
-
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot update user", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -146,11 +147,9 @@ public class UserDAOImplement implements UserDAO {
             connection.commit();
 
         } catch (SQLException e) {
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
+            Rollback.rollback(connection);
+            log.error("Cannot delete user", e);
+
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -180,13 +179,12 @@ public class UserDAOImplement implements UserDAO {
                 );
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain a user by login", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return user;
     }
 
@@ -213,13 +211,12 @@ public class UserDAOImplement implements UserDAO {
                 ));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain all users", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return userList;
     }
 
@@ -235,7 +232,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(2, login);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot ban a user", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -260,13 +257,12 @@ public class UserDAOImplement implements UserDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain info", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return isContains;
     }
 
@@ -282,8 +278,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(2, login);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            //System.err.println("Exception: updateEdition password ==> " + login);
-            e.printStackTrace();
+            log.error("Cannot update password", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -314,8 +309,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            //System.err.println("Exception: updateScore ==> " + login);
-            e.printStackTrace();
+            log.error("Cannot update score", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -338,13 +332,12 @@ public class UserDAOImplement implements UserDAO {
                 score = resultSet.getDouble("score");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain a score", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return score;
     }
 
@@ -371,13 +364,12 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("password")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain users by role", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return userList;
     }
 
@@ -393,7 +385,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setInt(1, sendEmail ? 1 : 0);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot update settings", e);
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -418,13 +410,12 @@ public class UserDAOImplement implements UserDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain settings", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return notification;
     }
 
@@ -447,13 +438,12 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getInt("ban") == 0 ? false : true));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain subscribers", e);
         } finally {
             Close.close(resultSet);
             Close.close(preparedStatement);
             Close.close(connection);
         }
-
         return userList;
     }
 
@@ -474,9 +464,8 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("password")));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Cannot obtain users by name", e);
         }
-
         return userList;
     }
 }

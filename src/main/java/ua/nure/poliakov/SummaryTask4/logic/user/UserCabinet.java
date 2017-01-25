@@ -22,7 +22,7 @@ public class UserCabinet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("subscribesList",
                 editionDAO.getAllSubscriptions(String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
-        log.info("UserCabinet: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("UserCabinet: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher(WebPath.USER_CABINET_PAGE).forward(req, resp);
     }
 }

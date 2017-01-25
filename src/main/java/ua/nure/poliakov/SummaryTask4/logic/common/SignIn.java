@@ -41,17 +41,17 @@ public class SignIn extends HttpServlet {
             session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
             session.setAttribute("authenticatedScore", userDAO.getScore(login));
             session.setAttribute("notification", userDAO.getSettings(login));
-            log.trace("sign in ==> " + login);
+            log.debug("sign in ==> " + login);
             resp.sendRedirect("/index");
         } else if (!userDAO.isContainsLogin(login)) {
-            log.trace("Incorrect login or login not exist");
+            log.debug("Incorrect login or login not exist");
             req.getRequestDispatcher(WebPath.LOGIN_ERROR_PAGE).forward(req, resp);
         } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
             req.setAttribute("signInInfo", "Wrong password");
-            log.trace("Wrong password ==> " + login);
+            log.debug("Wrong password ==> " + login);
             req.getRequestDispatcher(WebPath.LOGIN_PAGE).forward(req, resp);
         } else if (userDAO.getByLogin(login).getBan()) {
-            log.trace("Access denied ==> " + login);
+            log.debug("Access denied ==> " + login);
             req.getRequestDispatcher(WebPath.ACCESS_DENIED_PAGE).forward(req, resp);
 
         }

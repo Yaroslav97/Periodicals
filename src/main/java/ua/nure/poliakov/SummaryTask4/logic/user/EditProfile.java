@@ -27,7 +27,7 @@ public class EditProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info("EditProfile: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("EditProfile: " + req.getSession().getAttribute("authenticatedLogin"));
         req.getRequestDispatcher(WebPath.EDIT_PROFILE_PAGE).forward(req, resp);
     }
 
@@ -45,15 +45,14 @@ public class EditProfile extends HttpServlet {
             if (validator.validate(new User(fullName, login, email, password))) {
                 userDAO.updateUser(new User(fullName, login, email, Password.encodePassword(password)));
                 userDAO.updateSettings(login, notification);
-                log.info(login + " profile was updated");
+                log.debug(login + " profile was updated");
                 session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
                 session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
                 session.setAttribute("notification", userDAO.getSettings(login));
                 resp.sendRedirect("/userCabinet");
             }
         } catch (ValidationException e) {
-            log.error(e);
-            log.info("No valid data");
+            log.error("No valid data", e);
             req.setAttribute("editInfo", "You try enter incorrect data");
             req.getRequestDispatcher(WebPath.EDIT_PROFILE_PAGE).forward(req, resp);
         }

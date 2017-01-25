@@ -39,10 +39,10 @@ public class AddEdition extends HttpServlet {
         try {
             if (validator.validate(new Edition(name, subject, price)) && !editionDAO.isSameEdition(name, subject)) {
                 editionDAO.addEdition(new Edition(name, subject, price));
-                log.trace(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
+                log.debug(req.getSession().getAttribute("authenticatedLogin") + " Added new edition: " + name);
                 resp.sendRedirect("/index");
             } else if (editionDAO.isSameEdition(name, subject)){
-                log.trace("The same edition already exist");
+                log.debug("The same edition already exist");
                 req.setAttribute("addEditionInfo", "The same edition already exist");
                 req.getRequestDispatcher(WebPath.ADD_EDITION_PAGE).forward(req, resp);
             }

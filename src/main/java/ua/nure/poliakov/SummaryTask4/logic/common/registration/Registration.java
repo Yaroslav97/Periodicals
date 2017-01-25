@@ -44,7 +44,7 @@ public class Registration extends HttpServlet {
             if (validator.validate(new User(fullName, login, email, password)) && !userDAO.isContainsLogin(login)) {
                 if (role.equals("admin")) {
                     userDAO.addUser(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
-                    log.trace("Added new admin: " + userDAO.getByLogin(login).getFullName());
+                    log.debug("Added new admin: " + userDAO.getByLogin(login).getFullName());
                     resp.sendRedirect("/index");
                 } else if (role.equals("user")) {
                     userDAO.addUser(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
@@ -52,7 +52,7 @@ public class Registration extends HttpServlet {
                     try {
                         SendEmail.sendEmail(email, "For confirmation registration click to link " +
                                 "//http://localhost:8080/link?login=" + login + "&email=" + email);
-                        log.trace("Send registration email to " + fullName);
+                        log.debug("Send registration email to " + fullName);
                     } catch (MessagingException e) {
                         log.error("Failed to send a message to: " + userDAO.getByLogin(login).getFullName(), e);
                     }
@@ -60,11 +60,11 @@ public class Registration extends HttpServlet {
                 }
             } else if (userDAO.isContainsLogin(login)) {
                 req.setAttribute("regInfo", "This login already exist");
-                log.info("This login already exist");
+                log.debug("This login already exist");
                 req.getRequestDispatcher(WebPath.REGISTRATION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
-            log.info("No valid data", e);
+            log.error("No valid data", e);
             req.setAttribute("regInfo", "You try enter incorrect data");
             req.getRequestDispatcher(WebPath.REGISTRATION_PAGE).forward(req, resp);
         }

@@ -80,7 +80,7 @@
 
 <div align="right" class="container">
     ${requestScope.subscribeInfo}
-    <a href="/lang?lang=eng">ENG</a>
+    <a href="/lang?lang=en">ENG</a>
     /
     <a href="/lang?lang=ru">RU</a>
 </div>
