@@ -1,0 +1,14 @@
+package ua.nure.poliakov.SummaryTask4.utils.exceptions;
+
+public class ValidationException extends PeriodicalsException {
+
+    public ValidationException(){}
+
+    public ValidationException(String message){
+        super(message);
+    }
+
+    public ValidationException(String message, Throwable clause){
+        super(message, clause);
+    }
+}

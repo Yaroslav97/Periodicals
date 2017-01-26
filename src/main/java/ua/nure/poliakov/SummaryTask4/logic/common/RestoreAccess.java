@@ -20,7 +20,6 @@ public class RestoreAccess extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(RestoreAccess.class);
     private UserDAO userDAO = UserDAOImplement.getInstance();
-    ;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,7 +41,6 @@ public class RestoreAccess extends HttpServlet {
                 log.debug("Password was change");
                 resp.sendRedirect("/userCabinet");
             } catch (MessagingException e) {
-                // todo create own exception
                 log.error("Can't send restore message to " + userDAO.getByLogin(login).getFullName(), e);
                 req.setAttribute("restoreInfo", "Can't send restore message");
                 req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);

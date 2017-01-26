@@ -2,8 +2,8 @@ package ua.nure.poliakov.SummaryTask4.utils.validations.user;
 
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 
-import javax.xml.bind.ValidationException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ public class ValidateUser implements Validator<User>, UserValidate<String, Doubl
         Pattern pattern = Pattern.compile("[A-zА-я]+ [A-zА-я]+");
         Matcher matcher = pattern.matcher(name);
         if (name.length() < 4 || !matcher.matches()) {
-            throw new ValidationException("User name must be greater then 4 and contains only characters");
+            throw new ValidationException("User name must be longer then 4 cand contains only characters");
         }
         return true;
     }
@@ -30,7 +30,7 @@ public class ValidateUser implements Validator<User>, UserValidate<String, Doubl
         Pattern pattern = Pattern.compile("[A-zА-я0-9]+");
         Matcher matcher = pattern.matcher(login);
         if (login == null || login.length() < 4 || !matcher.matches()) {
-            throw new ValidationException("Login must be greater then 4 and contains only characters and digitals");
+            throw new ValidationException("Login must be longer then 4 and contains only characters and digitals");
         }
         return true;
     }

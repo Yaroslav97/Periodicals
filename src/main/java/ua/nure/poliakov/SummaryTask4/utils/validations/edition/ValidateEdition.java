@@ -2,8 +2,8 @@ package ua.nure.poliakov.SummaryTask4.utils.validations.edition;
 
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 
-import javax.xml.bind.ValidationException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

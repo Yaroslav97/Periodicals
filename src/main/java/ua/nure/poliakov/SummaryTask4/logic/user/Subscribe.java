@@ -36,13 +36,11 @@ public class Subscribe extends HttpServlet {
             log.debug(login + " subscribe to " + editionDAO.getEdition(id).getName() + "(" + id + ")");
             req.setAttribute("subscribeInfo", "You subscribe to " + editionDAO.getEdition(id).getName());
             if (userDAO.getSettings(login)) {
-                // todo maybe create separate func?
                 try {
-                    SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(), "Hello " +
-                            userDAO.getByLogin(login).getFullName() + ", you successfully subscribe to " +
-                            editionDAO.getEdition(id).getName() + " " + editionDAO.getEdition(id).getPrice() + "$.");
+                    // todo test it
+                    SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(), SendEmail.subscribeEmail(login, id));
                 } catch (MessagingException e) {
-                    log.error("Can not send email to " + login);
+                    log.error("Can not send email to " + login, e);
                 }
             }
             resp.sendRedirect("/index");

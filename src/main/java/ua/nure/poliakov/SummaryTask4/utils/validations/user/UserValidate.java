@@ -1,8 +1,9 @@
 package ua.nure.poliakov.SummaryTask4.utils.validations.user;
 
-import javax.xml.bind.ValidationException;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 
 public interface UserValidate<T, D> {
+
     boolean name(T name) throws ValidationException;
 
     boolean login(T login) throws ValidationException;

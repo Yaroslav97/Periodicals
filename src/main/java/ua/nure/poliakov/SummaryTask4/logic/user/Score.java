@@ -36,17 +36,15 @@ public class Score extends HttpServlet {
         userValidate = new ValidateUser();
 
         try {
-            if (userValidate.score(score)) {
-                if (userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
-                    userDAO.updateScore(login, "refill", score);
-                    req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
-                    log.debug("Refill score ==> " + login);
-                    resp.sendRedirect("/userCabinet");
-                } else {
-                    log.debug("Wrong password");
-                    req.setAttribute("scoreInfo", "Wrong password");
-                    req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
-                }
+            if (userValidate.score(score) && userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
+                userDAO.updateScore(login, "refill", score);
+                req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
+                log.debug("Refill score ==> " + login);
+                resp.sendRedirect("/userCabinet");
+            } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
+                log.debug("Wrong password");
+                req.setAttribute("scoreInfo", "Wrong password");
+                req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
             log.error("No valid data", e);

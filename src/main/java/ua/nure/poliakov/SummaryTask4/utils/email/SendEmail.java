@@ -1,5 +1,10 @@
 package ua.nure.poliakov.SummaryTask4.utils.email;
 
+import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
+import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
+import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+
 import java.util.Properties;
 import java.util.Random;
 import javax.mail.Message;
@@ -11,6 +16,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
+
+    private static UserDAO userDAO = UserDAOImplement.getInstance();
+    private static EditionDAO editionDAO = EditionDAOImplement.getInstance();
     private static final String myEmail = "yaroslav.poliakov@gmail.com";
     private static final String password = "py19970429";
 
@@ -45,6 +53,11 @@ public class SendEmail {
     public static String restoreAccess(String name, String password) {
         return "Hello " + name + ", your new password - " + password + "." + System.lineSeparator() +
                 "http://localhost:8080/index";
+    }
+
+    public static String subscribeEmail(String login, int id){
+        return  "Hello " + userDAO.getByLogin(login).getFullName() + ", you successfully subscribe to " +
+                editionDAO.getEdition(id).getName() + " " + editionDAO.getEdition(id).getPrice() + "$.";
     }
 
     public static String randomPassword() {
