@@ -67,17 +67,10 @@
 
 <c:if test="${sessionScope.authenticatedBan == true}">
     <c:redirect url="/logout"/>
-    <%--todo when user ban, create method--%>
+    <%--todo when user ban, create method and use in filter--%>
 </c:if>
 
-
-<%--<form action="/userList" method="post" class="col-xs-2">
-    <input name="search" placeholder="${FullName}" required class="form-control">
-    <input type="submit" value="${Search}">
-</form>--%>
-
 <div class="container">
-
     <form action="/userList" method="post" class="col-xs-2">
         <select name="role" class="form-control">
             <option selected value="users">${Users}</option>

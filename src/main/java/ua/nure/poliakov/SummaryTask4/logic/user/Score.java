@@ -5,6 +5,7 @@ import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.UserValidate;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.ValidateUser;
 
@@ -13,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.ValidationException;
 import java.io.IOException;
 
 @WebServlet("/score")

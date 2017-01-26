@@ -67,7 +67,6 @@
 
 <c:if test="${sessionScope.authenticatedBan == true}">
     <c:redirect url="/logout"/>
-    <%--todo when user ban, create method and use in filter--%>
 </c:if>
 
 <div class="container">

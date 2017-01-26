@@ -5,6 +5,7 @@ import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.edition.ValidateEdition;
 
@@ -14,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.bind.ValidationException;
 import java.io.IOException;
 
 @WebServlet("/editEdition")

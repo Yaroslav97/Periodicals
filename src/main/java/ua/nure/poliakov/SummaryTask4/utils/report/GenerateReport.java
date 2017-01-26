@@ -43,7 +43,7 @@ public class GenerateReport {
     public static void downloadReport(HttpServletResponse resp, String login){
         File file = new File(GenerateReport.PATH);
         resp.setContentType("application/pdf");
-        resp.addHeader("Context-Disposition", "inline; filename=\"" + String.format("report_%s.pdf", login) + "\"");
+        resp.addHeader("ContextFilter-Disposition", "inline; filename=\"" + String.format("report_%s.pdf", login) + "\"");
         resp.setContentLength((int) file.length());
         log.trace("download report");
     }

@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.Locale;
 
 @WebFilter(filterName = "profiler", urlPatterns = {"/*"})
-public class Context implements Filter {
+public class ContextFilter implements Filter {
 
-    private static final Logger log = Logger.getLogger(Context.class);
+    private static final Logger log = Logger.getLogger(ContextFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -20,7 +20,6 @@ public class Context implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         Locale.setDefault(Locale.ENGLISH);
         chain.doFilter(request, response);
     }
