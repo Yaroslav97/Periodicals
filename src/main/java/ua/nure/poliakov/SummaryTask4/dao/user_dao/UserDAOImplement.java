@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.dao.user_dao;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.close.Close;
+import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.dao.connection.PoolConnection;
 import ua.nure.poliakov.SummaryTask4.dao.rollback.Rollback;
@@ -286,14 +287,14 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public void updateScore(String login, String operation, double score) {
+    public void updateScore(Score score) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = dataSource.getConnection();
 
-            switch (operation) {
+            switch (score.getOperation()) {
                 case "refill":
                     preparedStatement = connection.prepareStatement(UPDATE_SCORE_REFILL);
                     break;
@@ -304,8 +305,8 @@ public class UserDAOImplement implements UserDAO {
                     throw new SQLException();
             }
 
-            preparedStatement.setDouble(1, score);
-            preparedStatement.setString(2, login);
+            preparedStatement.setDouble(1, score.getScore());
+            preparedStatement.setString(2, score.getLogin());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

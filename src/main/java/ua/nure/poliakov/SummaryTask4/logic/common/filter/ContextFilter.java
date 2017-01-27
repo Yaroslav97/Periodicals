@@ -20,6 +20,7 @@ public class ContextFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         Locale.setDefault(Locale.ENGLISH);
         chain.doFilter(request, response);
     }

@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.close.Close;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.dao.connection.PoolConnection;
+import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
 
@@ -231,7 +232,7 @@ public class EditionDAOImplement implements EditionDAO {
             preparedStatement.setString(1, login);
             preparedStatement.setInt(2, idEdition);
             preparedStatement.executeUpdate();
-            userDAO.updateScore(login, "withdraw", getEdition(idEdition).getPrice());
+            userDAO.updateScore(new Score(login, getEdition(idEdition).getPrice(), "withdraw"));
         } catch (SQLException e) {
             log.error("Cannot subscribe to edition", e);
         } finally {

@@ -15,6 +15,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Class for send email
+ */
+
 public class SendEmail {
 
     private static UserDAO userDAO = UserDAOImplement.getInstance();

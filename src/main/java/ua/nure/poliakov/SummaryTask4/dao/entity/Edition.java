@@ -1,5 +1,9 @@
 package ua.nure.poliakov.SummaryTask4.dao.entity;
 
+/**
+ * Edition entity.
+ */
+
 public class Edition {
 
     private int id;

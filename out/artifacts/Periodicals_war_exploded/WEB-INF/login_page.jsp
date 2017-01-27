@@ -9,17 +9,7 @@
 </head>
 <body>
 
-<fmt:setBundle basename="i18n"/>
-
-<fmt:message key="periodicals" var="Periodicals"/>
-<fmt:message key="sign.in" var="SignIn"/>
-<fmt:message key="sign.up" var="SignUp"/>
-<fmt:message key="restore" var="RestoreAccess"/>
-<fmt:message key="log.out" var="LogOut"/>
-
-<fmt:message key="login" var="Login"/>
-<fmt:message key="password" var="Password"/>
-<fmt:message key="sign.in" var="SignIn"/>
+<%@include file="/WEB-INF/jspf/i18n.jspf"%>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">

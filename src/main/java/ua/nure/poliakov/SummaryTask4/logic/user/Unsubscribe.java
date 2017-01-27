@@ -28,10 +28,10 @@ public class Unsubscribe extends HttpServlet {
             req.getSession().setAttribute("subscribesList", editionDAO.getAllSubscriptions
                     (String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
             log.debug(login + " unsubscribes " + editionDAO.getEdition(idEdition).getName());
-            resp.sendRedirect(WebPath.USER_CABINET_PAGE);
+            resp.sendRedirect("/userCabinet");
         } else {
             log.debug(login + " does not subscribes to " + editionDAO.getEdition(idEdition).getName() + " or edition not exist");
-            resp.sendRedirect(WebPath.USER_CABINET_PAGE);
+            resp.sendRedirect("/userCabinet");
         }
     }
 }

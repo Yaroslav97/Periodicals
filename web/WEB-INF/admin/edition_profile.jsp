@@ -5,17 +5,11 @@
 <html>
 <head>
     <title>Subscribers Information</title>
-    <%@include file="/WEB-INF/jspf/libraries.jspf"%>
+    <%@include file="/WEB-INF/jspf/libraries.jspf" %>
 </head>
 <body>
 
-<fmt:setBundle basename="i18n"/>
-
-<fmt:message key="periodicals" var="Periodicals"/>
-<fmt:message key="add.edition" var="AddEdition"/>
-<fmt:message key="user.list" var="UserList"/>
-<fmt:message key="information" var="Info"/>
-<fmt:message key="log.out" var="LogOut"/>
+<%@include file="/WEB-INF/jspf/i18n.jspf"%>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -26,7 +20,7 @@
             <li><a href="/index">${sessionScope.authenticatedFullName}</a></li>
             <li><a href="/addEdition">${AddEdition}</a></li>
             <li><a href="/userList">${UserList}</a></li>
-            <li class="active"><a href="">${Info}</a></li>
+            <li class="active"><a href="">${EditionInfo}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <c:if test="${!empty sessionScope.authenticatedLogin}">
@@ -47,18 +41,21 @@
 <div class="container">
 
     <table class="table">
-        <tr>
-            <th>name</th>
-            <th>subject</th>
-            <th>subscribers</th>
-            <th>total sum</th>
-        </tr>
-
         <c:forEach items="${editionInfo}" var="editionInfo">
             <tr>
+                <th>${Name}</th>
                 <td>${editionInfo.name}</td>
+            </tr>
+            <tr>
+                <th>${Subject}</th>
                 <td>${editionInfo.subject}</td>
+            </tr>
+            <tr>
+                <th>${Subscribers}</th>
                 <td>${editionInfo.countSubscribe}</td>
+            </tr>
+            <tr>
+                <th>${TotalSum}</th>
                 <td>${editionInfo.price}</td>
             </tr>
         </c:forEach>
@@ -69,10 +66,10 @@
 
     <table class="table">
         <tr>
-            <th>fullName</th>
-            <th>login</th>
-            <th>email</th>
-            <th>ban</th>
+            <th>${FullName}</th>
+            <th>${Login}</th>
+            <th>${Email}</th>
+            <th>${Ban}</th>
         </tr>
 
         <c:forEach items="${subList}" var="subList">

@@ -3,6 +3,10 @@ package ua.nure.poliakov.SummaryTask4.utils.encodind;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Encoding password by algorytm MD5
+ */
+
 public class Password {
 
     static public String encodePassword(String password) {

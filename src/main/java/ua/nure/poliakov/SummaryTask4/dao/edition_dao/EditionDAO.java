@@ -4,6 +4,12 @@ import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 
 import java.util.List;
 
+/**
+ * Edition DAO. Works with MySQL DB. Interface contain CRUD methods which works with editions.
+ *
+ * @author Yaroslav Poliakov
+ */
+
 public interface EditionDAO {
 
     void addEdition(Edition edition);

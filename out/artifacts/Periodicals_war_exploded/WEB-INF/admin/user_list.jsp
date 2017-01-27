@@ -8,26 +8,7 @@
 </head>
 <body>
 
-<fmt:setBundle basename="i18n"/>
-
-<fmt:message key="periodicals" var="Periodicals"/>
-<fmt:message key="add.edition" var="AddEdition"/>
-<fmt:message key="user.list" var="UserList"/>
-<fmt:message key="edit.edition" var="EditEdition"/>
-<fmt:message key="log.out" var="LogOut"/>
-
-<fmt:message key="full.name" var="FullName"/>
-<fmt:message key="login" var="Login"/>
-<fmt:message key="email" var="Email"/>
-<fmt:message key="score" var="Score"/>
-<fmt:message key="role" var="Role"/>
-<fmt:message key="ban" var="Ban"/>
-<fmt:message key="change.ban" var="ChangeBan"/>
-<fmt:message key="change.status" var="ChangeStatus"/>
-<fmt:message key="info" var="Info"/>
-<fmt:message key="user" var="Users"/>
-<fmt:message key="admin" var="Admins"/>
-<fmt:message key="search" var="Search"/>
+<%@include file="/WEB-INF/jspf/i18n.jspf"%>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">

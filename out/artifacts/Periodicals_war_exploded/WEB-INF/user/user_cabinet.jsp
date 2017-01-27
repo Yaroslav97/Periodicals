@@ -8,18 +8,7 @@
 </head>
 <body>
 
-<fmt:setBundle basename="i18n"/>
-
-<fmt:message key="periodicals" var="Periodicals"/>
-<fmt:message key="edit.profile" var="EditProfile"/>
-<fmt:message key="refill.account" var="RefillAccount"/>
-<fmt:message key="log.out" var="LogOut"/>
-<fmt:message key="balance" var="Balance"/>
-<fmt:message key="id" var="Id"/>
-<fmt:message key="name" var="Name"/>
-<fmt:message key="subject" var="Subject"/>
-<fmt:message key="price" var="Price"/>
-<fmt:message key="unsubscribe" var="Unsibscribe"/>
+<%@include file="/WEB-INF/jspf/i18n.jspf"%>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -82,7 +71,7 @@
 <br>
 
 <div align="right" class="container">
-    <a href="/report">Generate report</a>
+    <a href="/report">${GenerateReport}</a>
 </div>
 
 </body>

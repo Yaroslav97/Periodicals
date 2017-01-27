@@ -5,6 +5,10 @@ import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Obtain all list of editions.
+ */
+
 public class EditionsList {
 
     private static EditionDAO editionDAO = EditionDAOImplement.getInstance();

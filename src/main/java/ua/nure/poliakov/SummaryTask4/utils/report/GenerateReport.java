@@ -16,6 +16,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
 
+/**
+ * Class for generate report for a user.
+ * Report contain list of all subscriptions
+ */
+
 public class GenerateReport {
 
     private static final Logger log = Logger.getLogger(GenerateReport.class);

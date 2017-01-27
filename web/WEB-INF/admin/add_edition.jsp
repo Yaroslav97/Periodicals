@@ -4,21 +4,11 @@
 <html>
 <head>
     <title>add addition</title>
-    <%@include file="/WEB-INF/jspf/libraries.jspf"%>
+    <%@include file="/WEB-INF/jspf/libraries.jspf" %>
 </head>
 <body>
 
-<fmt:setBundle basename="i18n"/>
-
-<fmt:message key="periodicals" var="Periodicals"/>
-<fmt:message key="add.edition" var="AddEdition"/>
-<fmt:message key="user.list" var="UserList"/>
-<fmt:message key="log.out" var="LogOut"/>
-
-<fmt:message key="name" var="Name"/>
-<fmt:message key="subject" var="Subject"/>
-<fmt:message key="price" var="Price"/>
-<fmt:message key="add.edition" var="Add"/>
+<%@include file="/WEB-INF/jspf/i18n.jspf" %>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -51,13 +41,15 @@
 <br>
 
 <div class="container">
-<form action="/addEdition" method="post" class="col-xs-6">
-    <input name="name" pattern="^[A-zА-я0-9 ]+$" required minlength="3" placeholder="${Name}" class="form-control"><br>
-    <input name="subject" pattern="^[A-zА-я ]+$" required minlength="3" placeholder="${Subject}" class="form-control"><br>
-    <input pattern="^[0-9]+\.?[0-9]?$" required name="price" minlength="1" maxlength="3"
-           placeholder="${Price}" class="form-control"><br>
-    <input type="submit" value="${Add}"><br>
-</form>
+    <form action="/addEdition" method="post" class="col-xs-6">
+        <input name="name" pattern="^[A-zА-я0-9 ]+$" required minlength="3" placeholder="${Name}"
+               class="form-control"><br>
+        <input name="subject" pattern="^[A-zА-я ]+$" required minlength="3" placeholder="${Subject}"
+               class="form-control"><br>
+        <input pattern="^[0-9]+\.?[0-9]?$" required name="price" minlength="1" maxlength="3"
+               placeholder="${Price}" class="form-control"><br>
+        <input type="submit" value="${Add}"><br>
+    </form>
 </div>
 
 

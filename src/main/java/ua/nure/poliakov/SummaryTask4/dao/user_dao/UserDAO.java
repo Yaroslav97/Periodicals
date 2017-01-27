@@ -1,8 +1,15 @@
 package ua.nure.poliakov.SummaryTask4.dao.user_dao;
 
+import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 
 import java.util.List;
+
+/**
+ * User DAO. Works with MySQL DB. Interface contain CRUD methods which works with users.
+ *
+ * @author Yaroslav Poliakov
+ */
 
 public interface UserDAO {
 
@@ -22,7 +29,7 @@ public interface UserDAO {
 
     void updatePassword(String login, String password);
 
-    void updateScore(String login, String operation, double score);
+    void updateScore(Score score);
 
     double getScore(String login);
 

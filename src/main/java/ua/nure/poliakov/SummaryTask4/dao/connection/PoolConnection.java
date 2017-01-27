@@ -2,7 +2,6 @@ package ua.nure.poliakov.SummaryTask4.dao.connection;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.log4j.Logger;
-import ua.nure.poliakov.SummaryTask4.utils.exceptions.ConnectionPoolException;
 
 import javax.naming.*;
 

@@ -1,19 +1,22 @@
 package ua.nure.poliakov.SummaryTask4.dao.close;
 
 import org.apache.log4j.Logger;
-import ua.nure.poliakov.SummaryTask4.utils.exceptions.DAOException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Class contains methods for close active connection.
+ */
+
 public class Close {
 
     private static final Logger log = Logger.getLogger(Class.class);
 
     public static void close(Connection connection) {
-        if (connection!=null){
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -22,8 +25,8 @@ public class Close {
         }
     }
 
-    public static void close(Statement statement){
-        if (statement!=null){
+    public static void close(Statement statement) {
+        if (statement != null) {
             try {
                 statement.close();
             } catch (SQLException e) {
@@ -33,7 +36,7 @@ public class Close {
     }
 
     public static void close(ResultSet resultSet) {
-        if (resultSet!=null){
+        if (resultSet != null) {
             try {
                 resultSet.close();
             } catch (SQLException e) {

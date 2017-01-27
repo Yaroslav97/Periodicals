@@ -1,6 +1,7 @@
 package ua.nure.poliakov.SummaryTask4.logic.user;
 
 import org.apache.log4j.Logger;
+import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
@@ -17,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/score")
-public class Score extends HttpServlet {
+public class RefillScore extends HttpServlet {
 
-    private static final Logger log = Logger.getLogger(Score.class);
+    private static final Logger log = Logger.getLogger(RefillScore.class);
     private UserDAO userDAO = UserDAOImplement.getInstance();
     private UserValidate<String, Double> userValidate;
 
@@ -37,12 +38,12 @@ public class Score extends HttpServlet {
 
         try {
             if (userValidate.score(score) && userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
-                userDAO.updateScore(login, "refill", score);
+                userDAO.updateScore(new Score(login, score, "refill"));
                 req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
                 log.debug("Refill score ==> " + login);
                 resp.sendRedirect("/userCabinet");
             } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
-                log.debug("Wrong password");
+                log.debug("Wrong password ==> " + login);
                 req.setAttribute("scoreInfo", "Wrong password");
                 req.getRequestDispatcher(WebPath.REFILL_SCORE_PAGE).forward(req, resp);
             }

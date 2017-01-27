@@ -1,5 +1,9 @@
 package ua.nure.poliakov.SummaryTask4.logic.common.paths;
 
+/**
+ * JSP Relative path
+ */
+
 public interface WebPath {
 
     String INDEX_PAGE = "index.jsp";
@@ -11,7 +15,7 @@ public interface WebPath {
 
     String ADD_EDITION_PAGE = "WEB-INF/admin/add_edition.jsp";
     String EDIT_EDITION_PAGE = "WEB-INF/admin/edit_edition.jsp";
-    String EDITION_INFO_PAGE = "WEB-INF/admin/edition_info.jsp";
+    String EDITION_INFO_PAGE = "WEB-INF/admin/edition_profile.jsp";
     String USER_LIST_PAGE = "WEB-INF/admin/user_list.jsp";
     String USER_PROFILE_PAGE = "WEB-INF/admin/user_profile.jsp";
 

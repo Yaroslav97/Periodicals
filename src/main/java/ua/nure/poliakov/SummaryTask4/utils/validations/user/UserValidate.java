@@ -2,6 +2,12 @@ package ua.nure.poliakov.SummaryTask4.utils.validations.user;
 
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 
+/**
+ *  Interface for validation User.
+ * @param <T>
+ * @param <D>
+ */
+
 public interface UserValidate<T, D> {
 
     boolean name(T name) throws ValidationException;
