@@ -7,7 +7,7 @@ import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidateEdition implements Validator<Edition>, EditionValidation<String, Double> {
+public class ValidateEdition implements Validator<Edition>, EditionValidate<String, Double> {
     @Override
     public boolean validate(Edition edition) throws ValidationException {
         return name(edition.getName()) && subject(edition.getSubject()) && price(edition.getPrice());

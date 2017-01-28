@@ -10,7 +10,7 @@ import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
  * @param <D>
  */
 
-public interface EditionValidation<T, D> {
+public interface EditionValidate<T, D> {
 
     boolean name(T name) throws ValidationException;
 
