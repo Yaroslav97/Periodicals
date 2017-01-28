@@ -22,8 +22,8 @@ public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EditionsList.editionList(req);
-        String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
-        if (!login.equals("null")) {
+        String login = (String) req.getSession().getAttribute("authenticatedLogin");
+        if (login != null) {
             req.getSession().setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
         }
         log.debug("Index page");
