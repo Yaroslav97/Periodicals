@@ -28,6 +28,9 @@ public class RegistrationLink extends HttpServlet {
             userDAO.banUser(req.getParameter("login"), false);
             log.debug("Confirmation email");
             resp.sendRedirect("/index");
+        } else {
+            log.debug("Email is not confirmation");
+            resp.sendRedirect("/index");
         }
     }
 }

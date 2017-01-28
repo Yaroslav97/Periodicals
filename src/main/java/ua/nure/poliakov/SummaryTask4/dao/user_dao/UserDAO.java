@@ -33,7 +33,7 @@ public interface UserDAO {
 
     double getScore(String login);
 
-    List<User> getAllUsersByRole(String role);
+    List<User> getAllUsersByRole(String role, String login);
 
     void updateSettings(String login, Boolean sendEmail);
 

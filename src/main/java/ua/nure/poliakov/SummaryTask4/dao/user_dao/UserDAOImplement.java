@@ -49,7 +49,7 @@ public class UserDAOImplement implements UserDAO {
     private static final String SELECT_ALL_USERS =
             "SELECT users.*, user_role.role FROM users, user_role WHERE users.login = user_role.login";
     private static final String SELECT_ALL_USERS_BY_ROLE =
-            "SELECT users.*, user_role.role FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav') " +
+            "SELECT users.*, user_role.role FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav', ?) " +
                     "AND users.login = user_role.login";
     private static final String SELECT_LOGIN = "SELECT login FROM users WHERE login=?";
     private static final String SELECT_SCORE = "SELECT score FROM users WHERE login=?";
@@ -58,8 +58,8 @@ public class UserDAOImplement implements UserDAO {
             "SELECT users.fullName, users.login, users.email, users.ban FROM users, subscribes " +
                     "WHERE subscribes.edition = ? AND users.login = subscribes.login";
     private static final String SELECT_USER_BY_NAME =
-            "SELECT users.*, user_role.role FROM users, user_role " +
-                    "WHERE fullName LIKE ? AND users.login = user_role.login ORDER BY fullName";
+            "SELECT users.*, user_role.role FROM users, user_role WHERE fullName LIKE ? " +
+                    "AND users.login = user_role.login AND users.login NOT IN('yaroslav') ORDER BY fullName";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private User user;
@@ -343,7 +343,7 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public List<User> getAllUsersByRole(String role) {
+    public List<User> getAllUsersByRole(String role, String login) {
         List<User> userList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -353,6 +353,7 @@ public class UserDAOImplement implements UserDAO {
             connection = dataSource.getConnection();
             preparedStatement = connection.prepareStatement(SELECT_ALL_USERS_BY_ROLE);
             preparedStatement.setString(1, role);
+            preparedStatement.setString(2, login);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 userList.add(new User(

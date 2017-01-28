@@ -50,7 +50,7 @@ public class EditionDAOImplement implements EditionDAO {
     private static final String SELECT_BY_PRICE = "SELECT * FROM editions WHERE price BETWEEN ? AND ? ORDER BY price";
     private static final String SELECT_BY_SUBSCRIPTIONS =
             "SELECT editions.*, count(subscribes.login) FROM editions, subscribes " +
-                    "WHERE editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY editions.name";
+                    "WHERE editions.id = subscribes.edition GROUP BY subscribes.edition ORDER BY count(subscribes.login) DESC";
     private static final String SELECT_EDITION_INFO =
             "SELECT editions.id, editions.name, editions.subject, count(subscribes.login), sum(editions.price) " +
                     "FROM editions, subscribes WHERE editions.id=? AND editions.id = subscribes.edition " +

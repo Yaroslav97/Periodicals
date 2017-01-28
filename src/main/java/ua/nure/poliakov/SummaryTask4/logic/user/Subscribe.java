@@ -37,7 +37,6 @@ public class Subscribe extends HttpServlet {
             req.setAttribute("subscribeInfo", "You subscribe to " + editionDAO.getEdition(id).getName());
             if (userDAO.getSettings(login)) {
                 try {
-                    // todo test it
                     SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(), SendEmail.subscribeEmail(login, id));
                 } catch (MessagingException e) {
                     log.error("Can not send email to " + login, e);
