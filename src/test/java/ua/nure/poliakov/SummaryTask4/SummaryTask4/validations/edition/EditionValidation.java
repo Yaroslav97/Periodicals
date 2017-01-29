@@ -7,6 +7,8 @@ import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.edition.ValidateEdition;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class EditionValidation {
 
@@ -18,7 +20,7 @@ public class EditionValidation {
                 "some subject",
                 4.5
         ));
-        assertEquals(true, expected);
+        assertTrue(expected);
     }
 
     @Test(expected = ValidationException.class)
@@ -29,7 +31,7 @@ public class EditionValidation {
                 "some subject",
                 4.5
         ));
-        assertEquals(false, expected);
+        assertFalse( expected);
     }
 
     @Test(expected = ValidationException.class)

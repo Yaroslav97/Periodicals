@@ -2,10 +2,10 @@ package ua.nure.poliakov.SummaryTask4.SummaryTask4.validations.user;
 
 import org.junit.Test;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
-
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
 import ua.nure.poliakov.SummaryTask4.utils.validations.user.ValidateUser;
+
 
 import static org.junit.Assert.assertEquals;
 
