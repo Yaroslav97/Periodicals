@@ -1,6 +1,7 @@
 package ua.nure.poliakov.SummaryTask4.dao.edition_dao;
 
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.DBException;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface EditionDAO {
 
     void updateEdition(Edition edition);
 
-    void deleteEdition(int id);
+    void deleteEdition(int id) throws DBException;
 
     Edition getEdition(int id);
 

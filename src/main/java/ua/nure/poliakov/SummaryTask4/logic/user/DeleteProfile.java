@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for removal user profile.
+ */
+
 @WebServlet("/deleteUser")
 public class DeleteProfile extends HttpServlet {
 

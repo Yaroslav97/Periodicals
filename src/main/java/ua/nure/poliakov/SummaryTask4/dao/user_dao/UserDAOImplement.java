@@ -32,8 +32,7 @@ public class UserDAOImplement implements UserDAO {
     private static final Logger log = Logger.getLogger(UserDAOImplement.class);
 
     private static final String INSERT_USERS =
-            "INSERT INTO users (fullName, login, email, ban, score ,password) VALUES(?, ?, ?, ?, ?, ?)";
-    private static final String INSERT_ROLE = "INSERT INTO user_role (login, role) VALUES(?, ?)";
+            "INSERT INTO users (fullName, login, email, ban, score ,password, role) VALUES(?, ?, ?, ?, ?, ?, ?)";
     private static final String INSERT_SETTING = "INSERT INTO settings (login, notification) VALUES(?, ?)";
     private static final String UPDATE_USERS = "UPDATE users SET fullName=?, email=?, password=? WHERE login=?";
     private static final String UPDATE_BAN_STATUS = "UPDATE users SET ban=? WHERE login=?";
@@ -41,25 +40,25 @@ public class UserDAOImplement implements UserDAO {
     private static final String UPDATE_SCORE_REFILL = "UPDATE users SET score=score+? WHERE login=?";
     private static final String UPDATE_SCORE_WITHDRAW = "UPDATE users SET score=score-? WHERE login=?";
     private static final String UPDATE_SETTING = "UPDATE settings SET notification=?  WHERE login=?";
+    private static final String UPDATE_SUBSCRIBES = "UPDATE subscribes SET login='yaroslav', status=0 WHERE login=?";
     private static final String DELETE_USERS = "DELETE FROM users WHERE login=?";
-    private static final String DELETE_ROLE = "DELETE FROM user_role WHERE login=?";
     private static final String DELETE_SETTING = "DELETE FROM settings WHERE login=?";
     private static final String SELECT_USER_BY_LOGIN =
-            "SELECT users.*, user_role.role FROM users, user_role WHERE users.login=? AND users.login = user_role.login";
+            "SELECT users.*, user_role.role FROM users, user_role WHERE users.login=? AND users.role = user_role.id";
     private static final String SELECT_ALL_USERS =
-            "SELECT users.*, user_role.role FROM users, user_role WHERE users.login = user_role.login";
+            "SELECT users.*, user_role.role FROM users, user_role WHERE users.role = user_role.id";
     private static final String SELECT_ALL_USERS_BY_ROLE =
-            "SELECT users.*, user_role.role FROM users, user_role WHERE role=? AND users.login NOT IN('yaroslav', ?) " +
-                    "AND users.login = user_role.login";
+            "SELECT users.*, user_role.role FROM users, user_role WHERE user_role.role=? AND users.login NOT IN('yaroslav', ?) " +
+                    "AND users.role = user_role.id";
     private static final String SELECT_LOGIN = "SELECT login FROM users WHERE login=?";
     private static final String SELECT_SCORE = "SELECT score FROM users WHERE login=?";
     private static final String SELECT_SETTING = "SELECT notification FROM settings WHERE login=?";
     private static final String SELECT_SUBSCRIBERS =
             "SELECT users.fullName, users.login, users.email, users.ban FROM users, subscribes " +
-                    "WHERE subscribes.edition = ? AND users.login = subscribes.login";
+                    "WHERE subscribes.edition = ? AND users.login = subscribes.login AND status=1";
     private static final String SELECT_USER_BY_NAME =
             "SELECT users.*, user_role.role FROM users, user_role WHERE fullName LIKE ? " +
-                    "AND users.login = user_role.login AND users.login NOT IN('yaroslav') ORDER BY fullName";
+                    "AND users.role = user_role.id AND users.login NOT IN('yaroslav') ORDER BY fullName";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private User user;
@@ -80,11 +79,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setInt(4, user.getBan() ? 1 : 0);
             preparedStatement.setDouble(5, user.getScore());
             preparedStatement.setString(6, user.getPassword());
-            preparedStatement.executeUpdate();
-
-            preparedStatement = connection.prepareStatement(INSERT_ROLE);
-            preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getRole());
+            preparedStatement.setInt(7, user.getRole().equals("admin") ? 2 : 1);
             preparedStatement.executeUpdate();
 
             preparedStatement = connection.prepareStatement(INSERT_SETTING);
@@ -133,20 +128,25 @@ public class UserDAOImplement implements UserDAO {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
 
-            preparedStatement = connection.prepareStatement(DELETE_USERS);
-            preparedStatement.setString(1, login);
-            preparedStatement.executeUpdate();
-
-            preparedStatement = connection.prepareStatement(DELETE_ROLE);
-            preparedStatement.setString(1, login);
-            preparedStatement.executeUpdate();
+            preparedStatement = connection.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
+            preparedStatement.execute();
 
             preparedStatement = connection.prepareStatement(DELETE_SETTING);
             preparedStatement.setString(1, login);
             preparedStatement.executeUpdate();
 
-            connection.commit();
+            preparedStatement = connection.prepareStatement(UPDATE_SUBSCRIBES);
+            preparedStatement.setString(1, login);
+            preparedStatement.executeUpdate();
 
+            preparedStatement = connection.prepareStatement(DELETE_USERS);
+            preparedStatement.setString(1, login);
+            preparedStatement.executeUpdate();
+
+            preparedStatement = connection.prepareStatement("SET FOREIGN_KEY_CHECKS=1");
+            preparedStatement.execute();
+
+            connection.commit();
         } catch (SQLException e) {
             Rollback.rollback(connection);
             log.error("Cannot delete user", e);
@@ -174,7 +174,7 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("users.login"),
                         resultSet.getString("email"),
                         resultSet.getDouble("score"),
-                        resultSet.getString("role"),
+                        resultSet.getString("user_role.role"),
                         resultSet.getInt("ban") == 0 ? false : true,
                         resultSet.getString("password")
                 );
@@ -206,7 +206,7 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("users.login"),
                         resultSet.getString("email"),
                         resultSet.getDouble("score"),
-                        resultSet.getString("role"),
+                        resultSet.getString("user_role.role"),
                         resultSet.getInt("ban") == 0 ? false : true,
                         resultSet.getString("password")
                 ));
@@ -361,7 +361,7 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("users.login"),
                         resultSet.getString("email"),
                         resultSet.getDouble("score"),
-                        resultSet.getString("role"),
+                        resultSet.getString("user_role.role"),
                         resultSet.getInt("ban") == 0 ? false : true,
                         resultSet.getString("password")));
             }
@@ -461,7 +461,7 @@ public class UserDAOImplement implements UserDAO {
                         resultSet.getString("users.login"),
                         resultSet.getString("email"),
                         resultSet.getDouble("score"),
-                        resultSet.getString("role"),
+                        resultSet.getString("user_role.role"),
                         resultSet.getInt("ban") == 0 ? false : true,
                         resultSet.getString("password")));
             }

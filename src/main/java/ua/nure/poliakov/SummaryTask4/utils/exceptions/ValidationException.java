@@ -1,7 +1,7 @@
 package ua.nure.poliakov.SummaryTask4.utils.exceptions;
 
 /**
- * An exception that provides information on a validation error
+ * An exception that provides information on a validation error.
  */
 
 public class ValidationException extends PeriodicalsException {

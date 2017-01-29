@@ -4,11 +4,11 @@
 <html>
 <head>
     <title>cabinet</title>
-    <%@include file="/WEB-INF/jspf/libraries.jspf"%>
+    <%@include file="/WEB-INF/jspf/libraries.jspf" %>
 </head>
 <body>
 
-<%@include file="/WEB-INF/jspf/i18n.jspf"%>
+<%@include file="/WEB-INF/jspf/i18n.jspf" %>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -40,10 +40,17 @@
     <h3>${Balance}: ${sessionScope.authenticatedScore}$</h3>
 </div>
 
+<%@ taglib prefix="tag" tagdir="/WEB-INF/tags" %>
+
 <br>
 <br>
 
 <div class="container">
+
+    <tag:tag_user fullName="${sessionScope.authenticatedFullName}" login="${sessionScope.authenticatedLogin}"
+                  email="${sessionScope.authenticatedEmail}" notification="${sessionScope.notification}"/>
+    <br>
+
     <table class="table">
         <tr>
             <th>${Id}</th>
@@ -51,7 +58,6 @@
             <th>${Subject}</th>
             <th>${Price}</th>
         </tr>
-
         <c:forEach items="${subscribesList}" var="subscribesList">
             <tr>
                 <td>${subscribesList.id}</td>

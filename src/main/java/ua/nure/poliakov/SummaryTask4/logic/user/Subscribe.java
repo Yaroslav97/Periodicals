@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Subscribe on edition.
+ */
+
 @WebServlet("/subscribe")
 public class Subscribe extends HttpServlet {
 
@@ -33,22 +37,22 @@ public class Subscribe extends HttpServlet {
         if (editionDAO.isContains(id) && !login.equals("null") && !editionDAO.isSubscribe(login, id) && Pay.isCanPay(login, id)) {
             editionDAO.subscribe(String.valueOf(req.getSession().getAttribute("authenticatedLogin")), id);
             req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
-            log.debug(login + " subscribe to " + editionDAO.getEdition(id).getName() + "(" + id + ")");
-            req.setAttribute("subscribeInfo", "You subscribe to " + editionDAO.getEdition(id).getName());
+            log.debug(login + " subscribe on " + editionDAO.getEdition(id).getName() + "[" + id + "]");
+            req.setAttribute("subscribeInfo", "You subscribe on " + editionDAO.getEdition(id).getName());
             if (userDAO.getSettings(login)) {
                 try {
                     SendEmail.sendEmail(userDAO.getByLogin(login).getEmail(), SendEmail.subscribeEmail(login, id));
                 } catch (MessagingException e) {
-                    log.error("Can not send email to " + login, e);
+                    log.error("Cannot send email to " + login, e);
                 }
             }
             resp.sendRedirect("/index");
         } else if (editionDAO.isSubscribe(login, id)) {
-            log.debug(login + " already subscribes to this edition");
+            log.debug(login + " already subscribes on this edition");
             req.setAttribute("subscribeInfo", "You already subscribe for " + editionDAO.getEdition(id).getName());
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!login.equals("null") && !Pay.isCanPay(login, id)) {
-            log.debug(login + " can not pay for subscribe ==> " + editionDAO.getEdition(id).getName());
+            log.debug(login + " cannot pay for subscribe ==> " + editionDAO.getEdition(id).getName());
             req.setAttribute("subscribeInfo", "You have not required balance");
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         } else if (!editionDAO.isContains(id)) {

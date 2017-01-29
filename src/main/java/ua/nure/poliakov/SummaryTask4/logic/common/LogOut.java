@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * LogOut from profile.
+ */
+
 @WebServlet("/logout")
 public class LogOut extends HttpServlet {
 

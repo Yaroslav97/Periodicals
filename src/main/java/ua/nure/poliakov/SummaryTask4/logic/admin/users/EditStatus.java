@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for editing user status (ban/unban).
+ */
+
 @WebServlet("/changeStatus")
 public class EditStatus extends HttpServlet {
 

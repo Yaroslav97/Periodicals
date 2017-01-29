@@ -13,7 +13,7 @@
 <br>
 <br>
 
-<div align="center"> <h2>ACCESS DENIED...</h2> </div>
+<div align="center"> <h1>ACCESS DENIED...</h1> </div>
 
 </body>
 </html>

@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * SignIn user in personal account.
+ */
+
 @WebServlet("/signIn")
 public class SignIn extends HttpServlet {
 

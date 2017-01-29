@@ -43,6 +43,10 @@
     <table class="table">
         <c:forEach items="${editionInfo}" var="editionInfo">
             <tr>
+                <th>${Id}</th>
+                <td>${editionInfo.id}</td>
+            </tr>
+            <tr>
                 <th>${Name}</th>
                 <td>${editionInfo.name}</td>
             </tr>

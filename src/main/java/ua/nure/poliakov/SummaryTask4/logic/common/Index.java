@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Obtain edition list.
+ */
+
 @WebServlet("/index")
 public class Index extends HttpServlet {
 
@@ -23,6 +27,7 @@ public class Index extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EditionsList.editionList(req);
         String login = (String) req.getSession().getAttribute("authenticatedLogin");
+        resp.setIntHeader("Refresh", 100);
         if (login != null) {
             req.getSession().setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
         }

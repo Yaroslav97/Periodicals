@@ -17,8 +17,8 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 /**
- * Class for generate report for a user.
- * Report contain list of all subscriptions
+ * Class for generate report for currently user.
+ * Report contain list of all subscriptions.
  */
 
 public class GenerateReport {
@@ -34,7 +34,8 @@ public class GenerateReport {
         Document doc = new Document(PageSize.A5);
         PdfWriter pdfWriter = PdfWriter.getInstance(doc, new FileOutputStream(String.format("%sreport_%s.pdf", PATH, login)));
         doc.open();
-        doc.add(new Paragraph("Subscriptions of " + userDAO.getByLogin(login).getFullName()));
+        doc.add(new Paragraph(userDAO.getByLogin(login).getFullName()));
+        doc.add(new Paragraph("Subscriptions:"));
         doc.add(new Paragraph(System.lineSeparator()));
         for (Edition edition : list) {
             doc.add(new Paragraph(edition.getName() + ", " + edition.getSubject() + ", " + edition.getPrice() + ";"));
@@ -45,7 +46,7 @@ public class GenerateReport {
         pdfWriter.close();
     }
 
-    public static void downloadReport(HttpServletResponse resp, String login){
+    public static void downloadReport(HttpServletResponse resp, String login) {
         File file = new File(GenerateReport.PATH);
         resp.setContentType("application/pdf");
         resp.addHeader("ContextFilter-Disposition", "inline; filename=\"" + String.format("report_%s.pdf", login) + "\"");

@@ -15,6 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for restore access by email.
+ */
+
 @WebServlet("/restoreAccess")
 public class RestoreAccess extends HttpServlet {
 

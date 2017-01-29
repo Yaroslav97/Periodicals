@@ -17,6 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for refill user score.
+ */
+
 @WebServlet("/score")
 public class RefillScore extends HttpServlet {
 

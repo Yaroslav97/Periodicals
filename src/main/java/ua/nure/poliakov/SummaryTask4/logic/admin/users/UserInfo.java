@@ -12,11 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for reveiwing information about currently user.
+ */
+
 @WebServlet("/userInfo")
 public class UserInfo extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(UserInfo.class);
-    private EditionDAO editionDAO = EditionDAOImplement.getInstance();;
+    private EditionDAO editionDAO = EditionDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

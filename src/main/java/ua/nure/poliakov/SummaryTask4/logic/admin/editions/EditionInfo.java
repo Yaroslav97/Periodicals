@@ -14,12 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for viewing information about currently edition.
+ */
+
 @WebServlet("/editionInfo")
 public class EditionInfo extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(EditionInfo.class);
     private EditionDAO editionDAO = EditionDAOImplement.getInstance();
-    private UserDAO userDAO = UserDAOImplement.getInstance();;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

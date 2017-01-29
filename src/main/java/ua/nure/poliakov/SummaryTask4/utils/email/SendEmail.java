@@ -16,7 +16,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * Class for send email
+ * Class for sending email.
  */
 
 public class SendEmail {
@@ -59,9 +59,14 @@ public class SendEmail {
                 "http://localhost:8080/index";
     }
 
-    public static String subscribeEmail(String login, int id){
-        return  "Hello " + userDAO.getByLogin(login).getFullName() + ", you successfully subscribe to " +
+    public static String subscribeEmail(String login, int id) {
+        return "Hello " + userDAO.getByLogin(login).getFullName() + ", you successfully subscribe to " +
                 editionDAO.getEdition(id).getName() + " " + editionDAO.getEdition(id).getPrice() + "$.";
+    }
+
+    public static String registrationEmail(String login, String email) {
+        return "For confirmation registration click on link " + "//http://localhost:8080/link?login=" + login +
+                "&email=" + email;
     }
 
     public static String randomPassword() {

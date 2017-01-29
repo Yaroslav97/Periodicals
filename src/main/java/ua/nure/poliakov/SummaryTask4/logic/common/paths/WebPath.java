@@ -1,7 +1,7 @@
 package ua.nure.poliakov.SummaryTask4.logic.common.paths;
 
 /**
- * JSP Relative path
+ * JSP Relative pathes.
  */
 
 public interface WebPath {

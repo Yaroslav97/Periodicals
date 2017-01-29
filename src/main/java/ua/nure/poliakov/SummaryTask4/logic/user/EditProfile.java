@@ -18,6 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for editing user profile.
+ */
+
 @WebServlet("/editProfile")
 public class EditProfile extends HttpServlet {
 

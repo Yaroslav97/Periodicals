@@ -40,7 +40,7 @@ public class UsersList {
             }
         } else {
             if (search != null) {
-                log.debug("Obtain list by name " + search);
+                log.debug("Obtain user list by name: " + search);
                 req.getSession().setAttribute("userList", userDAO.searchByName(search));
                 req.getRequestDispatcher(WebPath.USER_LIST_PAGE).forward(req, resp);
             }

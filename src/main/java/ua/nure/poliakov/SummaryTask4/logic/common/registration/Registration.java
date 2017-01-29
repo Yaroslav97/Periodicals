@@ -19,11 +19,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for registration new user.
+ */
+
 @WebServlet("/registration")
 public class Registration extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Registration.class);
-    private UserDAO userDAO = UserDAOImplement.getInstance();;
+    private UserDAO userDAO = UserDAOImplement.getInstance();
     private Validator<User> validator;
 
     @Override
@@ -48,13 +52,12 @@ public class Registration extends HttpServlet {
                     resp.sendRedirect("/index");
                 } else if (role.equals("user")) {
                     userDAO.addUser(new User(fullName, login, email, .0, role, true, Password.encodePassword(password)));
-                    log.trace("Added new user: " + userDAO.getByLogin(login).getFullName());
+                    log.debug("Added new user: " + userDAO.getByLogin(login).getFullName());
                     try {
-                        SendEmail.sendEmail(email, "For confirmation registration click to link " +
-                                "//http://localhost:8080/link?login=" + login + "&email=" + email);
+                        SendEmail.sendEmail(email, SendEmail.registrationEmail(login, email));
                         log.debug("Send registration email to " + fullName);
                     } catch (MessagingException e) {
-                        log.error("Failed to send a message to: " + userDAO.getByLogin(login).getFullName(), e);
+                        log.error("Cannot to send registration message to: " + userDAO.getByLogin(login).getFullName(), e);
                     }
                     resp.sendRedirect("/index");
                 }

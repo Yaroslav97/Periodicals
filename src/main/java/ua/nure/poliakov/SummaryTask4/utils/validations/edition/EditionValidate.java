@@ -4,7 +4,7 @@ import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 
 /**
  *
- * Interface for validation Editions.
+ * Interface for edition validation.
  *
  * @param <T>
  * @param <D>

@@ -1,5 +1,9 @@
 package ua.nure.poliakov.SummaryTask4.dao.entity;
 
+/**
+ * Score entity
+ */
+
 public class Score {
 
     private String login;

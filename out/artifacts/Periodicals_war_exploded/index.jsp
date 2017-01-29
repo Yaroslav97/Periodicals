@@ -111,20 +111,17 @@
             <th>${subject}</th>
             <th>${price}</th>
         </tr>
-
         <c:forEach items="${editionList}" var="editionList">
             <tr>
                 <td>${editionList.id}</td>
                 <td>${editionList.name}</td>
                 <td>${editionList.subject}</td>
                 <td>${editionList.price}</td>
-
                 <c:if test="${!empty sessionScope.authenticatedLogin}">
                     <c:choose>
                         <c:when test="${sessionScope.authenticatedRole == 'user'}">
                             <td><a href="/subscribe?id=${editionList.id}">${Subscribe}</a></td>
                         </c:when>
-
                         <c:when test="${sessionScope.authenticatedRole == 'admin'}">
                             <td>
                                 <a href="/editEdition?eId=${editionList.id}&eName=${editionList.name}&eSubject=${editionList.subject}&ePrice=${editionList.price}">${Edit}</a>
@@ -132,7 +129,6 @@
                             <td>
                                 <a href="/removeEdition?id=${editionList.id}">${Remove}</a>
                             </td>
-
                             <c:forEach items="${countSub}" var="countSub">
                                 <c:choose>
                                     <c:when test="${countSub.id == editionList.id}">
@@ -140,10 +136,8 @@
                                     </c:when>
                                 </c:choose>
                             </c:forEach>
-
                         </c:when>
                     </c:choose>
-
                 </c:if>
             </tr>
         </c:forEach>

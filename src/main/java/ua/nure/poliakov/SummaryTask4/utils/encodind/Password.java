@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Encoding password by algorytm MD5
+ * Encoding password by algorytm MD5.
  */
 
 public class Password {

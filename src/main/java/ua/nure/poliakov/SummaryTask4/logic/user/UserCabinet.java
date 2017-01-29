@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Cabinet for user.
+ */
+
 @WebServlet("/userCabinet")
 public class UserCabinet extends HttpServlet {
 

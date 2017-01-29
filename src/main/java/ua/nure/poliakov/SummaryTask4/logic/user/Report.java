@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Generate and download pdf report.
+ */
+
 @WebServlet("/report")
-public class SendReport extends HttpServlet {
+public class Report extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(Logger.class);
 
@@ -25,7 +29,6 @@ public class SendReport extends HttpServlet {
         } catch (DocumentException e) {
             log.error("Cannot generate report", e);
         }
-
         GenerateReport.downloadReport(resp, login);
     }
 }

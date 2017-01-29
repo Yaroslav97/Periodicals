@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Obtain user list.
+ */
+
 @WebServlet("/userList")
 public class UserList extends HttpServlet {
 

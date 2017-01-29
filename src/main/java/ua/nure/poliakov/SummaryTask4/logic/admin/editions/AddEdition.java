@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for adding new editions.
+ */
+
 @WebServlet("/addEdition")
 public class AddEdition extends HttpServlet {
 

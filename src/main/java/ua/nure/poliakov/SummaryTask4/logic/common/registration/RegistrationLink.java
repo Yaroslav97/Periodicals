@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Link from registration email
+ * Link for registration email.
  */
 
 @WebServlet("/link")
@@ -27,7 +27,7 @@ public class RegistrationLink extends HttpServlet {
                 userDAO.getByLogin(req.getParameter("login")).getEmail().equals(req.getParameter("email"))) {
             userDAO.banUser(req.getParameter("login"), false);
             log.debug("Confirmation email");
-            resp.sendRedirect("/index");
+            resp.sendRedirect("/signIn");
         } else {
             log.debug("Email is not confirmation");
             resp.sendRedirect("/index");

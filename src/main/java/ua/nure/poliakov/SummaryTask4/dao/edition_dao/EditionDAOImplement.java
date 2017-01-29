@@ -6,8 +6,10 @@ import ua.nure.poliakov.SummaryTask4.dao.close.Close;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
 import ua.nure.poliakov.SummaryTask4.dao.connection.PoolConnection;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
+import ua.nure.poliakov.SummaryTask4.dao.rollback.Rollback;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.utils.exceptions.DBException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,18 +35,20 @@ public class EditionDAOImplement implements EditionDAO {
     private static final Logger log = Logger.getLogger(EditionDAOImplement.class);
 
     private static final String INSERT_INTO_EDITIONS = "INSERT INTO editions (`name`, subject, price) VALUES(?,?,?)";
-    private static final String INSERT_INTO_SUBSCRIBES = "INSERT INTO subscribes (login, edition) VALUES(?,?)";
+    private static final String INSERT_INTO_SUBSCRIBES = "INSERT INTO subscribes (login, edition, status) VALUES(?,?,1)";
     private static final String UPDATE_EDITIONS = "UPDATE editions SET name=?, subject=?, price=? WHERE id=?";
+    private static final String UPDATE_SUBSCRIBES = "UPDATE subscribes SET status=0 WHERE login=? AND edition=?";
     private static final String DELETE_EDITIONS = "DELETE FROM editions WHERE id=?";
-    private static final String DELETE_SUBSCRIBE = "DELETE FROM subscribes WHERE login=? AND edition=?";
+    private static final String DELETE_SUBSCRIBE = "DELETE FROM subscribes WHERE edition=?";
     private static final String SELECT_EDITIONS = "SELECT * FROM editions WHERE id=?";
     private static final String SELECT_ALL_EDITIONS_SORT_BY_ID = "SELECT * FROM editions ORDER BY id";
     private static final String SELECT_ALL_EDITIONS_SORT_BY_NAME = "SELECT * FROM editions ORDER BY name";
     private static final String SELECT_ALL_EDITIONS_SORT_BY_SUBJECT = "SELECT * FROM editions ORDER BY subject";
     private static final String SELECT_ALL_EDITIONS_SORT_BY_PRICE = "SELECT * FROM editions ORDER BY price";
-    private static final String SELECT_SUBSCRIBE = "SELECT login, edition FROM subscribes WHERE login=? AND edition=?";
+    private static final String SELECT_SUBSCRIBE =
+            "SELECT login, edition FROM subscribes WHERE login=? AND edition=? AND status=1";
     private static final String SELECT_ID = "SELECT id FROM editions WHERE id=?";
-    private static final String SELECT_ALL_SUBSCRIPTIONS_BY_LOGIN = "SELECT * FROM subscribes WHERE login=?";
+    private static final String SELECT_ALL_SUBSCRIPTIONS_BY_LOGIN = "SELECT * FROM subscribes WHERE login=? AND status=1";
     private static final String SELECT_EDITION_BY_NAME_AND_SUBJECT = "SELECT * FROM editions WHERE `name`=? && subject=?";
     private static final String SELECT_BY_NAME = "SELECT * FROM editions WHERE name LIKE ? ORDER BY name";
     private static final String SELECT_BY_PRICE = "SELECT * FROM editions WHERE price BETWEEN ? AND ? ORDER BY price";
@@ -103,17 +107,27 @@ public class EditionDAOImplement implements EditionDAO {
     }
 
     @Override
-    public void deleteEdition(int id) {
+    public void deleteEdition(int id) throws DBException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = dataSource.getConnection();
+            connection.setAutoCommit(false);
+
+            preparedStatement = connection.prepareStatement(DELETE_SUBSCRIBE);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
             preparedStatement = connection.prepareStatement(DELETE_EDITIONS);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+
+            connection.commit();
         } catch (SQLException e) {
+            Rollback.rollback(connection);
             log.error("Cannot delete edition", e);
+            throw new DBException("Cannot delete edition");
         } finally {
             Close.close(preparedStatement);
             Close.close(connection);
@@ -306,7 +320,7 @@ public class EditionDAOImplement implements EditionDAO {
 
         try {
             connection = dataSource.getConnection();
-            preparedStatement = connection.prepareStatement(DELETE_SUBSCRIBE);
+            preparedStatement = connection.prepareStatement(UPDATE_SUBSCRIBES);
             preparedStatement.setString(1, login);
             preparedStatement.setInt(2, idEdition);
             preparedStatement.executeUpdate();
