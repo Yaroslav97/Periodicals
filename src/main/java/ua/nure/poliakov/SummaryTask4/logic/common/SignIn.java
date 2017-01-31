@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.common;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
 
@@ -38,20 +39,20 @@ public class SignIn extends HttpServlet {
 
         if (userDAO.isContainsLogin(login) && userDAO.getByLogin(login).getPassword().
                 equals(Password.encodePassword(password)) && !userDAO.getByLogin(login).getBan()) {
-            session.setAttribute("authenticatedLogin", userDAO.getByLogin(login).getLogin());
-            session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
-            session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
-            session.setAttribute("authenticatedRole", userDAO.getByLogin(login).getRole());
-            session.setAttribute("authenticatedBan", userDAO.getByLogin(login).getBan());
-            session.setAttribute("authenticatedScore", userDAO.getScore(login));
-            session.setAttribute("notification", userDAO.getSettings(login));
+            session.setAttribute(Session.AUTHENTICATED_LOGIN, userDAO.getByLogin(login).getLogin());
+            session.setAttribute(Session.AUTHENTICATED_FULL_NAME, userDAO.getByLogin(login).getFullName());
+            session.setAttribute(Session.AUTHENTICATED_EMAIL, userDAO.getByLogin(login).getEmail());
+            session.setAttribute(Session.AUTHENTICATED_ROLE, userDAO.getByLogin(login).getRole());
+            session.setAttribute(Session.AUTHENTICATED_BAN, userDAO.getByLogin(login).getBan());
+            session.setAttribute(Session.AUTHENTICATED_SCORE, userDAO.getScore(login));
+            session.setAttribute(Session.NOTIFICATION, userDAO.getSettings(login));
             log.debug("sign in ==> " + login);
             resp.sendRedirect("/index");
         } else if (!userDAO.isContainsLogin(login)) {
             log.debug("Incorrect login or login not exist");
             req.getRequestDispatcher(WebPath.LOGIN_ERROR_PAGE).forward(req, resp);
         } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
-            req.setAttribute("signInInfo", "Wrong password");
+            req.setAttribute(Session.SIGN_IN_INFO, "Wrong password");
             log.debug("Wrong password ==> " + login);
             req.getRequestDispatcher(WebPath.LOGIN_PAGE).forward(req, resp);
         } else if (userDAO.getByLogin(login).getBan()) {

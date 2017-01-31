@@ -58,6 +58,13 @@
                 <th>${Subscribers}</th>
                 <td>${editionInfo.countSubscribe}</td>
             </tr>
+
+            <%--todo--%>
+            <tr>
+                <th>${CountUnsubscribers}</th>
+                <td>${sessionScope.countUnsubscribers}</td>
+            </tr>
+
             <tr>
                 <th>${TotalSum}</th>
                 <td>${editionInfo.price}</td>

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Score;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
@@ -37,13 +38,13 @@ public class RefillScore extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Double score = Double.valueOf(req.getParameter("score"));
         String password = req.getParameter("password");
-        String login = String.valueOf(req.getSession().getAttribute("authenticatedLogin"));
+        String login = String.valueOf(req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         userValidate = new ValidateUser();
 
         try {
             if (userValidate.score(score) && userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {
                 userDAO.updateScore(new Score(login, score, "refill"));
-                req.getSession().setAttribute("authenticatedScore", userDAO.getByLogin(login).getScore());
+                req.getSession().setAttribute(Session.AUTHENTICATED_SCORE, userDAO.getByLogin(login).getScore());
                 log.debug("Refill score ==> " + login);
                 resp.sendRedirect("/userCabinet");
             } else if (!userDAO.getByLogin(login).getPassword().equals(Password.encodePassword(password))) {

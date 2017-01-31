@@ -29,6 +29,19 @@ public class UserDAOImplement implements UserDAO {
         return instance;
     }
 
+    private static final String ADMIN = "admin";
+    private static final String FULL_NAME = "fullName";
+    private static final String USERS_LOGIN = "users.login";
+    private static final String EMAIL = "email";
+    private static final String SCORE = "score";
+    private static final String USER_ROLE_ROLE = "user_role.role";
+    private static final String BAN = "ban";
+    private static final String PASSWORD = "password";
+    private static final String LOGIN = "login";
+    private static final String REFILL = "refill";
+    private static final String WITHDRAW = "withdraw";
+    private static final String NOTIFICATION = "notification";
+
     private static final Logger log = Logger.getLogger(UserDAOImplement.class);
 
     private static final String INSERT_USERS =
@@ -59,6 +72,8 @@ public class UserDAOImplement implements UserDAO {
     private static final String SELECT_USER_BY_NAME =
             "SELECT users.*, user_role.role FROM users, user_role WHERE fullName LIKE ? " +
                     "AND users.role = user_role.id AND users.login NOT IN('yaroslav') ORDER BY fullName";
+    private static final String SET_FOREIGN_KEY_CHECKS_0 = "SET FOREIGN_KEY_CHECKS=0";
+    private static final String SET_FOREIGN_KEY_CHECKS_1 = "SET FOREIGN_KEY_CHECKS=1";
 
     private ComboPooledDataSource dataSource = PoolConnection.getPool();
     private User user;
@@ -79,7 +94,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setInt(4, user.getBan() ? 1 : 0);
             preparedStatement.setDouble(5, user.getScore());
             preparedStatement.setString(6, user.getPassword());
-            preparedStatement.setInt(7, user.getRole().equals("admin") ? 2 : 1);
+            preparedStatement.setInt(7, user.getRole().equals(ADMIN) ? 2 : 1);
             preparedStatement.executeUpdate();
 
             preparedStatement = connection.prepareStatement(INSERT_SETTING);
@@ -128,7 +143,7 @@ public class UserDAOImplement implements UserDAO {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
 
-            preparedStatement = connection.prepareStatement("SET FOREIGN_KEY_CHECKS=0");
+            preparedStatement = connection.prepareStatement(SET_FOREIGN_KEY_CHECKS_0);
             preparedStatement.execute();
 
             preparedStatement = connection.prepareStatement(DELETE_SETTING);
@@ -143,7 +158,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, login);
             preparedStatement.executeUpdate();
 
-            preparedStatement = connection.prepareStatement("SET FOREIGN_KEY_CHECKS=1");
+            preparedStatement = connection.prepareStatement(SET_FOREIGN_KEY_CHECKS_1);
             preparedStatement.execute();
 
             connection.commit();
@@ -170,13 +185,13 @@ public class UserDAOImplement implements UserDAO {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 user = new User(
-                        resultSet.getString("fullName"),
-                        resultSet.getString("users.login"),
-                        resultSet.getString("email"),
-                        resultSet.getDouble("score"),
-                        resultSet.getString("user_role.role"),
-                        resultSet.getInt("ban") == 0 ? false : true,
-                        resultSet.getString("password")
+                        resultSet.getString(FULL_NAME),
+                        resultSet.getString(USERS_LOGIN),
+                        resultSet.getString(EMAIL),
+                        resultSet.getDouble(SCORE),
+                        resultSet.getString(USER_ROLE_ROLE),
+                        resultSet.getInt(BAN) == 0 ? false : true,
+                        resultSet.getString(PASSWORD)
                 );
             }
         } catch (SQLException e) {
@@ -202,13 +217,13 @@ public class UserDAOImplement implements UserDAO {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 userList.add(new User(
-                        resultSet.getString("fullName"),
-                        resultSet.getString("users.login"),
-                        resultSet.getString("email"),
-                        resultSet.getDouble("score"),
-                        resultSet.getString("user_role.role"),
-                        resultSet.getInt("ban") == 0 ? false : true,
-                        resultSet.getString("password")
+                        resultSet.getString(FULL_NAME),
+                        resultSet.getString(USERS_LOGIN),
+                        resultSet.getString(EMAIL),
+                        resultSet.getDouble(SCORE),
+                        resultSet.getString(USER_ROLE_ROLE),
+                        resultSet.getInt(BAN) == 0 ? false : true,
+                        resultSet.getString(PASSWORD)
                 ));
             }
         } catch (SQLException e) {
@@ -253,7 +268,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                if (resultSet.getString("login").equals(login)) {
+                if (resultSet.getString(LOGIN).equals(login)) {
                     isContains = true;
                 }
             }
@@ -295,10 +310,10 @@ public class UserDAOImplement implements UserDAO {
             connection = dataSource.getConnection();
 
             switch (score.getOperation()) {
-                case "refill":
+                case REFILL:
                     preparedStatement = connection.prepareStatement(UPDATE_SCORE_REFILL);
                     break;
-                case "withdraw":
+                case WITHDRAW:
                     preparedStatement = connection.prepareStatement(UPDATE_SCORE_WITHDRAW);
                     break;
                 default:
@@ -330,7 +345,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                score = resultSet.getDouble("score");
+                score = resultSet.getDouble(SCORE);
             }
         } catch (SQLException e) {
             log.error("Cannot obtain a score", e);
@@ -357,13 +372,13 @@ public class UserDAOImplement implements UserDAO {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 userList.add(new User(
-                        resultSet.getString("fullName"),
-                        resultSet.getString("users.login"),
-                        resultSet.getString("email"),
-                        resultSet.getDouble("score"),
-                        resultSet.getString("user_role.role"),
-                        resultSet.getInt("ban") == 0 ? false : true,
-                        resultSet.getString("password")));
+                        resultSet.getString(FULL_NAME),
+                        resultSet.getString(USERS_LOGIN),
+                        resultSet.getString(EMAIL),
+                        resultSet.getDouble(SCORE),
+                        resultSet.getString(USER_ROLE_ROLE),
+                        resultSet.getInt(BAN) == 0 ? false : true,
+                        resultSet.getString(PASSWORD)));
             }
         } catch (SQLException e) {
             log.error("Cannot obtain users by role", e);
@@ -407,7 +422,7 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                if (resultSet.getInt("notification") == 1) {
+                if (resultSet.getInt(NOTIFICATION) == 1) {
                     notification = true;
                 }
             }
@@ -434,10 +449,10 @@ public class UserDAOImplement implements UserDAO {
             preparedStatement.setInt(1, idEdition);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                userList.add(new User(resultSet.getString("fullName"),
-                        resultSet.getString("login"),
-                        resultSet.getString("email"),
-                        resultSet.getInt("ban") == 0 ? false : true));
+                userList.add(new User(resultSet.getString(FULL_NAME),
+                        resultSet.getString(LOGIN),
+                        resultSet.getString(EMAIL),
+                        resultSet.getInt(BAN) == 0 ? false : true));
             }
         } catch (SQLException e) {
             log.error("Cannot obtain subscribers", e);
@@ -457,13 +472,13 @@ public class UserDAOImplement implements UserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 userList.add(new User(
-                        resultSet.getString("fullName"),
-                        resultSet.getString("users.login"),
-                        resultSet.getString("email"),
-                        resultSet.getDouble("score"),
-                        resultSet.getString("user_role.role"),
-                        resultSet.getInt("ban") == 0 ? false : true,
-                        resultSet.getString("password")));
+                        resultSet.getString(FULL_NAME),
+                        resultSet.getString(USERS_LOGIN),
+                        resultSet.getString(EMAIL),
+                        resultSet.getDouble(SCORE),
+                        resultSet.getString(USER_ROLE_ROLE),
+                        resultSet.getInt(BAN) == 0 ? false : true,
+                        resultSet.getString(PASSWORD)));
             }
         } catch (SQLException e) {
             log.error("Cannot obtain users by name", e);

@@ -75,6 +75,7 @@
                 <option selected value="subject">${subject}</option>
                 <option value="name">${name}</option>
                 <option value="price">${price}</option>
+                <option value="reverse price">reverse price</option>
                 <option value="rank">${rank}</option>
                 <option value="id">${id}</option>
             </select>
@@ -96,9 +97,9 @@
 
     <div align="right">
         <form action="/index" class="col-xs-2">
-            <input name="filter1" required pattern="^[0-9]+\.?[0-9]?$" placeholder="${PriceFrom}" maxlength="2"
+            <input name="filter1" required pattern="^[0-9]+\.?[0-9]?$" placeholder="${PriceFrom}" maxlength="4"
                    class="form-control">
-            <input name="filter2" required pattern="^[0-9]+\.?[0-9]?$" placeholder="${PriceTo}" maxlength="2"
+            <input name="filter2" required pattern="^[0-9]+\.?[0-9]?$" placeholder="${PriceTo}" maxlength="4"
                    class="form-control">
             <input type="submit" value="${Filter}"><br>
         </form>

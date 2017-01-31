@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.entity.Edition;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
 import ua.nure.poliakov.SummaryTask4.utils.validations.Validator;
@@ -35,7 +36,7 @@ public class EditEdition extends HttpServlet {
         session.setAttribute("editName", req.getParameter("eName"));
         session.setAttribute("editSubject", req.getParameter("eSubject"));
         session.setAttribute("editPrice", req.getParameter("ePrice"));
-        log.info("EditEdition page: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.info("EditEdition page: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
     }
 
@@ -54,12 +55,12 @@ public class EditEdition extends HttpServlet {
                 resp.sendRedirect("/index");
             } else if (editionDAO.isSameEdition(name, subject)) {
                 log.debug("The same edition already exist ==> " + req.getSession().getAttribute("editId"));
-                req.setAttribute("editInfo", "The same edition already exist");
+                req.setAttribute(Session.EDIT_INFO, "The same edition already exist");
                 req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
             log.error("No valid data ==> " + req.getSession().getAttribute("editId"), e);
-            req.setAttribute("editInfo", "No valid data");
+            req.setAttribute(Session.EDIT_INFO, "No valid data");
             req.getRequestDispatcher(WebPath.EDIT_EDITION_PAGE).forward(req, resp);
         }
     }

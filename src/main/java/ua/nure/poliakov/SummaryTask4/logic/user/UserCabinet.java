@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.user;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
@@ -25,8 +26,8 @@ public class UserCabinet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("subscribesList",
-                editionDAO.getAllSubscriptions(String.valueOf(req.getSession().getAttribute("authenticatedLogin"))));
-        log.debug("UserCabinet: " + req.getSession().getAttribute("authenticatedLogin"));
+                editionDAO.getAllSubscriptions(String.valueOf(req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN))));
+        log.debug("UserCabinet: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         req.getRequestDispatcher(WebPath.USER_CABINET_PAGE).forward(req, resp);
     }
 }

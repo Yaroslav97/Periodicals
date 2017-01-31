@@ -5,6 +5,7 @@ import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 
 import javax.servlet.ServletException;
@@ -27,10 +28,19 @@ public class EditionInfo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.debug("EditionInfo page: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("EditionInfo page: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         Integer id = Integer.parseInt(req.getParameter("info"));
-        req.getSession().setAttribute("editionInfo", editionDAO.getEditionInfo(id));
+        req.getSession().setAttribute(Session.EDITION_INFO, editionDAO.getEditionInfo(id));
         req.getSession().setAttribute("subList", userDAO.getSubscribers(id));
+
+        // todo
+        try {
+            req.getSession().setAttribute(Session.COUNT_UNSUBSCRIBERS,
+                    editionDAO.getEditionUnsubscribers(id).getCountUnsubscribers());
+        } catch (NullPointerException e) {
+            req.getSession().setAttribute(Session.COUNT_UNSUBSCRIBERS, 0);
+                    log.error("The edition have not unsubscribers");
+        }
         req.getRequestDispatcher(WebPath.EDITION_INFO_PAGE).forward(req, resp);
     }
 }

@@ -2,6 +2,7 @@ package ua.nure.poliakov.SummaryTask4.logic.user;
 
 import com.itextpdf.text.DocumentException;
 import org.apache.log4j.Logger;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.utils.report.GenerateReport;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class Report extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = (String) req.getSession().getAttribute("authenticatedLogin");
+        String login = (String) req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN);
         try {
             GenerateReport.generate(login);
             log.debug("Generate report for " + login);

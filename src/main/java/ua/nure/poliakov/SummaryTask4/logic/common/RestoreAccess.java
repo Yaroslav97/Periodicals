@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.common;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.email.SendEmail;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
@@ -43,19 +44,19 @@ public class RestoreAccess extends HttpServlet {
                 log.debug("Message sent successfully to " + userDAO.getByLogin(login).getFullName());
                 userDAO.updatePassword(login, Password.encodePassword(password));
                 log.debug("Password was change");
-                resp.sendRedirect("/userCabinet");
+                resp.sendRedirect("/signIn");
             } catch (MessagingException e) {
                 log.error("Can't send restore message to " + userDAO.getByLogin(login).getFullName(), e);
-                req.setAttribute("restoreInfo", "Can't send restore message");
+                req.setAttribute(Session.RESTORE_INFO, "Can't send restore message");
                 req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
             }
         } else if (!userDAO.isContainsLogin(login)) {
             log.debug("Login not exist");
-            req.setAttribute("restoreInfo", "Login not exist");
+            req.setAttribute(Session.RESTORE_INFO, "Login not exist");
             req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         } else {
             log.debug("Wrong email");
-            req.setAttribute("restoreInfo", "Wrong email");
+            req.setAttribute(Session.RESTORE_INFO, "Wrong email");
             req.getRequestDispatcher(WebPath.RESTORE_ACCESS_PAGE).forward(req, resp);
         }
     }

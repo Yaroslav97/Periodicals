@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.email.SendEmail;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
@@ -62,13 +63,13 @@ public class Registration extends HttpServlet {
                     resp.sendRedirect("/index");
                 }
             } else if (userDAO.isContainsLogin(login)) {
-                req.setAttribute("regInfo", "This login already exist");
+                req.setAttribute(Session.REG_INFO, "This login already exist");
                 log.debug("This login already exist");
                 req.getRequestDispatcher(WebPath.REGISTRATION_PAGE).forward(req, resp);
             }
         } catch (ValidationException e) {
             log.error("No valid data", e);
-            req.setAttribute("regInfo", "You try enter incorrect data");
+            req.setAttribute(Session.REG_INFO, "You try enter incorrect data");
             req.getRequestDispatcher(WebPath.REGISTRATION_PAGE).forward(req, resp);
         }
     }

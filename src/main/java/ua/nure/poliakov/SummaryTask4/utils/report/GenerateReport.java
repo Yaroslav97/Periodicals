@@ -36,7 +36,6 @@ public class GenerateReport {
         doc.open();
         doc.add(new Paragraph(userDAO.getByLogin(login).getFullName()));
         doc.add(new Paragraph("Subscriptions:"));
-        doc.add(new Paragraph(System.lineSeparator()));
         for (Edition edition : list) {
             doc.add(new Paragraph(edition.getName() + ", " + edition.getSubject() + ", " + edition.getPrice() + ";"));
         }

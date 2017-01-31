@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.admin.editions;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAO;
 import ua.nure.poliakov.SummaryTask4.dao.edition_dao.EditionDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.DBException;
 
@@ -28,7 +29,7 @@ public class RemoveEdition extends HttpServlet {
         Integer id = Integer.valueOf(req.getParameter("id"));
         String name = editionDAO.getEdition(id).getName();
 
-        log.debug("RemoveEdition: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("RemoveEdition: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
 
         try {
             if (editionDAO.isContains(id)) {
@@ -41,7 +42,7 @@ public class RemoveEdition extends HttpServlet {
             }
         } catch (DBException e) {
             log.debug("Cannot remove edition");
-            req.setAttribute("subscribeInfo", "Cannot remove edition");
+            req.setAttribute(Session.SUBSCRIBE_INFO, "Cannot remove edition");
             req.getRequestDispatcher(WebPath.INDEX_PAGE).forward(req, resp);
         }
     }

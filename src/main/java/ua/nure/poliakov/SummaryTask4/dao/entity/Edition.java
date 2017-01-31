@@ -11,8 +11,14 @@ public class Edition {
     private String subject;
     private Double price;
     private int countSubscribe;
+    //todo
+    private int countUnsubscribers;
 
     public Edition() {
+    }
+
+    public Edition(int countUnsubscribers) {
+        this.countUnsubscribers = countUnsubscribers;
     }
 
     public Edition(String name, String subject, Double price) {
@@ -51,6 +57,10 @@ public class Edition {
         return countSubscribe;
     }
 
+    public int getCountUnsubscribers() {
+        return countUnsubscribers;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -71,6 +81,10 @@ public class Edition {
         this.countSubscribe = countSubscribe;
     }
 
+    public void setCountUnsubscribers(int countUnsubscribers) {
+        this.countUnsubscribers = countUnsubscribers;
+    }
+
     @Override
     public String toString() {
         return "Edition{" +
@@ -79,6 +93,7 @@ public class Edition {
                 ", subject='" + subject + '\'' +
                 ", price=" + price +
                 ", countSubscribe=" + countSubscribe +
+                ", countUnsubscribers=" + countUnsubscribers +
                 '}';
     }
 }

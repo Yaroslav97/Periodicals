@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.admin.users;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.user.UsersList;
 
@@ -25,7 +26,7 @@ public class UserList extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = (String) req.getSession().getAttribute("authenticatedLogin");
+        String login = (String) req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN);
         req.getSession().setAttribute("userList", userDAO.getAllUsersByRole("user", login));
         resp.setIntHeader("Refresh", 200);
         log.debug("UserList page: " + login);

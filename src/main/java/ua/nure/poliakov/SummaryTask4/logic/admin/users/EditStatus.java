@@ -3,6 +3,7 @@ package ua.nure.poliakov.SummaryTask4.logic.admin.users;
 import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +25,7 @@ public class EditStatus extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
-        log.debug("EditStatus page: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("EditStatus page: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         if (userDAO.getByLogin(login).getBan().equals(true)) {
             userDAO.banUser(login, false);
             log.debug("Status was change ==> " + login);

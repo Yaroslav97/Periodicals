@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.poliakov.SummaryTask4.dao.entity.User;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAO;
 import ua.nure.poliakov.SummaryTask4.dao.user_dao.UserDAOImplement;
+import ua.nure.poliakov.SummaryTask4.logic.common.paths.Session;
 import ua.nure.poliakov.SummaryTask4.logic.common.paths.WebPath;
 import ua.nure.poliakov.SummaryTask4.utils.encodind.Password;
 import ua.nure.poliakov.SummaryTask4.utils.exceptions.ValidationException;
@@ -31,7 +32,7 @@ public class EditProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.debug("EditProfile: " + req.getSession().getAttribute("authenticatedLogin"));
+        log.debug("EditProfile: " + req.getSession().getAttribute(Session.AUTHENTICATED_LOGIN));
         req.getRequestDispatcher(WebPath.EDIT_PROFILE_PAGE).forward(req, resp);
     }
 
@@ -41,7 +42,7 @@ public class EditProfile extends HttpServlet {
         String fullName = req.getParameter("fullName");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        String login = String.valueOf(session.getAttribute("authenticatedLogin"));
+        String login = String.valueOf(session.getAttribute(Session.AUTHENTICATED_LOGIN));
         Boolean notification = Boolean.valueOf(req.getParameter("notification"));
         validator = new ValidateUser();
 
@@ -50,9 +51,9 @@ public class EditProfile extends HttpServlet {
                 userDAO.updateUser(new User(fullName, login, email, Password.encodePassword(password)));
                 userDAO.updateSettings(login, notification);
                 log.debug(login + " profile was updated");
-                session.setAttribute("authenticatedFullName", userDAO.getByLogin(login).getFullName());
-                session.setAttribute("authenticatedEmail", userDAO.getByLogin(login).getEmail());
-                session.setAttribute("notification", userDAO.getSettings(login));
+                session.setAttribute(Session.AUTHENTICATED_FULL_NAME, userDAO.getByLogin(login).getFullName());
+                session.setAttribute(Session.AUTHENTICATED_EMAIL, userDAO.getByLogin(login).getEmail());
+                session.setAttribute(Session.NOTIFICATION, userDAO.getSettings(login));
                 resp.sendRedirect("/userCabinet");
             }
         } catch (ValidationException e) {

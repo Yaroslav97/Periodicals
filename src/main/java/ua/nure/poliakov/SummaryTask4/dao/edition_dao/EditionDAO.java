@@ -42,4 +42,6 @@ public interface EditionDAO {
     List<Edition> getEditionInfo(int id);
 
     List<Edition> getEditionsBySubject(String subject);
+
+    Edition getEditionUnsubscribers(int id);
 }

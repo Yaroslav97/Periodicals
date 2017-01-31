@@ -62,3 +62,4 @@
 <fmt:message key="send" var="Send"/>
 <fmt:message key="edit.edition" var="EditEdition"/>
 <fmt:message key="generate.report" var="GenerateReport"/>
+<fmt:message key="count.unsubscribers" var="CountUnsubscribers"/>
